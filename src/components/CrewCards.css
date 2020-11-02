@@ -5,15 +5,15 @@
   }
   .Crewcards {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     position: relative;
-    width: 845px;
-    height: 352px;
+    width: 35vw;
+    height: auto;
     border-radius: 20px;
     margin: 100px 350px 100px 350px;
-    padding: 10px 5px 10px 5px;
+    padding: 10px 10px 10px 10px;
     border: solid 6px black;
     background-color: rgb(53, 52, 52);
   }
@@ -21,14 +21,14 @@
     display: flex;
     justify-content: center;
     position: relative;
-    width: 300px;
-    height: 230px;
-    background-color: white;
+    width: 35%;
+    height: auto;
     border-radius: 20px;
+    border: solid 2px white;
   }
    .Astrophoto {
-    width: 298px;
-    height: 228px;
+    width: 100%;
+    height: 100%;
     border-radius: 20px;
     filter: saturate(1);
   }
@@ -38,16 +38,20 @@
   .Crewsection {
     display: flex;
     flex-direction: column;
-    width: 500px;
-    height: 345px;
+    width: 63%;
+    height: auto;
     align-items: center;
   }
   .Astrotitle {
     display: flex;
-    width: 500px;
+    flex-wrap: wrap;
+    width: 95%;
+    height: auto;
     justify-content: space-around;
     align-items: center;
     margin-top: 20px;
+    padding: 5px 5px 5px 5px;
+  
   }
   .Astroname {
     text-align: center;
@@ -59,19 +63,20 @@
     height: 50px;
   } 
    .trait {
-    width: 500px;
+    width: 100%;
     margin-top: 20px;
     border: solid 2px white;
   }
   .description {
-    width: 500px;
+    width: 100%;
+    height: auto;
     text-align: justify;
     margin-top: 60px;
     margin-bottom: 20px;
     color: white;
   }
   .Learnmore {
-    width: 300px;
+    width: 100%;
     text-align: end;
     margin-top: 10px;
     margin-bottom: 10px;
