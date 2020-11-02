@@ -5,12 +5,12 @@ const CrewCards = () => {
   return (
     <div className="Crewcards">
       <header className="Crewheader">
-        <img src="./photos/IvanWagner.jpg" className="Astrophoto" alt="Ivan Wagner" />
+        <img src="./photos/ChrisCassidy.jpg" className="Astrophoto" alt="Ivan Wagner" />
       </header>
       <section className="Crewsection">
         <div className="Astrotitle">
           <h2 className="Astroname">Ivan Wagner</h2>
-          <img src="./photos/Russia.png" className="Astroflag" />
+          <img src="./photos/Usa.png" className="Astroflag" />
         </div>
         <hr className="trait"/>
         <p className="description">Ivan Viktorovitch Vagner (en russe : Иван Викторович Вагнер), 
