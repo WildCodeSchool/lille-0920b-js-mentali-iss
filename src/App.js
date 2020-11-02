@@ -4,12 +4,17 @@ import FrontPage from "./components/FrontPage";
 import ViewISS from './components/ViewISS';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import MyCarousel from "./components/CarouselMap";
+
 
 function App() {
   return (
     <div className="page-container">
       <Header />
-      <FrontPage />
+      
+      < MyCarousel />
+      <ViewISS />
+    
       <Footer />
     </div>
   );

@@ -1,4 +1,36 @@
 .map {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20vh;
     height: 100vh;
-    margin-top: 0;
+    width: 100vh;
+}
+#Titre {
+    color: white;
+    font-size: 10vh;
+    margin-left: 20vw;
+    margin-top: 20vh;
+}
+
+#ImgButton {
+    height: 40vh;
+    width: 40vw;
+    border: 1vw solid grey;
+    border-radius: 10px;
+}
+
+.ImgContainerButton {
+    position: relative;
+    text-align: center;
+    color: white;
+    margin-top: 20vh;
+    flex-wrap: wrap;
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: azure;
+    font-size: 5vw;
 }

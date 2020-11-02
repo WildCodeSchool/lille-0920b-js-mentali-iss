@@ -40,6 +40,8 @@ class ViewISS extends Component {
     const positionLilleIcon = [this.state.LilleIcon.lat, this.state.LilleIcon.lng];
 
     return (
+      <div> 
+        <h1 id="Titre">Position de l'iSS en temps réél</h1>
       <Map className="map" center={positionLilleIcon} zoom={this.state.zoom}>
         <TileLayer
           attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
@@ -52,6 +54,21 @@ class ViewISS extends Component {
           </Marker>
         }
       </Map>
+      
+      <div  className="ImgContainerButton">
+    <a href="#b" className="ChezVous" data-inf="photo">
+  
+    <img id="ImgButton" src="/photos/starObs.jpg" alt="logo" />
+    
+    <div className ="centered"> 
+    <p>Observez l'ISS </p><p>depuis chez vous </p> </div>
+   
+        </a> 
+      
+  </div>
+</div>
+   
+     
     );
   }
 }
