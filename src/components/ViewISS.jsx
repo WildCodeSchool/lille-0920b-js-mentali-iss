@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import './ViewISS.css';
 import L from 'leaflet';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
-import Lille from '../assets/Lille.png';
+import Lille from '../assets/logoISS2.jpg';
+import axios from 'axios';
+
+const ISS_URL = "http://api.open-notify.org/iss-now.json";
 
 class ViewISS extends Component {
   constructor(props) {
@@ -15,27 +18,34 @@ class ViewISS extends Component {
       haveUsersLocation: false,
       zoom: 4
     }
-
     this.LilleIcon = L.icon({
       iconUrl: Lille,
       iconSize: [100, 100], // size of the icon
       iconAnchor: [25, 25], // point of the icon which will correspond to marker's location
-      popupAnchor: [-3, -76] // When click, display message
     });
+  }    
+
+    componentDidMount() {
+      this.recalIss()
+      this.interval = setInterval(this.recalIss, 5000)
+    }
+
+  recalIss = () => {
+    axios.get(ISS_URL)
+    .then(({data}) => {
+      console.log(data)
+      this.setState({
+      LilleIcon: {
+        lat: data.iss_position.latitude,
+        lng: data.iss_position.longitude
+      },
+      haveUsersLocation: true,
+      zoom: 4
+    })
+    })
+
   }
 
-  componentDidMount() {
-    navigator.geolocation.getCurrentPosition((position) => {
-      this.setState({
-        LilleIcon: {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        },
-        haveUsersLocation: true,
-        zoom: 50
-      });
-    })
-  }
   render() {
     const positionLilleIcon = [this.state.LilleIcon.lat, this.state.LilleIcon.lng];
 
@@ -48,9 +58,6 @@ class ViewISS extends Component {
           url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" />
         {this.state.haveUsersLocation &&
           <Marker position={positionLilleIcon} icon={this.LilleIcon}>
-            <Popup>
-              Here we are
-            </Popup>
           </Marker>
         }
       </Map>
@@ -62,13 +69,9 @@ class ViewISS extends Component {
     
     <div className ="centered"> 
     <p>Observez l'ISS </p><p>depuis chez vous </p> </div>
-   
-        </a> 
-      
+        </a>   
   </div>
 </div>
-   
-     
     );
   }
 }
