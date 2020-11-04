@@ -3,6 +3,9 @@
   margin: 0;
   padding: 0;  
 }
-body {
+.page-container {
+  width: 1800px;
+  height: 2000px;
   background-color:ivory;
+  border: solid 2px black
 }
