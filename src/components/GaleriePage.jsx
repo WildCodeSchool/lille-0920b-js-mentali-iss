@@ -76,6 +76,7 @@ class GaleriePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      //On ne lui met pas d'image de base comme elle change tous les jours
       photo: null,
     };
     this.getGalerie = this.getGalerie.bind(this);
@@ -86,6 +87,7 @@ class GaleriePage extends Component {
   }
 
   getGalerie() {
+    // Récupération de l'API
     axios
       .get(
         "https://api.nasa.gov/planetary/apod?api_key=VRrNYEwbHHhEqD0HTDYC28EHdYcGfbHmg6xbTS4n"
@@ -112,6 +114,9 @@ class GaleriePage extends Component {
           </Title1>
 
           <div className="GaleriePage">
+            {" "}
+            //* Affichage s'il communique avec l'API, sinon il renvoie "No data
+            yet"
             {this.state.photo ? (
               <DisplayGalerie photo={this.state.photo} />
             ) : (
