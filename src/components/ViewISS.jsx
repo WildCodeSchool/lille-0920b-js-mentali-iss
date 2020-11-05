@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import L from 'leaflet';
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Map, TileLayer, Marker } from 'react-leaflet';
 import Iss from '../assets/iss.png';
 import axios from 'axios';
 import styled from 'styled-components';
@@ -22,11 +22,12 @@ const ImgContainerButton = styled.div
       text-align: center;
       color: white;
       flex-wrap: wrap;
-      margin-top: 2px
+      margin-top: 2px;
+      margin-bottom: 45px;
      `
   
 const ImgButton = styled.img
-     ` height: 40vh;
+     `height: 40vh;
       width: 40vw;
       border: 1px solid grey;
       border-radius: 10px;
@@ -53,7 +54,7 @@ class ViewISS extends Component {
         lng: 0,
       },
       haveUsersLocation: false,
-      zoom: 3
+      zoom: 2
     }
     //give icon function (from leaflet) to SatIcon in order to set some size ...
     this.SatIcon = L.icon({
@@ -82,7 +83,7 @@ class ViewISS extends Component {
         lng: data.iss_position.longitude
       },
       haveUsersLocation: true,
-      zoom: 3
+      zoom: 2
     })
     })
     }
@@ -93,7 +94,7 @@ class ViewISS extends Component {
       <div> 
         <Title>Position de l'iSS en temps réél</Title>
         <Trait></Trait>
-          <Map style={{ width: '95%', height: '900px', margin: '55px', position: 'center'}} className="map" center={[0, 90]} zoom={this.state.zoom}>
+          <Map style={{ width: '90%', height: '800px', margin: '60px', position: 'center'}} className="map" center={[0, 90]} zoom={this.state.zoom}>
              <TileLayer
               attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
               url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" />
