@@ -1,42 +1,36 @@
 import "./FrontPage.css";
 import styled from "styled-components";
 
-const TriangleHaut = styled.div`
-  clip-path: url(#issPhoto);
-  opacity: 1;
-  display: block;
-  transition: 0.5s ease;
-`;
-
-const TriangleDroit = styled.div`
-  clip-path: url(#roverPhoto);
-  opacity: 1;
-  display: block;
-  transition: 0.5s ease;
+const Page = styled.div`
+  background-color: black;
+  width: 100%;
+  height: 112vh;
+  margin-top: 2vh;
 `;
 
 function FrontPage() {
   return (
-    <div className="Page">
+    <Page>
       <div className="avatar">
         <div className="ZoneISS">
-          <TriangleHaut>
-            <img
-              src="/photos/iss2.png"
-              className="TriangleHaut"
-              id="iss"
-              alt="ISS"
-            />
-          </TriangleHaut>
+          <img
+            src="/photos/iss2.png"
+            id="iss"
+            className="TriangleHaut"
+            alt="ISS"
+          />{" "}
           <div className="containerTextISS">
-            <div className="textIss">ISS</div>
+            <div className="textISS">ISS</div>
           </div>
         </div>
 
         <div className="ZoneRover">
-          <TriangleDroit>
-            <img src="/photos/rover.jpg" id="rover" alt="rover" />
-          </TriangleDroit>
+          <img
+            src="/photos/rover.jpg"
+            id="rover"
+            className="TriangleDroit"
+            alt="rover"
+          />
 
           <div className="containerTextRover">
             <div className="textRover">Rover</div>
@@ -50,6 +44,7 @@ function FrontPage() {
             id="galerie"
             alt="galerie"
           />
+
           <div className="containerTextGalerie">
             <div className="textGalerie">Galerie</div>
           </div>
@@ -59,17 +54,17 @@ function FrontPage() {
       <svg>
         <defs>
           <clipPath id="issPhoto" clipPathUnits="objectBoundingBox">
-            <polygon points="0.99,0 .5,1 0.001,0" />
+            <polygon points="0.99,0 .5,0.99 0.001,0" />
           </clipPath>
           <clipPath id="roverPhoto" clipPathUnits="objectBoundingBox">
-            <polygon points="1,0 1,1 .51,1" />
+            <polygon points="1,0 1,1 .5,1" />
           </clipPath>
           <clipPath id="galeriePhoto" clipPathUnits="objectBoundingBox">
-            <polygon points=".495,1 0,1 0,0" />
+            <polygon points=".49,1 0,1 0,0" />
           </clipPath>
         </defs>
       </svg>
-    </div>
+    </Page>
   );
 }
 

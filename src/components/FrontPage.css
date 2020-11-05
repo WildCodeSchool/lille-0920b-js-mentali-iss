@@ -1,9 +1,8 @@
-.Page {
-    height: 108vh;
-}
-
-.avatar {
-    position: relative;
+.TriangleHaut {
+    clip-path: url(#issPhoto);
+    opacity: 1;
+    display: block;
+    transition: 0.5s ease;
 }
 
 .TriangleDroit {
@@ -48,7 +47,7 @@ img {
     font-size: 5em;
     z-index: 2;
     top: 35vh;
-    color: black;
+    color: white;
     right: 40vw;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -68,7 +67,7 @@ img {
     position: absolute;
     font-size: 5em;
     top: 60vh;
-    color: black;
+    color: white;
     right: 0;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -88,7 +87,7 @@ img {
     position: absolute;
     top: 60vh;
     font-size: 5em;
-    color: black;
+    color: white;
     left: 14vw;
     transform: translate(-50%, -50%);
     text-align: center;
