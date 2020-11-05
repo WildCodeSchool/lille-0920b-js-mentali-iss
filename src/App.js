@@ -11,11 +11,8 @@ function App() {
   return (
     <div className="page-container">
       <Header />
-      
-      < MyCarousel />
-      <ViewISS />
+
     
-      <Footer />
     </div>
   );
 }
