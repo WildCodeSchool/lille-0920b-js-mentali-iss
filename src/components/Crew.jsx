@@ -26,7 +26,7 @@ class Crew extends React.Component {
         this.setState({
           message: data.message,
           number: data.number,
-          name: data.people[0].name,
+          name: data.people[1].name,
           craft: data.people[0].craft,
     });
       });

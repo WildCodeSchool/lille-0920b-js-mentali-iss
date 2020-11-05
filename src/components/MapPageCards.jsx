@@ -53,7 +53,7 @@ const Astrotitle = styled.div
 
 const Astroname = styled.h2
     `text-align: center;
-    font-size: 40px;
+    font-size: 15px;
     color: white;
     `;
 const Astroflag = styled.img
