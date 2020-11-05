@@ -1,7 +1,7 @@
 import React from 'react';
 //import styled from 'styled-components';
 import axios from "axios";
-import DisplayCrew from './DisplayCrew'
+import MapPageCards from './MapPageCards'
 
 class Crew extends React.Component {
     constructor(props) {
@@ -34,7 +34,7 @@ class Crew extends React.Component {
 render () {
   return (
     <div className="App">
-      <DisplayCrew quotes={this.state} />
+      <MapPageCards quotes={this.state} />
       <button type="button" onClick={this.getQuote}>Get quote</button>
     </div>
   );
