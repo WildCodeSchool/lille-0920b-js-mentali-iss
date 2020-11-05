@@ -36,6 +36,7 @@ const Brand = styled.h2
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
     width: 1900px;
     height: auto;
     background-color: #34263a;
