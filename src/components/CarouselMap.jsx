@@ -9,7 +9,8 @@ import styled from 'styled-components';
 const Karousel = styled.div
  `margin-top: 15vh;
   margin-left: 10px;
-  width: 98vw;
+  width: 99vw;
+  position: center;
 `
 export default class MyCarousel extends Component {
 

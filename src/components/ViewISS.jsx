@@ -4,6 +4,20 @@ import L from 'leaflet';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import Iss from '../assets/iss.png';
 import axios from 'axios';
+import styled from 'styled-components';
+
+const Title = styled.h1
+    `color: white;
+    font-size: 50px;
+    width: 95vw;
+    text-align: right;
+    margin-top: 5vh;
+    margin-bottom: 1vh`
+
+const Trait = styled.hr
+    `width: 100vw
+    margin-bottom: 1vh`
+
 
 const ISS_URL = "http://api.open-notify.org/iss-now.json";
 
@@ -18,7 +32,7 @@ class ViewISS extends Component {
         lng: 0,
       },
       haveUsersLocation: false,
-      zoom: 2
+      zoom: 3
     }
     //give icon function (from leaflet) to SatIcon in order to set some size ...
     this.SatIcon = L.icon({
@@ -47,7 +61,7 @@ class ViewISS extends Component {
         lng: data.iss_position.longitude
       },
       haveUsersLocation: true,
-      zoom: 2
+      zoom: 3
     })
     })
     }
@@ -56,17 +70,17 @@ class ViewISS extends Component {
     const positionSatIcon = [this.state.SatIcon.lat, this.state.SatIcon.lng];
     return (
       <div> 
-        <h1 id="Titre">Position de l'iSS en temps réél</h1>
-      <Map className="map" center={[0, 90]} zoom={this.state.zoom}>
-        <TileLayer
-          attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-          url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" />
-        {this.state.haveUsersLocation &&
-          <Marker position={positionSatIcon} icon={this.SatIcon}>
-          </Marker>
-        }
-      </Map>
-      
+        <Title>Position de l'iSS en temps réél</Title>
+        <Trait></Trait>
+          <Map style={{ width: '95%', height: '900px', margin: '55px', position: 'center'}} className="map" center={[0, 90]} zoom={this.state.zoom}>
+             <TileLayer
+            attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+            url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" />
+            {this.state.haveUsersLocation &&
+            <Marker position={positionSatIcon} icon={this.SatIcon}></Marker>
+            }
+            </Map>
+        
       <div  className="ImgContainerButton">
         <a href="#b" className="ChezVous" data-inf="photo">
           <img id="ImgButton" src="/photos/starObs.jpg" alt="logo" />
