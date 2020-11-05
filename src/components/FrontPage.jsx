@@ -1,28 +1,48 @@
 import "./FrontPage.css";
+import styled from "styled-components";
+
+const TriangleHaut = styled.div`
+  clip-path: url(#issPhoto);
+  opacity: 1;
+  display: block;
+  transition: 0.5s ease;
+`;
+
+const TriangleDroit = styled.div`
+  clip-path: url(#roverPhoto);
+  opacity: 1;
+  display: block;
+  transition: 0.5s ease;
+`;
 
 function FrontPage() {
   return (
     <div className="Page">
-      <div class="avatar">
+      <div className="avatar">
         <div className="ZoneISS">
-          <img
-            className="TriangleHaut"
-            id="iss"
-            src="https://s.france24.com/media/display/81e068e6-9c12-11e9-be8b-005056bff430/w:1280/p:16x9/070619-iss-space-tourism-m.webp"
-            alt=""
-          />
+          <TriangleHaut>
+            <img
+              src="/photos/iss2.png"
+              className="TriangleHaut"
+              id="iss"
+              alt="ISS"
+            />
+          </TriangleHaut>
+          <div className="containerTextISS">
+            <div className="textIss">ISS</div>
+          </div>
+        </div>
 
-          <h4 className="textIss">ISS</h4>
-        </div>
         <div className="ZoneRover">
-          <img
-            src="/photos/rover.jpg"
-            className="TriangleDroit"
-            id="rover"
-            alt="rover"
-          />
-          <h4 className="textRover">Rover</h4>
+          <TriangleDroit>
+            <img src="/photos/rover.jpg" id="rover" alt="rover" />
+          </TriangleDroit>
+
+          <div className="containerTextRover">
+            <div className="textRover">Rover</div>
+          </div>
         </div>
+
         <div className="ZoneGalerie">
           <img
             src="/photos/galerie.jpg"
@@ -30,7 +50,9 @@ function FrontPage() {
             id="galerie"
             alt="galerie"
           />
-          <h4 className="textGalerie">Galerie</h4>
+          <div className="containerTextGalerie">
+            <div className="textGalerie">Galerie</div>
+          </div>
         </div>
       </div>
 

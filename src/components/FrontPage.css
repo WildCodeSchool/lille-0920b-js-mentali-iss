@@ -2,19 +2,22 @@
     height: 108vh;
 }
 
-.TriangleHaut {
-    -webkit-clip-path: polygon(100% 50%, 50% 100%, 0 50%);
-    clip-path: url(#issPhoto);
+.avatar {
+    position: relative;
 }
 
 .TriangleDroit {
-    -webkit-clip-path: polygon(100% 50%, 50% 100%, 0 50%);
     clip-path: url(#roverPhoto);
+    opacity: 1;
+    display: block;
+    transition: 0.5s ease;
 }
 
 .TriangleGauche {
-    -webkit-clip-path: polygon(100% 50%, 50% 100%, 0 50%);
     clip-path: url(#galeriePhoto);
+    opacity: 1;
+    display: block;
+    transition: 0.5s ease;
 }
 
 .avatar {
@@ -38,59 +41,63 @@ img {
     height: 100%;
 }
 
-img#iss:hover {
-    opacity: 0.3;
+.containerTextISS {
     transition: 0.5s ease;
-}
-
-img#galerie:hover {
-    opacity: 0.3;
-    transition: 0.5s ease;
-}
-
-img#rover:hover {
-    opacity: 0.3;
-    transition: 0.5s ease;
-}
-
-.ZoneISS h4 {
-    display: none;
-}
-
-.ZoneISS:hover h4 {
-    display: block;
+    opacity: 0;
     position: absolute;
-    font-size: 9em;
-    top: 40vh;
+    font-size: 5em;
+    z-index: 2;
+    top: 35vh;
     color: black;
-    right: 46vw;
-    margin: auto;
+    right: 40vw;
+    transform: translate(-50%, -50%);
     text-align: center;
 }
 
-.ZoneRover h4 {
-    display: none;
+.ZoneISS:hover .TriangleHaut {
+    opacity: 0.3;
 }
 
-.ZoneRover:hover h4 {
-    display: block;
+.ZoneISS:hover .containerTextISS {
+    opacity: 1;
+}
+
+.containerTextRover {
+    transition: 0.5s ease;
+    opacity: 0;
     position: absolute;
-    font-size: 9em;
+    font-size: 5em;
     top: 60vh;
     color: black;
-    right: 10vw;
+    right: 0;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
-.ZoneGalerie h4 {
-    display: none;
+.ZoneRover:hover .TriangleDroit {
+    opacity: 0.3;
 }
 
-.ZoneGalerie:hover h4 {
-    display: block;
+.ZoneRover:hover .containerTextRover {
+    opacity: 1;
+}
+
+.containerTextGalerie {
+    transition: 0.5s ease;
+    opacity: 0;
     position: absolute;
     top: 60vh;
-    font-size: 9em;
+    font-size: 5em;
     color: black;
-    left: 10vw;
-    .zoneiss: hover h4;
+    left: 14vw;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.ZoneGalerie:hover .TriangleGauche {
+    opacity: 0.3;
+}
+
+.ZoneGalerie:hover .containerTextGalerie {
+    opacity: 1;
 }
