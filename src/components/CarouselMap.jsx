@@ -7,7 +7,7 @@ import styled from 'styled-components';
 //https://reactjsexample.com/a-react-way-react-component-that-does-not-suck/
 
 const Karousel = styled.div
- `margin-top: 15vh;
+ `margin-top: 20vh;
   margin-left: 10px;
   width: 99vw;
   position: center;
