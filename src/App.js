@@ -11,6 +11,7 @@ function App() {
   return (
     <div className="page-container">
       <Header />
+      <MyCarousel />
 
     
     </div>
