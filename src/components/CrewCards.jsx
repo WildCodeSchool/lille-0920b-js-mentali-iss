@@ -87,19 +87,19 @@ const CrewCards = () => {
     return (
       <Crewcards>
         <Crewheader>
-          <Astrophoto src="./photos/ChrisCassidy.jpg" alt="Ivan Wagner" />
+          <Astrophoto src="./photos/IvanWagner.jpg" alt="Ivan Wagner" />
         </Crewheader>
         <Crewsection>
           <Astrotitle>
             <Astroname>Ivan Wagner</Astroname>
-            <Astroflag src="./photos/Usa.png" alt="drapeau" />
+            <Astroflag src="./photos/Russia.png" alt="drapeau" />
           </Astrotitle>
           <Trait></Trait>
           <P>Ivan Viktorovitch Vagner (en russe : Иван Викторович Вагнер), 
           né le 10 juillet 1985 à Severonejsk dans l'Oblast d'Arkhangelsk en Russie est un cosmonaute russe.
           Il est en mission pour la première fois à bord de l'ISS depuis le 9 avril 2020
          </P>
-             <Learnmore href="test">Learn more ...</Learnmore>
+             <Learnmore href="https://fr.wikipedia.org/wiki/Ivan_Vagner">Learn more ...</Learnmore>
         </Crewsection> 
       </Crewcards>
     );
