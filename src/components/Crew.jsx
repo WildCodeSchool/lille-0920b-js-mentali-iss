@@ -3,19 +3,14 @@ import React from 'react';
 import axios from "axios";
 import DisplayCrew from './DisplayCrew'
 
-const sampleSimpsons = {
-    message: "hello",
-    number: 2,
-    people: {
-      name:"Guy",
-    }
-    }
-  
 class Crew extends React.Component {
     constructor(props) {
       super(props);
       this.state={
-        quote: sampleSimpsons
+        message: "hello",
+        number: 20,
+        name:"Guy",
+        craft: "punto",
       };
       this.getQuote = this.getQuote.bind(this);
     }
@@ -29,14 +24,17 @@ class Crew extends React.Component {
       .then(data => {
         console.log(data)
         this.setState({
-          quote: data,
+          message: data.message,
+          number: data.number,
+          name: data.people[0].name,
+          craft: data.people[0].craft,
     });
       });
 } 
 render () {
   return (
     <div className="App">
-      <DisplayCrew quotes={this.state.quote} />
+      <DisplayCrew quotes={this.state} />
       <button type="button" onClick={this.getQuote}>Get quote</button>
     </div>
   );

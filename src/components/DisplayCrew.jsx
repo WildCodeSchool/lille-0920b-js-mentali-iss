@@ -10,7 +10,8 @@ function DisplayCrew({ quotes }){
           <p>
             <cite>number :{quotes.number}</cite>
           </p>
-          <p>name : {quotes.people.name}</p>
+          <p>name : {quotes.name}</p>
+          <p>craft : {quotes.craft}</p>
         </figcaption>
       </figure>
     );
