@@ -12,6 +12,7 @@ const Pagecontainer = styled.div
   margin: 0;
   padding: 0;
   background-image: url(${stars2});
+  width: 100vw;
   height: auto;`
 
 function App() {

@@ -94,7 +94,7 @@ class ViewISS extends Component {
       <div> 
         <Title>Position de l'iSS en temps réél</Title>
         <Trait></Trait>
-          <Map style={{ width: '95vw', height: '90vh', margin: '55px', position: 'center'}} className="map" center={[0, 90]} zoom={this.state.zoom}>
+          <Map style={{ width: '95vw', height: '90vh', margin: '30px', position: 'center'}} className="map" center={[0, 90]} zoom={this.state.zoom}>
              <TileLayer
               attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
               url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" />

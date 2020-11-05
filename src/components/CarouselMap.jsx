@@ -8,7 +8,6 @@ import styled from 'styled-components';
 
 const Karousel = styled.div
  `margin-top: 20vh;
-  margin-left: 10px;
   width: 99vw;
   position: center;
 `

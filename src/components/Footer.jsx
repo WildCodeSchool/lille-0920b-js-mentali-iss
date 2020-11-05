@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
  const Mainfooter = styled.footer
-   ` width: 100vw;
+   ` width: 97vw;
     height: 13vh;
     display: flex;
     align-items: center;
