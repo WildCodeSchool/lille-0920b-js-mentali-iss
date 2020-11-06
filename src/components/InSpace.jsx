@@ -31,7 +31,9 @@ class InSpace extends React.Component {
 render () {
   return (
     <div className="App">
-      <MapPageCards astronaute = {this.state} />
+      {this.state.people.map((name, craft) => (
+        <MapPageCards {...name} />
+      ))}
     </div>
   );
 }

@@ -83,7 +83,7 @@ const Learnmore = styled.a
     color: blue;
     }`
 
-const CrewCards = ({astronaute}) => {
+const CrewCards = ({name, craft}) => {
     return (
       <Crewcards>
         <Crewheader>
@@ -91,7 +91,7 @@ const CrewCards = ({astronaute}) => {
         </Crewheader>
         <Crewsection>
           <Astrotitle>
-            <Astroname>{astronaute.name} in {astronaute.craft}</Astroname>
+            <Astroname>{name} in {craft}</Astroname>
             <Astroflag src="./photos/Russia.png" alt="drapeau" />
           </Astrotitle>
           <Trait></Trait>
