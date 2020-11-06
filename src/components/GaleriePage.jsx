@@ -114,9 +114,6 @@ class GaleriePage extends Component {
           </Title1>
 
           <div className="GaleriePage">
-            {" "}
-            //* Affichage s'il communique avec l'API, sinon il renvoie "No data
-            yet"
             {this.state.photo ? (
               <DisplayGalerie photo={this.state.photo} />
             ) : (
