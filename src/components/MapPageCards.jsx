@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Portrait from './Portrait';
 
 const Crewcards = styled.div 
    ` display: flex;
@@ -88,12 +87,12 @@ const CrewCards = ({name, craft}) => {
     return (
       <Crewcards>
         <Crewheader>
-          <Astrophoto src="./photos/IvanWagner.jpg" alt="Ivan Wagner" />
+          <Astrophoto src="./photos/IvanWagner.jpg"  alt="Ivan Wagner" />
         </Crewheader>
         <Crewsection>
           <Astrotitle>
             <Astroname>{name} in {craft}</Astroname>
-            <Astroflag src={"./photos/Russia.png"} alt="drapeau" />
+            <Astroflag src="./photos/Russia.png" alt="drapeau" />
           </Astrotitle>
           <Trait></Trait>
           <P>Ivan Viktorovitch Vagner (en russe : Иван Викторович Вагнер), 
