@@ -8,17 +8,19 @@ const Page = styled.div`
   margin-top: 2vh;
 `;
 
+const TriangleHaut = styled.img`
+  clip-path: url(#issPhoto);
+  opacity: 1;
+  display: block;
+  transition: 0.5s ease;
+`;
+
 function FrontPage() {
   return (
     <Page>
       <div className="avatar">
         <div className="ZoneISS">
-          <img
-            src="/photos/iss2.png"
-            id="iss"
-            className="TriangleHaut"
-            alt="ISS"
-          />{" "}
+          <TriangleHaut img src="/photos/iss2.png" id="iss" alt="ISS" />
           <div className="containerTextISS">
             <div className="textISS">ISS</div>
           </div>
