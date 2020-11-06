@@ -1,19 +1,29 @@
 import "./reset.css";
-import "./App.css";
-import FrontPage from "./components/FrontPage";
-import ViewISS from "./components/ViewISS";
+import styled from "styled-components";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
+import stars2 from "./assets/stars2.jpg";
+//import FrontPage from "./components/FrontPage";
 import MyCarousel from "./components/CarouselMap";
+import ViewISS from "./components/ViewISS";
+import Footer from "./components/Footer";
+
+const Pagecontainer = styled.div`
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-image: url(${stars2});
+  width: 100vw;
+  height: auto;
+`;
 
 function App() {
   return (
-    <div className="page-container">
+    <Pagecontainer>
       <Header />
       <MyCarousel />
       <ViewISS />
       <Footer />
-    </div>
+    </Pagecontainer>
   );
 }
 

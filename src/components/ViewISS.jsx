@@ -1,10 +1,46 @@
 import React, { Component } from 'react';
-import './ViewISS.css';
 import L from 'leaflet';
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Map, TileLayer, Marker } from 'react-leaflet';
 import Iss from '../assets/iss.png';
 import axios from 'axios';
+import styled from 'styled-components';
 
+const Title = styled.h1
+    `color: white;
+    font-size: 50px;
+    width: 95vw;
+    text-align: right;
+    margin-top: 5vh;
+    margin-bottom: 1vh`
+
+const Trait = styled.hr
+    `width: 100vw
+    margin-bottom: 1vh`
+
+const ImgContainerButton = styled.div
+      `position: relative;
+      text-align: center;
+      color: white;
+      flex-wrap: wrap;
+      margin-top: 2px;
+      margin-bottom: 45px;
+     `
+  
+const ImgButton = styled.img
+     `height: 40vh;
+      width: 40vw;
+      border: 1px solid grey;
+      border-radius: 10px;
+  `
+  
+const Centered = styled.div
+     ` position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: azure;
+      font-size: 5vw;
+`
 const ISS_URL = "http://api.open-notify.org/iss-now.json";
 
 class ViewISS extends Component {
@@ -56,24 +92,25 @@ class ViewISS extends Component {
     const positionSatIcon = [this.state.SatIcon.lat, this.state.SatIcon.lng];
     return (
       <div> 
-        <h1 id="Titre">Position de l'iSS en temps réél</h1>
-      <Map className="map" center={[0, 90]} zoom={this.state.zoom}>
-        <TileLayer
-          attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-          url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" />
-        {this.state.haveUsersLocation &&
-          <Marker position={positionSatIcon} icon={this.SatIcon}>
-          </Marker>
-        }
-      </Map>
-      
-      <div  className="ImgContainerButton">
-        <a href="#b" className="ChezVous" data-inf="photo">
-          <img id="ImgButton" src="/photos/starObs.jpg" alt="logo" />
-      <div className ="centered"> 
-        <p>Observez l'ISS </p><p>depuis chez vous </p> </div>
-        </a>   
-      </div>
+        <Title>Position de l'iSS en temps réél</Title>
+        <Trait></Trait>
+          <Map style={{ width: '95vw', height: '90vh', margin: '30px', position: 'center'}} className="map" center={[0, 90]} zoom={this.state.zoom}>
+             <TileLayer
+              attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+              url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" />
+              {this.state.haveUsersLocation &&
+              <Marker position={positionSatIcon} icon={this.SatIcon}></Marker>
+              }
+          </Map>
+        <ImgContainerButton>
+          <a href="#b" className="ChezVous" data-inf="photo">
+            <ImgButton src="/photos/starObs.jpg" alt="logo"/>
+              <Centered> 
+                <p>Observez l'ISS</p>
+                <p>depuis chez vous </p> 
+              </Centered>
+          </a>   
+        </ImgContainerButton>
       </div>
     );
   }

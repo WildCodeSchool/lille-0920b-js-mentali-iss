@@ -12,6 +12,8 @@ const Headercont = styled.header
   align-items: center;
   background: #34263a;
   box-shadow: 0px 5px 5px #34263a;
+  position: sticky;
+  z-index: 100;
   `  
 const LogoMentali = styled.a
   `display: flex;
@@ -29,7 +31,11 @@ const LogoISS = styled.img
 
 const Brand = styled.h2
   `color: white;
-  font-size: 35px;`
+  font-size: 35px;
+  &:hover {
+    color: #3366cc;
+        text-decoration: none;
+  }`
 
   const Navbar = styled.ul
     `list-style: none;
