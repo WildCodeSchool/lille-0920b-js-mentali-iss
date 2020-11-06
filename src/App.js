@@ -1,6 +1,6 @@
 import "./reset.css";
 import "./App.css";
-import InSpace from "./components/Crew";
+import InSpace from "./components/InSpace";
 
 function App() {
   return (

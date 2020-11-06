@@ -7,8 +7,7 @@ class InSpace extends React.Component {
     constructor(props) {
       super(props);
       this.state={
-        name:null,
-        craft: null,
+        people:[],
       };
       this.getCrew = this.getCrew.bind(this);
     }
@@ -22,10 +21,9 @@ class InSpace extends React.Component {
         .get('http://api.open-notify.org/astros.json')
         .then((response) => response.data)
         .then((data) => {
-          console.log(data)
+          console.log(data.people)
           this.setState({
-          name: data.people[0].name,
-          craft: data.people[0].craft,
+          people: data.people
           });
         });
     }
