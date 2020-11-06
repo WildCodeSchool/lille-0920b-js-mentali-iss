@@ -53,7 +53,7 @@ const Astrotitle = styled.div
 
 const Astroname = styled.h2
     `text-align: center;
-    font-size: 15px;
+    font-size: 16px;
     color: white;
     `;
 const Astroflag = styled.img
@@ -82,16 +82,8 @@ const Learnmore = styled.a
     &:hover  {
     color: blue;
     }`
- //<img src={this.props.image} alt={this.props.character} />
-//<blockquote>{this.props.quote}</blockquote>
-//{this.props.character}</cite>
-//className={this.state.favorite ? 'is-favorite' : ''}
-//onClick={event => {
-//const newFavorite = !this.state.favorite;
-//this.setState({ favorite: newFavorite });
-//}}
 
-const CrewCards = ({quotes}) => {
+const CrewCards = ({astronaute}) => {
     return (
       <Crewcards>
         <Crewheader>
@@ -99,7 +91,7 @@ const CrewCards = ({quotes}) => {
         </Crewheader>
         <Crewsection>
           <Astrotitle>
-            <Astroname>{quotes.name} from {quotes.craft}</Astroname>
+            <Astroname>{astronaute.name} in {astronaute.craft}</Astroname>
             <Astroflag src="./photos/Russia.png" alt="drapeau" />
           </Astrotitle>
           <Trait></Trait>
