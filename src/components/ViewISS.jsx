@@ -5,30 +5,68 @@ import Iss from "../assets/iss.png";
 import axios from "axios";
 import styled from "styled-components";
 
-const FondTitle = styled.img`
+const FondTitle1 = styled.div`
   position: relative;
-  width: 100%;
+  margin-top: 4vh;
+  margin-bottom: 4vh;
+`;
+
+const FondImage = styled.img`
+  width: 100vw;
 `;
 
 const Title = styled.h1`
   color: white;
-  font-size: 50px;
-  width: 95vw;
-  margin-top: 5vh;
-  margin-bottom: 4vh;
-  margin-left: 2vw;
+  font-size: 2.5em;
+  position: absolute;
+  top: 2vh;
+  left: 1.5vw;
 `;
 
-const Trait = styled.hr`width: 100vw
-    margin-bottom: 1vh`;
+const Trait = styled.div`
+  background-color: white;
+  height: 1px;
+  width: 50%;
+  position: absolute;
+  top: 8vh;
+  z-index: 5;
+`;
+
+const FondTitle2 = styled.div`
+  position: relative;
+  margin-top: 4vh;
+  margin-bottom: 4vh;
+`;
+
+const FondImage2 = styled.img`
+  width: 100vw;
+`;
+
+const Title2 = styled.h1`
+  color: white;
+  font-size: 2.5em;
+  position: absolute;
+  top: 2vh;
+  right: 1.5vw;
+`;
+
+const Trait2 = styled.div`
+  background-color: white;
+  height: 1px;
+  width: 50%;
+  position: absolute;
+  top: 8vh;
+  right: 0;
+  z-index: 5;
+`;
 
 const ImgContainerButton = styled.div`
   position: relative;
   text-align: center;
   color: white;
   flex-wrap: wrap;
-  margin-top: 2px;
-  margin-bottom: 45px;
+  margin-top: 8vh;
+  margin-bottom: 4vh;
 `;
 
 const ImgButton = styled.img`
@@ -44,7 +82,7 @@ const Centered = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   color: azure;
-  font-size: 5vw;
+  font-size: 4em;
 `;
 
 const ISS_URL = "http://api.open-notify.org/iss-now.json";
@@ -97,11 +135,12 @@ class ViewISS extends Component {
     const positionSatIcon = [this.state.SatIcon.lat, this.state.SatIcon.lng];
     return (
       <div>
-        <FondTitle img src="./public/photos/stars2.jpg" alt="stars" />
+        <FondTitle1>
+          <FondImage img src="/photos/stars2.jpg" alt="stars" />
 
-        <Title>Position de l'iSS en temps réél</Title>
-        <Trait></Trait>
-
+          <Title>Position de l'ISS en temps réél</Title>
+          <Trait></Trait>
+        </FondTitle1>
         <Map
           style={{
             width: "70vw",
@@ -110,8 +149,10 @@ class ViewISS extends Component {
             position: "center",
           }}
           className="map"
-          center={[0, 90]}
-          zoom={this.state.zoom}
+          center={[0, 0]}
+          zoom={2.4}
+          maxZoom={3}
+          minZoom={1.9}
         >
           <TileLayer
             attribution="Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
@@ -131,6 +172,12 @@ class ViewISS extends Component {
             </Centered>
           </a>
         </ImgContainerButton>
+        <FondTitle2>
+          <FondImage2 img src="/photos/stars2.jpg" alt="stars" />
+
+          <Title2>L'équipage présent actuellement</Title2>
+          <Trait2></Trait2>
+        </FondTitle2>
       </div>
     );
   }
