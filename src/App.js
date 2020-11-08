@@ -1,11 +1,11 @@
 import "./reset.css";
 import "./App.css";
-import InSpace from "./components/InSpace";
+import InSpace2 from "./components/InSpace2";
 
 function App() {
   return (
     <div className="page-container">
-      <InSpace />
+      <InSpace2 />
     </div>
   );
 }

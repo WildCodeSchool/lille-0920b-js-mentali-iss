@@ -83,22 +83,20 @@ const Learnmore = styled.a
     color: blue;
     }`
 
-const CrewCards = ({name, craft}) => (
+const CrewCards = ({name, flag, astroImage, description, wiki}) => (
       <Crewcards>
         <Crewheader>
-          <Astrophoto src="./photos/IvanWagner.jpg"  alt="Ivan Wagner" />
+          <Astrophoto src={astroImage}  alt="Ivan Wagner" />
         </Crewheader>
         <Crewsection>
           <Astrotitle>
-            <Astroname>{name} in {craft}</Astroname>
-            <Astroflag src="./photos/Russia.png" alt="drapeau" />
+            <Astroname>{name}</Astroname>
+            <Astroflag src={flag} alt="drapeau" />
           </Astrotitle>
           <Trait></Trait>
-          <P>Ivan Viktorovitch Vagner (en russe : Иван Викторович Вагнер), 
-          né le 10 juillet 1985 à Severonejsk dans l'Oblast d'Arkhangelsk en Russie est un cosmonaute russe.
-          Il est en mission pour la première fois à bord de l'ISS depuis le 9 avril 2020
+          <P>{description}
          </P>
-             <Learnmore href="https://fr.wikipedia.org/wiki/Ivan_Vagner">Learn more ...</Learnmore>
+             <Learnmore href={wiki}>Learn more ...</Learnmore>
         </Crewsection> 
       </Crewcards>
     );
