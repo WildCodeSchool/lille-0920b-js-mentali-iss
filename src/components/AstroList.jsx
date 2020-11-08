@@ -1,4 +1,4 @@
-const Portrait = [
+const AstroList = [
     {
         name: "Sergey Ryzhikov",
         flag: "./photos/Russia.png",
@@ -22,4 +22,4 @@ const Portrait = [
       },
     ]
 
-export default Portrait
+export default AstroList;

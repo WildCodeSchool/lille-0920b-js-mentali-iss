@@ -3,7 +3,6 @@ import React from 'react';
 import axios from "axios";
 import MapPageCards from './MapPageCards';
 
-
 class InSpace extends React.Component {
     constructor(props) {
       super(props);
