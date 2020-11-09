@@ -42,6 +42,12 @@ const FondTitre = styled.div`
   margin-bottom: 5vh;
 `;
 
+const ImageFond1 = styled.img`
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 100vw;
+`;
+
 const Title2 = styled.div`
   padding-top: 2vh;
 `;
@@ -65,11 +71,15 @@ const Trait2 = styled.div`
   z-index: 5;
 `;
 
+const ImageFond2 = styled.img`
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 100vw;
+`;
+
 const FondTitre2 = styled.div`
   display: block;
   position: relative;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
 `;
 
 class GaleriePage extends Component {
@@ -107,7 +117,7 @@ class GaleriePage extends Component {
         <Textcolor>
           <Title1>
             <FondTitre>
-              <img src="/photos/stars2.jpg" alt="stars" />
+              <ImageFond1 src="/photos/stars2.jpg" alt="stars" />
               <H1>NASA image of the day</H1>
               <Trait></Trait>
             </FondTitre>
@@ -123,7 +133,7 @@ class GaleriePage extends Component {
 
           <Title2>
             <FondTitre2>
-              <img src="/photos/stars2.jpg" alt="stars" />
+              <ImageFond2 src="/photos/stars2.jpg" alt="stars" />
               <H2>What did hubble see that day ?</H2>
               <Trait2></Trait2>
             </FondTitre2>

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Photo = styled.div`
+const Photo = styled.img`
   width: 60vw;
   height: auto;
   margin-left: auto;
@@ -45,9 +45,7 @@ function DisplayGalerie({ photo }) {
         <Date>
           <p> - {photo.date} -</p>
         </Date>
-        <Photo>
-          <img src={photo.hdurl} alt={photo.title} />
-        </Photo>
+        <Photo src={photo.hdurl} alt={photo.title} />
         <Title>
           <p>{photo.title}</p>
         </Title>
