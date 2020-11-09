@@ -8,50 +8,134 @@ const Page = styled.div`
   margin-top: 2vh;
 `;
 
+const Avatar = styled.div`
+  position: relative;
+`;
+
 const TriangleHaut = styled.img`
   clip-path: url(#issPhoto);
   opacity: 1;
   display: block;
   transition: 0.5s ease;
+  width: 100%;
+  height: 100%;
+`;
+
+const TriangleDroit = styled.img`
+  clip-path: url(#roverPhoto);
+  opacity: 1;
+  display: block;
+  transition: 0.5s ease;
+  position: absolute;
+  top: 0.4vh;
+  right: 0vw;
+  width: 100%;
+  height: 100%;
+  &:hover {
+    opacity: 0.3;
+  }
+`;
+
+const TriangleGauche = styled.img`
+  clip-path: url(#galeriePhoto);
+  opacity: 1;
+  display: block;
+  transition: 0.5s ease;
+  position: absolute;
+  top: 0.4vh;
+  right: 0.4vw;
+  width: 100%;
+  height: 100%;
+  &:hover {
+    opacity: 0.3;
+  }
+`;
+
+const ContainerTextISS = styled.div`
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  font-size: 5em;
+  z-index: 2;
+  top: 35vh;
+  color: white;
+  right: 40vw;
+  transform: translate(-50%, -50%);
+  text-align: center;
+`;
+
+const ContainerTextRover = styled.div`
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  font-size: 5em;
+  top: 60vh;
+  color: white;
+  right: 0;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+const ContainerTextGalerie = styled.div`
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 60vh;
+  font-size: 5em;
+  color: white;
+  left: 14vw;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+const ZoneISS = styled.div`
+  &:hover ${TriangleHaut} {
+    opacity: 0.3;
+  }
+  &:hover ${ContainerTextISS} {
+    opacity: 1;
+  }
 `;
 
 function FrontPage() {
   return (
     <Page>
-      <div className="avatar">
-        <div className="ZoneISS">
-          <TriangleHaut img src="/photos/iss2.png" id="iss" alt="ISS" />
-          <div className="containerTextISS">
+      <Avatar>
+        <ZoneISS>
+          <TriangleHaut src="/photos/iss2.png" id="iss" alt="ISS" />
+          <ContainerTextISS>
             <div className="textISS">ISS</div>
-          </div>
-        </div>
+          </ContainerTextISS>
+        </ZoneISS>
 
         <div className="ZoneRover">
-          <img
-            src="/photos/rover.jpg"
-            id="rover"
-            className="TriangleDroit"
-            alt="rover"
-          />
+          <TriangleDroit img src="/photos/rover.jpg" id="rover" alt="rover" />
 
-          <div className="containerTextRover">
+          <ContainerTextRover>
             <div className="textRover">Rover</div>
-          </div>
+          </ContainerTextRover>
         </div>
 
         <div className="ZoneGalerie">
-          <img
+          <TriangleGauche
+            img
             src="/photos/galerie.jpg"
-            className="TriangleGauche"
             id="galerie"
             alt="galerie"
           />
 
-          <div className="containerTextGalerie">
+          <ContainerTextGalerie>
             <div className="textGalerie">Galerie</div>
-          </div>
+          </ContainerTextGalerie>
         </div>
-      </div>
+      </Avatar>
 
       <svg>
         <defs>

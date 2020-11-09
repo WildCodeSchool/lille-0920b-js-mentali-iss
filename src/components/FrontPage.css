@@ -1,76 +1,9 @@
-.TriangleHaut {
-    clip-path: url(#issPhoto);
-    opacity: 1;
-    display: block;
-    transition: 0.5s ease;
-}
-
-.TriangleDroit {
-    clip-path: url(#roverPhoto);
-    opacity: 1;
-    display: block;
-    transition: 0.5s ease;
-}
-
-.TriangleGauche {
-    clip-path: url(#galeriePhoto);
-    opacity: 1;
-    display: block;
-    transition: 0.5s ease;
-}
-
-.avatar {
-    position: relative;
-}
-
-#rover {
-    position: absolute;
-    top: 0.4vh;
-    right: 0vw;
-}
-
-#galerie {
-    position: absolute;
-    top: 0.4vh;
-    right: 0.4vw;
-}
-
-img {
-    width: 100%;
-    height: 100%;
-}
-
-.containerTextISS {
-    transition: 0.5s ease;
-    opacity: 0;
-    position: absolute;
-    font-size: 5em;
-    z-index: 2;
-    top: 35vh;
-    color: white;
-    right: 40vw;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
 .ZoneISS:hover .TriangleHaut {
     opacity: 0.3;
 }
 
 .ZoneISS:hover .containerTextISS {
     opacity: 1;
-}
-
-.containerTextRover {
-    transition: 0.5s ease;
-    opacity: 0;
-    position: absolute;
-    font-size: 5em;
-    top: 60vh;
-    color: white;
-    right: 0;
-    transform: translate(-50%, -50%);
-    text-align: center;
 }
 
 .ZoneRover:hover .TriangleDroit {
@@ -81,17 +14,7 @@ img {
     opacity: 1;
 }
 
-.containerTextGalerie {
-    transition: 0.5s ease;
-    opacity: 0;
-    position: absolute;
-    top: 60vh;
-    font-size: 5em;
-    color: white;
-    left: 14vw;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
+.containerTextGalerie {}
 
 .ZoneGalerie:hover .TriangleGauche {
     opacity: 0.3;
