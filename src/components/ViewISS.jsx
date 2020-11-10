@@ -146,7 +146,7 @@ class ViewISS extends Component {
         <FondTitle1>
           <FondImage img src="/photos/stars2.jpg" alt="stars" />
 
-          <Title>Position de l'ISS en temps réél</Title>
+          <Title>Iss Live Position </Title>
           <Trait></Trait>
         </FondTitle1>
         <Map
@@ -183,15 +183,15 @@ class ViewISS extends Component {
           <a href="#b" className="ChezVous" data-inf="photo">
             <ImgButton src="/photos/starObs.jpg" alt="logo" />
             <Centered>
-              <p>Observez l'ISS</p>
-              <p>depuis chez vous </p>
+              <p>Watch ISS</p>
+              <p>from home </p>
             </Centered>
           </a>
         </ImgContainerButton>
         <FondTitle2>
           <FondImage2 img src="/photos/stars2.jpg" alt="stars" />
 
-          <Title2>L'équipage présent actuellement</Title2>
+          <Title2>Crew on-board</Title2>
           <Trait2></Trait2>
         </FondTitle2>
       </div>

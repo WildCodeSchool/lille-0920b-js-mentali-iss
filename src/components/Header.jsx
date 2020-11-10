@@ -72,10 +72,10 @@ const Header = () => {
           <li>ISS</li>
         </Navlink>
         <Navlink href="#2">
-          <li>Galerie</li>
+          <li>Gallery</li>
         </Navlink>
         <Navlink href="#2">
-          <li>Rover sur Mars</li>
+          <li>Rover on Mars</li>
         </Navlink>
         <Navlink href="#2">
           <li>Contact</li>
