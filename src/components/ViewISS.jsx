@@ -4,6 +4,7 @@ import { Map, TileLayer, Marker } from "react-leaflet";
 import Iss from "../assets/iss.png";
 import axios from "axios";
 import styled from "styled-components";
+import ReactPlayer from "react-player";
 
 const FondTitle1 = styled.div`
   position: relative;
@@ -58,6 +59,13 @@ const Trait2 = styled.div`
   top: 8vh;
   right: 0;
   z-index: 5;
+`;
+
+const VideoLive = styled.div`
+  width: 50vw;
+  margin-left: 29vw;
+
+  margin-top: 4vh;
 `;
 
 const ImgContainerButton = styled.div`
@@ -162,6 +170,14 @@ class ViewISS extends Component {
             <Marker position={positionSatIcon} icon={this.SatIcon}></Marker>
           )}
         </Map>
+
+        <VideoLive>
+          <ReactPlayer
+            url="https://www.youtube.com/watch?v=EEIk7gwjgIM"
+            controls
+            playbackRate={2}
+          />
+        </VideoLive>
 
         <ImgContainerButton>
           <a href="#b" className="ChezVous" data-inf="photo">
