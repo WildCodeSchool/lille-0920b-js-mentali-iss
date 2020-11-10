@@ -29,7 +29,6 @@ const TriangleDroit = styled.img`
   transition: 0.5s ease;
   position: absolute;
   top: 0.4vh;
-  right: 0vw;
   width: 100%;
   height: 100%;
   &:hover {
@@ -44,7 +43,7 @@ const TriangleGauche = styled.img`
   transition: 0.5s ease;
   position: absolute;
   top: 0.4vh;
-  right: 0.4vw;
+
   width: 100%;
   height: 100%;
   &:hover {
@@ -160,13 +159,13 @@ function FrontPage() {
         <svg>
           <defs>
             <clipPath id="issPhoto" clipPathUnits="objectBoundingBox">
-              <polygon points="0.99,0 .5,0.99 0.001,0" />
+              <polygon points="0.999,0 .5,1 0,0" />
             </clipPath>
             <clipPath id="roverPhoto" clipPathUnits="objectBoundingBox">
-              <polygon points="1,0 1,1 .5,1" />
+              <polygon points="1,0 1,1 .503,1" />
             </clipPath>
             <clipPath id="galeriePhoto" clipPathUnits="objectBoundingBox">
-              <polygon points=".49,1 0,1 0,0" />
+              <polygon points=".497,1 0,1 0,0" />
             </clipPath>
           </defs>
         </svg>

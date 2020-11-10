@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const Mainfooter = styled.footer`
-  width: 99vw;
-  height: 13vh;
+  width: 99.2vw;
+  height: auto;
   display: flex;
   align-items: center;
   background-color: #34263a;
@@ -136,15 +136,13 @@ const Footer2 = () => {
         <Row>
           {/* Column1 */}
           <Col1>
-            <H4>A PROPOS</H4>
+            <H4>ABOUT</H4>
             <Textjustify>
-              Mental-ISS.com fournit une information complète concernant la
-              station spatiale internationale. Mental-ISS se consacre à <br />
-              maintenir la position de l&apos;ISS sur une carte en temps réel, à
-              fournir les données permettant d&apos;observer la station depuis{" "}
-              <br />
-              chez soi, de mettre à disposition les photos de l&apos;espace par
-              la NASA.
+              Mental-ISS.com provides you complete informations about the
+              international space station. <br /> Mental-ISS is dedicated to
+              maintain the ISS position on a map in real time, provide you the{" "}
+              <br /> data to observe the station from home and to provide you
+              Nasa's photos.
             </Textjustify>
           </Col1>
           {/* Column2 */}
