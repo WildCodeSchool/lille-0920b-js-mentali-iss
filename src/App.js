@@ -6,6 +6,7 @@ import stars2 from "./assets/stars2.jpg";
 import MyCarousel from "./components/CarouselMap";
 import ViewISS from "./components/ViewISS";
 import Footer from "./components/Footer";
+import InSpace from "./components/InSpace";
 
 const Pagecontainer = styled.div`
   box-sizing: border-box;
@@ -22,6 +23,7 @@ function App() {
       <Header />
       <MyCarousel />
       <ViewISS />
+      <InSpace />
       <Footer />
     </Pagecontainer>
   );
