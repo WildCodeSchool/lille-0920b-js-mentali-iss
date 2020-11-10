@@ -1,15 +1,15 @@
-import "./FrontPage.css";
 import styled from "styled-components";
 
 const Page = styled.div`
   background-color: black;
   width: 100%;
   height: 112vh;
-  margin-top: 2vh;
+  margin-top: 5vh;
 `;
 
 const Avatar = styled.div`
   position: relative;
+  margin-top: 5vh;
 `;
 
 const TriangleHaut = styled.img`
@@ -104,6 +104,24 @@ const ZoneISS = styled.div`
   }
 `;
 
+const ZoneRover = styled.div`
+  &:hover ${TriangleDroit} {
+    opacity: 0.3;
+  }
+  &:hover ${ContainerTextRover} {
+    opacity: 1;
+  }
+`;
+
+const ZoneGalerie = styled.div`
+  &:hover ${TriangleGauche} {
+    opacity: 0.3;
+  }
+  &:hover ${ContainerTextGalerie} {
+    opacity: 1;
+  }
+`;
+
 function FrontPage() {
   return (
     <Page>
@@ -115,15 +133,15 @@ function FrontPage() {
           </ContainerTextISS>
         </ZoneISS>
 
-        <div className="ZoneRover">
+        <ZoneRover>
           <TriangleDroit img src="/photos/rover.jpg" id="rover" alt="rover" />
 
           <ContainerTextRover>
             <div className="textRover">Rover</div>
           </ContainerTextRover>
-        </div>
+        </ZoneRover>
 
-        <div className="ZoneGalerie">
+        <ZoneGalerie>
           <TriangleGauche
             img
             src="/photos/galerie.jpg"
@@ -134,7 +152,7 @@ function FrontPage() {
           <ContainerTextGalerie>
             <div className="textGalerie">Galerie</div>
           </ContainerTextGalerie>
-        </div>
+        </ZoneGalerie>
       </Avatar>
 
       <svg>
