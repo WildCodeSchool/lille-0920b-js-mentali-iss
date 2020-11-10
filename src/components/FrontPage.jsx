@@ -3,13 +3,14 @@ import styled from "styled-components";
 const Page = styled.div`
   background-color: black;
   width: 100%;
-  height: 112vh;
-  margin-top: 5vh;
 `;
 
 const Avatar = styled.div`
   position: relative;
-  margin-top: 5vh;
+`;
+
+const BlocClipPath = styled.div`
+  height: 3vh;
 `;
 
 const TriangleHaut = styled.img`
@@ -155,19 +156,21 @@ function FrontPage() {
         </ZoneGalerie>
       </Avatar>
 
-      <svg>
-        <defs>
-          <clipPath id="issPhoto" clipPathUnits="objectBoundingBox">
-            <polygon points="0.99,0 .5,0.99 0.001,0" />
-          </clipPath>
-          <clipPath id="roverPhoto" clipPathUnits="objectBoundingBox">
-            <polygon points="1,0 1,1 .5,1" />
-          </clipPath>
-          <clipPath id="galeriePhoto" clipPathUnits="objectBoundingBox">
-            <polygon points=".49,1 0,1 0,0" />
-          </clipPath>
-        </defs>
-      </svg>
+      <BlocClipPath>
+        <svg>
+          <defs>
+            <clipPath id="issPhoto" clipPathUnits="objectBoundingBox">
+              <polygon points="0.99,0 .5,0.99 0.001,0" />
+            </clipPath>
+            <clipPath id="roverPhoto" clipPathUnits="objectBoundingBox">
+              <polygon points="1,0 1,1 .5,1" />
+            </clipPath>
+            <clipPath id="galeriePhoto" clipPathUnits="objectBoundingBox">
+              <polygon points=".49,1 0,1 0,0" />
+            </clipPath>
+          </defs>
+        </svg>
+      </BlocClipPath>
     </Page>
   );
 }
