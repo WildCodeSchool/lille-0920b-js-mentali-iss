@@ -7,15 +7,13 @@ const Footer = () => {
         <div className="row">
           {/* Column1 */}
           <div className="col">
-            <h4>A PROPOS</h4>
+            <h4>ABOUT</h4>
             <p className="text-justify">
-              Mental-ISS.com fournit une information complète concernant la
-              station spatiale internationale. Mental-ISS se consacre à <br />
-              maintenir la position de l&apos;ISS sur une carte en temps réel, à
-              fournir les données permettant d&apos;observer la station depuis{" "}
-              <br />
-              chez soi, de mettre à disposition les photos de l&apos;espace par
-              la NASA.
+              Mental-ISS.com provides you complete informations about the
+              international space station. <br />
+              Mental-ISS is dedicated to maintain the ISS position on a map in
+              real time, provide you the <br /> data to observe the station from
+              home and to provide you Nasa's photos.
             </p>
           </div>
           {/* Column2 */}
@@ -41,25 +39,41 @@ const Footer = () => {
             <ul className="social-icons">
               <li>
                 <a className="facebook" href="#7">
-                  <img id="fcb-photos" src="/photos/facebook.png" alt="Link to facebook"></img>
+                  <img
+                    id="fcb-photos"
+                    src="/photos/facebook.png"
+                    alt="Link to facebook"
+                  ></img>
                   <i className="fa fa-facebook" />
                 </a>
               </li>
               <li>
                 <a className="twitter" href="#8">
-                  <img id="tweet-photos" src="/photos/tweet.png" alt="Link to Twitter"></img>
+                  <img
+                    id="tweet-photos"
+                    src="/photos/tweet.png"
+                    alt="Link to Twitter"
+                  ></img>
                   <i className="fa fa-twitter" />
                 </a>
               </li>
               <li>
                 <a className="linkedin" href="#10">
-                  <img id="insta-photos" src="/photos/insta.png" alt="Link to LinkedIn"></img>
+                  <img
+                    id="insta-photos"
+                    src="/photos/insta.png"
+                    alt="Link to LinkedIn"
+                  ></img>
                   <i className="fa fa-linkedin" />
                 </a>
               </li>
               <li>
                 <a className="instagram" href="#11">
-                  <img id="link-photos" src="/photos/link.png" alt="Link to Instagram"></img>
+                  <img
+                    id="link-photos"
+                    src="/photos/link.png"
+                    alt="Link to Instagram"
+                  ></img>
                   <i className="fa fa-linkedin" />
                 </a>
               </li>
