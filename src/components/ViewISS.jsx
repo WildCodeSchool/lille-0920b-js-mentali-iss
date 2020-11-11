@@ -127,7 +127,6 @@ class ViewISS extends Component {
   //update haveUsersLocation ?
   recalIss = () => {
     axios.get(ISS_URL).then(({ data }) => {
-      console.log(data);
       this.setState({
         SatIcon: {
           lat: data.iss_position.latitude,

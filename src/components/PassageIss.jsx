@@ -121,7 +121,7 @@ console.log('componentWillUnmount')}
   
    const { ApiObject, CityCheck} = this.state;
    
-   const isLoading = 1;
+
    
     return (
       
