@@ -130,7 +130,7 @@ console.log('componentWillUnmount')}
       <form onSubmit={this.handleSubmitCity}>
         <label  style={{color:"white"}}>
           Your City :
-          <input type="text" value={this.state.City} onChange={this.handleChangeCity} />
+          <input type="text" value={this.state.City} onChange={this.handleChangeCity} required />
         </label>
         <input type="submit" value="Envoyer" />
       </form>
