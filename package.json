@@ -17,7 +17,11 @@
     "react-player": "^2.6.2",
     "react-scripts": "4.0.0",
     "styled-components": "^5.2.1",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.31",
+    "react-moment": "^1.0.0",
+    "react-router-dom": "^5.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

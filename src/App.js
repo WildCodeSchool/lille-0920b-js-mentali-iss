@@ -7,6 +7,7 @@ import MyCarousel from "./components/CarouselMap";
 import ViewISS from "./components/ViewISS";
 import Footer from "./components/Footer";
 import InSpace from "./components/InSpace";
+import PassageIss from "./components/PassageIss"
 
 const Pagecontainer = styled.div`
   box-sizing: border-box;
@@ -21,9 +22,9 @@ function App() {
   return (
     <Pagecontainer>
       <Header />
-      <MyCarousel />
-      <ViewISS />
-      <InSpace />
+     
+      < PassageIss />
+
       <Footer />
     </Pagecontainer>
   );
