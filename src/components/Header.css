@@ -1,48 +1,48 @@
 header {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 100vw;
-  height: 6vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #34263a;
-  box-shadow: 0px 5px 5px #34263a;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 6vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #34263a;
+    box-shadow: 0px 5px 5px #34263a;
+}
 
-}
 header a:hover {
-  color: #3366cc;
-  text-decoration: none;
+    color: #3366cc;
+    text-decoration: none;
 }
+
 .navbar {
-  list-style: none;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 60%;
-  height: 80%;
-  font-size: 25px;
-  background-color: #34263a;
-  font-size: 20px;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 60%;
+    height: 80%;
+    font-size: 1.5em;
+    background-color: #34263a;
 }
+
 #logoISS {
-  width: 12%;
+    width: 12%;
 }
 
 .logo-mentali {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 60%;
-  height: 70%;
-  text-decoration: none;
-  color: white;
-  font-size: 25px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 60%;
+    height: 70%;
+    text-decoration: none;
+    color: white;
+    font-size: 1.5em;
 }
 
-.navbar > a {
-  text-decoration: none;
-  color: white;
+.navbar>a {
+    text-decoration: none;
+    color: white;
 }
-
