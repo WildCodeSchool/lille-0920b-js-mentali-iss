@@ -1,6 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 
+const size = {
+  xs: '320px',
+  sm: '768px',
+  lg: '1200px',
+ };
+
+const device = {
+  xs: `(max-width: ${size.xs})`,
+  sm: `(min-width: ${size.sm})`,
+  lg: `(min-width: ${size.lg})`,
+ };
+
+
 const Mainfooter = styled.footer`
   width: 99.2vw;
   height: auto;
@@ -29,6 +42,12 @@ const Row = styled.div`
   justify-content: space-between;
   width: 100%;
   height: 60%;
+  border: solid blue 1px;
+  @media ${device.xs} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 `;
 
 const Row2 = styled.div`
@@ -37,6 +56,10 @@ const Row2 = styled.div`
   align-items: center;
   width: 100%;
   height: 20%;
+  @media ${device.xs} {
+   display:none;
+}
+
 `;
 
 const Col1 = styled.div`
@@ -44,6 +67,9 @@ const Col1 = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media ${device.xs} {
+    display: none;
+}
 `;
 
 const Col2 = styled.div`
@@ -51,7 +77,10 @@ const Col2 = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+  border: solid 1px blue;
+  @media ${device.xs} {
+   width: 100%;
+}`;
 
 const Col3 = styled.div`
   width: 20%;
@@ -74,11 +103,21 @@ const Textjustify = styled.p`
 
 const H4BIS = styled.h4`
   font-size: 12px;
+  border: solid 2px red;
 `;
+const H4TER =styled.h4 `
+  border: solid 2px blue;
+  @media ${device.xs} {
+   font-size: 8px;
+}`;
 
 const Footerlinks = styled.ul`
   padding-left: 0;
   list-style: none;
+  border: solid 2px red;
+  @media ${device.xs} {
+   text-align: center;
+}
 `;
 
 const Footlinks = styled.a`
@@ -92,6 +131,10 @@ const Footlinks = styled.a`
 `;
 const Socialicons = styled.ul`
   margin-top: 15px;
+  border: solid 1px green;
+  @media ${device.xs} {
+   display: flex;
+}
 `;
 
 const SocialLi = styled.li`
@@ -168,7 +211,7 @@ const Footer2 = () => {
           </Col2>
           {/* Column3 */}
           <Col3>
-            <h4>FOLLOW US</h4>
+            <H4TER>FOLLOW US</H4TER>
             <Socialicons>
               <SocialLi>
                 <SocialA href="#7">

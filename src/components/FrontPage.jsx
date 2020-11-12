@@ -1,5 +1,18 @@
 import styled from "styled-components";
 
+const size = {
+  xs: '320px',
+  sm: '768px',
+  lg: '1200px',
+ };
+
+const device = {
+  xs: `(max-width: ${size.xs})`,
+  sm: `(min-width: ${size.sm})`,
+  lg: `(min-width: ${size.lg})`,
+ };
+
+
 const Page = styled.div`
   background-color: black;
   width: 100%;
@@ -11,6 +24,9 @@ const Avatar = styled.div`
 
 const BlocClipPath = styled.div`
   height: 3vh;
+  @media ${device.xs} {
+    display : none;
+    }
 `;
 
 const TriangleHaut = styled.img`
@@ -20,6 +36,9 @@ const TriangleHaut = styled.img`
   transition: 0.5s ease;
   width: 100%;
   height: 100%;
+  @media ${device.xs} {
+    position: relative;
+    }
 `;
 
 const TriangleDroit = styled.img`
@@ -34,6 +53,9 @@ const TriangleDroit = styled.img`
   &:hover {
     opacity: 0.3;
   }
+  @media ${device.xs} {
+    position: relative;
+    }
 `;
 
 const TriangleGauche = styled.img`
@@ -43,12 +65,14 @@ const TriangleGauche = styled.img`
   transition: 0.5s ease;
   position: absolute;
   top: 0.4vh;
-
   width: 100%;
   height: 100%;
   &:hover {
     opacity: 0.3;
   }
+  @media ${device.xs} {
+    position: relative;
+    }
 `;
 
 const ContainerTextISS = styled.div`
@@ -62,6 +86,11 @@ const ContainerTextISS = styled.div`
   right: 40vw;
   transform: translate(-50%, -50%);
   text-align: center;
+  @media ${device.xs} {
+    position: absolute;
+    top: 15vh;
+    right: 8vh;
+    }
 `;
 
 const ContainerTextRover = styled.div`
@@ -74,10 +103,14 @@ const ContainerTextRover = styled.div`
   right: 0;
   transform: translate(-50%, -50%);
   text-align: center;
-
   &:hover {
     opacity: 1;
   }
+  @media ${device.xs} {
+    position: absolute;
+    top: 50vh;
+    left: 30vh;
+    }
 `;
 
 const ContainerTextGalerie = styled.div`
@@ -92,6 +125,11 @@ const ContainerTextGalerie = styled.div`
   text-align: center;
   &:hover {
     opacity: 1;
+  }
+  @media ${device.xs} {
+    position: absolute;
+    top: 80vh;
+    left: 30vh;
   }
 `;
 
