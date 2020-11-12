@@ -23,7 +23,7 @@ const Avatar = styled.div`
 `;
 
 const BlocClipPath = styled.div`
-  height: 3vh;
+  height: 1vh;
   @media ${device.xs} {
     display : none;
     }
@@ -56,8 +56,7 @@ const TriangleDroit = styled.img`
   @media ${device.xs} {
     position: relative;
     margin-top: -2px;
-    }
-
+    } 
 `;
 
 const TriangleGauche = styled.img`
@@ -144,7 +143,7 @@ const ContainerTextGalerie = styled.div`
     opacity: 100;
     color:white;
     font-weight: bold;
-  }
+    }
 `;
 
 const ZoneISS = styled.div`
@@ -160,6 +159,7 @@ const ZoneRover = styled.div`
   &:hover ${TriangleDroit} {
     opacity: 0.3;
   }
+
   &:hover ${ContainerTextRover} {
     opacity: 1;
   }
@@ -184,7 +184,6 @@ function FrontPage() {
             <div className="textISS">ISS</div>
           </ContainerTextISS>
         </ZoneISS>
-
         <ZoneRover>
           <TriangleDroit img src="/photos/rover.jpg" id="rover" alt="rover" />
 
@@ -192,7 +191,7 @@ function FrontPage() {
             <div className="textRover">Rover</div>
           </ContainerTextRover>
         </ZoneRover>
-
+        
         <ZoneGalerie>
           <TriangleGauche
             img
@@ -200,7 +199,6 @@ function FrontPage() {
             id="galerie"
             alt="galerie"
           />
-
           <ContainerTextGalerie>
             <div className="textGalerie">Galerie</div>
           </ContainerTextGalerie>

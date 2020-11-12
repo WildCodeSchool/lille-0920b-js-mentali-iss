@@ -16,15 +16,15 @@ const device = {
 
 const Mainfooter = styled.footer`
   width: 99.2vw;
-  height: auto;
+  height: 15vh;
   display: flex;
   align-items: center;
   background-color: #34263a;
-  padding: 4px 20px 4px 20px;
+  padding: 10px 20px 4px 20px;
   position: relative;
   bottom: 0;
   color: white;
-  line-height: 18px;
+  line-height: 20px;
   overflow-x: hidden;
   @media ${device.xs} {
     width: 100vw;
@@ -32,8 +32,7 @@ const Mainfooter = styled.footer`
   @media ${device.sm} {
     width: 100vw;
     height: 25vh;
-    }
-
+  }
 `;
 
 const Footcontainer = styled.div`
@@ -54,7 +53,7 @@ const Row = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+  }
 `;
 
 const Row2 = styled.div`
@@ -65,7 +64,7 @@ const Row2 = styled.div`
   height: 20%;
   @media ${device.xs} {
    display:none;
-}`;
+  }`;
 
 const Col1 = styled.div`
   text-align: justify;
@@ -74,7 +73,7 @@ const Col1 = styled.div`
   align-items: center;
   @media ${device.xs} {
     display: none;
-}`;
+  }`;
 
 const Col2 = styled.div`
   width: 20%;
@@ -85,7 +84,7 @@ const Col2 = styled.div`
    width: 100%;
    margin-top: 5px;
    margin-bottom: 10px;
-}`;
+  }`;
 
 const Col3 = styled.div`
   width: 20%;
@@ -97,50 +96,58 @@ const Col3 = styled.div`
    justify-content: center;
    align-items: center;
    width: 100vw;
-}
+  }
 `;
 
 const H4 = styled.h4`
   color: #fff;
   text-transform: uppercase;
   margin-top: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   letter-spacing: 2px;
+  font-size: 30px;
 `;
 
 const Textjustify = styled.p`
-  font-size: 12px;
+  font-size: 20px;
 `;
 
 const H4BIS = styled.h4`
-  font-size: 12px;
+  font-size: 30px;
+  margin-bottom: 15px; 
   @media ${device.xs} {
    font-size: 12px;
    margin-right: 5px;
    margin-bottom: 3px; 
-}`;
+  }`;
+
 const H4TER =styled.h4 `
+margin-bottom: 15px;
+font-size: 30px;
   @media ${device.xs} {
    font-size: 12px;
    margin-right: 5px;
    margin-bottom: 3px; 
-}`;
+  }`;
 
 const Footerlinks = styled.ul`
   padding-left: 0;
   list-style: none;
   @media ${device.xs} {
    text-align: center;
-}
+  }
 `;
 
 const Footlinks = styled.a`
-  font-size: 12px;
+  font-size: 20px;
   color: white;
   text-decoration: none;
   &:hover {
     color: #3366cc;
     text-decoration: none;
+  }
+  @media ${device.xs} {
+   font-size: 15px;
   }
 `;
 const Socialicons = styled.ul`
@@ -148,7 +155,7 @@ const Socialicons = styled.ul`
   @media ${device.xs} {
    display: flex;
    margin-top: 5px;
-}
+  }
 `;
 
 const SocialLi = styled.li`
@@ -177,8 +184,8 @@ const SocialA = styled.a`
    line-height: 20px;
    &:hover {
     background-color:"#FFF"
+    }
   }
-}
 `;
 
 const Fb = styled.img`

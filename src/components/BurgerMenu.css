@@ -8,13 +8,6 @@ body {
   height: 100vh;
 }
 
-#page-wrap {
-  text-align: center;
-  overflow: auto;
-  top: 45%;
-  position: relative;
-}
-
 .bm-item {
   display: inline-block;
 
@@ -33,13 +26,13 @@ body {
   position: fixed;
   width: 36px;
   height: 30px;
-  right: 36px;
-  top: 36px;
+  right: 25px;
+  top: 20px;
 }
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #373a47;
+  background: #feffff;
 }
 
 /* Position and sizing of clickable cross button */
@@ -73,4 +66,7 @@ body {
 /* Styling of overlay */
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
+}
+.bm-menu-wrap {
+   top : 0.5vh;
 }

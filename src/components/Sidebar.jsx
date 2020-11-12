@@ -1,26 +1,26 @@
 import React from "react";
 import { slide as Menu } from "react-burger-menu";
 
-function BurgerMenu(props) {
+function Sidebar(props) {
   return (
-    <Menu {...props}>
+    <Menu width={ 150 } {...props}>
       <a className="menu-item" href="/">
-        Home
+        ISS
       </a>
 
       <a className="menu-item" href="/about">
-        About
+        Gallery
       </a>
 
       <a className="menu-item" href="/services">
-        Services
+        Rover in Mars
       </a>
 
       <a className="menu-item" href="/contact">
-        Contact us
+        Contact
       </a>
     </Menu>
   );
 };
 
-export default BurgerMenu;
+export default Sidebar;

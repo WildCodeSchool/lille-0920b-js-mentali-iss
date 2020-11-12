@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import BurgerMenu from "./BurgerMenu";
-
+import BurgerMenu from"./BurgerMenu";
 
 const size = {
   xs: '320px',
@@ -14,7 +13,6 @@ const device = {
   sm: `(max-width: ${size.sm})`,
   lg: `(min-width: ${size.lg})`,
  };
-
 
 const Headercont = styled.header`
   position: absolute;
@@ -37,7 +35,8 @@ const Headercont = styled.header`
     width: 100vw;
     height: 12vh;
     }
-`;
+  `;
+
 const LogoMentali = styled.a`
   display: flex;
   justify-content: start;
@@ -48,8 +47,8 @@ const LogoMentali = styled.a`
   @media ${device.xs} {
     width: 80vw;;
     }
-
 `;
+
 const LogoISS = styled.img`
   width: 10vw;
   height: auto;
@@ -58,7 +57,7 @@ const LogoISS = styled.img`
   @media ${device.xs} {
   width: 15vw;
     }
-`;
+  `;
 
 const Brand = styled.h2`
   color: white;
@@ -99,10 +98,15 @@ const Navlink = styled.a`
   font-size: 25px;
   margin-right: 10px;
     }
-    @media ${device.sm} {
-    margin-right: 10px;
-    }
+  @media ${device.sm} {
+  margin-right: 10px;
+  }
 `;
+
+const Burger = styled.div `
+  @media ${device.lg} {
+  display: none
+    }`
 
 const Header = () => {
   return (
@@ -113,9 +117,9 @@ const Header = () => {
           <Brand>MENTAL-ISS</Brand>
         </LogoMentali>
       </div>
-      <div>
-
-      </div>
+      <Burger>
+         <BurgerMenu  />
+      </Burger>
       <Navbar>
         <Navlink href="#2">
           <li>ISS</li>
@@ -131,6 +135,7 @@ const Header = () => {
         </Navlink>
       </Navbar>
     </Headercont>
+
   );
 };
 

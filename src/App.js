@@ -1,20 +1,20 @@
 import "./reset.css";
 import "./App.css";
-import FrontPage from "./components/FrontPage";
-//import ViewISS from './components/ViewISS';
 import Header from "./components/Header";
+import FrontPage from "./components/FrontPage";
 import Footer from "./components/Footer";
-
 
 function App() {
   return (
-    <div className="page-container">
-      <Header />
-      <div id="content">
-        <FrontPage />
+    <body>
+      <div id="outer-container">
+        <Header />
+          <div id="page-wrap">
+          <FrontPage />
+          <Footer />
+          </div>
       </div>
-      <Footer />
-    </div>
+    </body>
   );
 }
 
