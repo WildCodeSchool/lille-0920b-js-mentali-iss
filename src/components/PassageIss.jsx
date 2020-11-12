@@ -3,15 +3,13 @@ import React, { Component } from "react";
 import axios from 'axios';
 import styled from "styled-components";
 import "dayjs/locale/fr";
+import L from 'leaflet';
+import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 
-import imageFondPred from '../assets/imageFondPred.jpg'
-import imageStarFond from '../assets/imageStarFond.jpg'
-import PlaceHolderMap from '../assets/PlaceHolderMap.JPG'
-import ImageObs  from '../assets/ImageObs.jpg'
-
-//https://nominatim.openstreetmap.org/search/Lille?format=json&addressdetails=1&limit=1
-
-
+import Lille from '../assets/Lille.png';
+import imageFondPred from '../assets/imageFondPred.jpg';
+import imageStarFond from '../assets/imageStarFond.jpg';
+import ImageObs  from '../assets/ImageObs.jpg';
 
 
 class PassageIss extends Component {
@@ -21,16 +19,26 @@ class PassageIss extends Component {
     this.handleChangeCity = this.handleChange.bind(this);
     this.handleSubmitCity = this.handleSubmit.bind(this);
     this.state = {
+      LilleIcon: {
+        lat: 0,
+        lng: 0,
+      },
+      zoom: 1.4,
+      haveUserLocation: false,
       lat: null,
       lng: null,
       ApiObject: [],
       City: [],
       ArrayCity : [],
       CityCheck : [],
-      Desgroupe : []
-
-      
+      Desgroupe : [],
         }
+        this.LilleIcon = L.icon({
+          iconUrl: Lille,
+          iconSize: [100, 100], // size of the icon
+          iconAnchor: [25, 25], // point of the icon which will correspond to marker's location
+          popupAnchor: [-3, -76] // When click, display message
+        });
   }
   // request city field for call "Nominatim"
 // pourquoi faut-il les binder en changeant leur nom ?
@@ -41,7 +49,6 @@ class PassageIss extends Component {
   handleSubmit(event) {
   //  console.log('La ville : ' + this.state.City);
     this.getCityLocation({ City:event.target.value});
-  
     event.preventDefault();
   }
 //--------------------------------------------------------------------------------------------------//
@@ -58,17 +65,15 @@ class PassageIss extends Component {
     this.getCityLocation.bind(this);
    
     const CityInput = this.state.City;
-  //  console.log(this.state.City)
     const UrlCity = `https://nominatim.openstreetmap.org/search/${CityInput}?format=json&limit=1`;
-    console.log(UrlCity)
     axios.get(UrlCity)
       .then(response => {
-   //     console.log(response.data);
       const ArrayCity = response.data[0];  
-      console.log(ArrayCity)
       const CityCheck = ArrayCity.display_name;
-      console.log(CityCheck)
-      this.setState({ lat: ArrayCity.lat, lng: ArrayCity.lon, CityCheck: CityCheck });
+      this.setState({ lat: ArrayCity.lat, lng: ArrayCity.lon, CityCheck: CityCheck,
+        LilleIcon: {lat: ArrayCity.lat, lng: ArrayCity.lon},
+        haveUserLocation : true, zoom: 50,
+       });
      this.getPrediction()
       })
 
@@ -82,7 +87,9 @@ class PassageIss extends Component {
 // give lat and long require by getPrediction function;
 getLocation(){
   navigator.geolocation.getCurrentPosition(position => {
-    this.setState({ lat: position.coords.latitude, lng: position.coords.longitude });
+    this.setState({ lat: position.coords.latitude, lng: position.coords.longitude, zoom: 50,
+      LilleIcon: {lat: position.coords.latitude, lng: position.coords.longitude},
+      haveUserLocation : true});
       this.getPrediction({ lat: position.coords.latitude, lng: position.coords.longitude });
     }, err => console.log(err,'Votre navigateur authorise-il la geolocalisation de votre appareil ?'));
 }
@@ -105,16 +112,13 @@ axios.get(url)
 .then(( res ) => {
   let ApiObject = res.data.response;
   console.log(ApiObject)
- 
  this.setState({ ApiObject: ApiObject})
  this.getConversion({ApiObject : ApiObject})
-
 }
 )   
 }
 getConversion(){
   this.getConversion.bind(this)
-  console.log(this.state.ApiObject)
 
   let uno = this.state.ApiObject[0].risetime*1000;
   let ein = new Date(uno);
@@ -145,15 +149,13 @@ getConversion(){
  
 this.setState({ Desgroupe : Desgroupe})  
 }
-
-
 componentWillUnmount(){
 console.log('componentWillUnmount')}
-  render() {
+  
+render() {
     
   const { ApiObject, CityCheck,  Desgroupe  } = this.state;
- // let a =  Desgroupe.splice(0, 4, 'GMT+0100 (heure normale d’Europe centrale'));
- // console.log(Desgroupe)
+ const positionLilleIcon = [this.state.LilleIcon.lat, this.state.LilleIcon.lng];
     return (
       
       <div >
@@ -169,7 +171,7 @@ console.log('componentWillUnmount')}
      
      <div> 
       <ContainerLocation> 
-      <UserInput>
+      <UserInput style={{marginTop:"3vh"}}>
        <LocalisationButton  
        onClick={this.getLocation}>Localize Me</LocalisationButton>
        
@@ -179,14 +181,25 @@ console.log('componentWillUnmount')}
          Or enter a city name : 
           <EnterACityName type="text" placeholder="Tananarive" value={this.state.City} onChange={this.handleChangeCity} required />
         </label>
-        <SubmitCity type="submit" value="Envoyer" />
+        <SubmitCity type="submit" value="Envoyer"/>
       </EnterCity>
       <VotrePosition > {this.state.lat} {this.state.lng}</VotrePosition>
         <CheckCity>{CityCheck} </CheckCity>
       </UserInput>
       <DisplayUserLocation> 
        
-        <Placeholder alt="Placeholcer Map"></Placeholder>
+      <Map className="map" center={positionLilleIcon} zoom={this.state.zoom}
+      style={{height:"50vh", width:"35vw", borderRadius:"10px"}}>
+        <TileLayer attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+          url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" />
+        {this.state.haveSateliteLocation &&
+          <Marker position={positionLilleIcon} icon={this.LilleIcon} >
+            <Popup>
+              Here we are
+            </Popup>
+          </Marker>
+        }
+      </Map>
         </DisplayUserLocation>
         </ContainerLocation>
         </div>
@@ -222,8 +235,7 @@ console.log('componentWillUnmount')}
         </PredContainer>
            <p>Bas de la page</p>
       </div>
-      
-    );
+        );
   }
    }
 export default PassageIss;
@@ -289,17 +301,9 @@ position: relative;
 position: relative;
   margin-bottom: 4vh;
   margin-top: 4vh;
-  width : 45vh;
+  width : 60vh;
   `
 
-  const Placeholder = styled.div`
-  position: relative;
-    width : 60vh;
-    height : 60vh;  
-    border-radius: 10px;
-background-image: url(${PlaceHolderMap});
-background-repeat: no-repeat;
-    `
 const LocalisationButton = styled.button`
 color: black; 
 fontsize: 10vh;
