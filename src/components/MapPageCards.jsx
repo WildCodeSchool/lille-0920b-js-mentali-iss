@@ -1,4 +1,4 @@
-import React, { useState, useEffect}  from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const Crewcards = styled.div 
@@ -83,36 +83,14 @@ const Learnmore = styled.a
     color: blue;
     }`
 
-function CrewCards ({nameAs, craft}) {
-
-const [people, setPeople] = useState("");
-console.log("component re-render")
-
-useEffect(() => {
-    getCrew(){
-        axios
-          .get('http://api.open-notify.org/astros.json')
-          .then((response) => response.data)
-          .then((data) => {
-            console.log(data.people)
-            setPeople({
-            people: data.people,
-            });
-          });
-        };
-    }
-);
-
-return (
-
-<Crewcards>
+const CrewCards = ({name, craft}) => (
+      <Crewcards>
         <Crewheader>
           <Astrophoto src="./photos/IvanWagner.jpg"  alt="Ivan Wagner" />
         </Crewheader>
         <Crewsection>
           <Astrotitle>
-            <Astroname>{people.map((name, index, craft) => (
-            {name}))}</Astroname>
+            <Astroname>{name} in {craft}</Astroname>
             <Astroflag src="./photos/Russia.png" alt="drapeau" />
           </Astrotitle>
           <Trait></Trait>
@@ -123,7 +101,6 @@ return (
              <Learnmore href="https://fr.wikipedia.org/wiki/Ivan_Vagner">Learn more ...</Learnmore>
         </Crewsection> 
       </Crewcards>
-)
-}
+    );
 
 export default CrewCards;
