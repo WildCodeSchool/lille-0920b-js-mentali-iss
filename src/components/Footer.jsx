@@ -9,7 +9,7 @@ const size = {
 
 const device = {
   xs: `(max-width: ${size.xs})`,
-  sm: `(min-width: ${size.sm})`,
+  sm: `(max-width: ${size.sm})`,
   lg: `(min-width: ${size.lg})`,
  };
 
@@ -26,6 +26,14 @@ const Mainfooter = styled.footer`
   color: white;
   line-height: 18px;
   overflow-x: hidden;
+  @media ${device.xs} {
+    width: 100vw;
+  }
+  @media ${device.sm} {
+    width: 100vw;
+    height: 25vh;
+    }
+
 `;
 
 const Footcontainer = styled.div`
@@ -42,7 +50,6 @@ const Row = styled.div`
   justify-content: space-between;
   width: 100%;
   height: 60%;
-  border: solid blue 1px;
   @media ${device.xs} {
     display: flex;
     flex-direction: column;
@@ -58,9 +65,7 @@ const Row2 = styled.div`
   height: 20%;
   @media ${device.xs} {
    display:none;
-}
-
-`;
+}`;
 
 const Col1 = styled.div`
   text-align: justify;
@@ -69,17 +74,17 @@ const Col1 = styled.div`
   align-items: center;
   @media ${device.xs} {
     display: none;
-}
-`;
+}`;
 
 const Col2 = styled.div`
   width: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: solid 1px blue;
   @media ${device.xs} {
    width: 100%;
+   margin-top: 5px;
+   margin-bottom: 10px;
 }`;
 
 const Col3 = styled.div`
@@ -87,6 +92,12 @@ const Col3 = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media ${device.xs} {
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   width: 100vw;
+}
 `;
 
 const H4 = styled.h4`
@@ -103,18 +114,21 @@ const Textjustify = styled.p`
 
 const H4BIS = styled.h4`
   font-size: 12px;
-  border: solid 2px red;
-`;
-const H4TER =styled.h4 `
-  border: solid 2px blue;
   @media ${device.xs} {
-   font-size: 8px;
+   font-size: 12px;
+   margin-right: 5px;
+   margin-bottom: 3px; 
+}`;
+const H4TER =styled.h4 `
+  @media ${device.xs} {
+   font-size: 12px;
+   margin-right: 5px;
+   margin-bottom: 3px; 
 }`;
 
 const Footerlinks = styled.ul`
   padding-left: 0;
   list-style: none;
-  border: solid 2px red;
   @media ${device.xs} {
    text-align: center;
 }
@@ -131,9 +145,9 @@ const Footlinks = styled.a`
 `;
 const Socialicons = styled.ul`
   margin-top: 15px;
-  border: solid 1px green;
   @media ${device.xs} {
    display: flex;
+   margin-top: 5px;
 }
 `;
 
@@ -157,19 +171,39 @@ const SocialA = styled.a`
   &:hover {
     background-color: darkblue;
   }
+  @media ${device.xs} {
+   width: 20px;
+   height: 20px;
+   line-height: 20px;
+   &:hover {
+    background-color:"#FFF"
+  }
+}
 `;
 
 const Fb = styled.img`
   width: 40px;
+  @media ${device.xs} {
+   width: 20px;
+}
 `;
 const Tweet = styled.img`
   width: 40px;
+  @media ${device.xs} {
+   width: 20px;
+}
 `;
 const Insta = styled.img`
   width: 40px;
+  @media ${device.xs} {
+   width: 20px;
+}
 `;
 const LinkDin = styled.img`
   width: 40px;
+  @media ${device.xs} {
+   width: 20px;
+}
 `;
 
 const Footer2 = () => {

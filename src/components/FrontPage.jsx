@@ -8,8 +8,8 @@ const size = {
 
 const device = {
   xs: `(max-width: ${size.xs})`,
-  sm: `(min-width: ${size.sm})`,
-  lg: `(min-width: ${size.lg})`,
+  sm: `(max-width: ${size.sm})`,
+  lg: `(max-width: ${size.lg})`,
  };
 
 
@@ -55,7 +55,9 @@ const TriangleDroit = styled.img`
   }
   @media ${device.xs} {
     position: relative;
+    margin-top: -2px;
     }
+
 `;
 
 const TriangleGauche = styled.img`
@@ -89,7 +91,11 @@ const ContainerTextISS = styled.div`
   @media ${device.xs} {
     position: absolute;
     top: 15vh;
-    right: 8vh;
+    right: 20vh;
+    font-size: 2em;
+    opacity: 100;
+    color: black;
+    font-weight: bold;
     }
 `;
 
@@ -110,6 +116,10 @@ const ContainerTextRover = styled.div`
     position: absolute;
     top: 50vh;
     left: 30vh;
+    font-size: 2em;
+    opacity: 100;
+    color:black;
+    font-weight: bold;
     }
 `;
 
@@ -130,6 +140,10 @@ const ContainerTextGalerie = styled.div`
     position: absolute;
     top: 80vh;
     left: 30vh;
+    font-size: 2em;
+    opacity: 100;
+    color:white;
+    font-weight: bold;
   }
 `;
 

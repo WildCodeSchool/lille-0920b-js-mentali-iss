@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import BurgerMenu from "./BurgerMenu";
+
 
 const size = {
   xs: '320px',
@@ -9,7 +11,7 @@ const size = {
 
 const device = {
   xs: `(max-width: ${size.xs})`,
-  sm: `(min-width: ${size.sm})`,
+  sm: `(max-width: ${size.sm})`,
   lg: `(min-width: ${size.lg})`,
  };
 
@@ -28,6 +30,13 @@ const Headercont = styled.header`
   position: sticky;
   z-index: 10000;
   overflow-x: hidden;
+  @media ${device.xs} {
+    width: 100vw;
+    }
+  @media ${device.sm} {
+    width: 100vw;
+    height: 12vh;
+    }
 `;
 const LogoMentali = styled.a`
   display: flex;
@@ -35,15 +44,20 @@ const LogoMentali = styled.a`
   align-items: center;
   text-decoration: none;
   width: 40vw;
-  height: auto;
-  border: solid 2px red;
-  
+  height: auto; 
+  @media ${device.xs} {
+    width: 80vw;;
+    }
+
 `;
 const LogoISS = styled.img`
-  width: 9vw;
+  width: 10vw;
   height: auto;
   margin: 10px 20px 10px 10px;
   text-decoration: none;
+  @media ${device.xs} {
+  width: 15vw;
+    }
 `;
 
 const Brand = styled.h2`
@@ -52,9 +66,12 @@ const Brand = styled.h2`
   &:hover {
     color: #3366cc;
     text-decoration: none;
-  }
+  };
   @media ${device.xs} {
     font-size: 10px;
+    }
+  @media ${device.sm} {
+    font-size: 25px;;
     }`;
 
 const Navbar = styled.ul`
@@ -68,8 +85,7 @@ const Navbar = styled.ul`
   background-color: #34263a;
   @media ${device.xs} {
     display: none;
-}
-`;
+  }`;
 
 const Navlink = styled.a`
   text-decoration: none;
@@ -79,15 +95,26 @@ const Navlink = styled.a`
     color: #3366cc;
     text-decoration: none;
   }
+  @media ${device.sm} {
+  font-size: 25px;
+  margin-right: 10px;
+    }
+    @media ${device.sm} {
+    margin-right: 10px;
+    }
 `;
+
 const Header = () => {
   return (
     <Headercont>
       <div className="logo-iss">
         <LogoMentali href="#1">
-          <LogoISS src="/photos/logoISS.jpg" alt="logo" />
+          <LogoISS src="/photos/world.png" alt="logo" />
           <Brand>MENTAL-ISS</Brand>
         </LogoMentali>
+      </div>
+      <div>
+
       </div>
       <Navbar>
         <Navlink href="#2">
