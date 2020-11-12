@@ -6,6 +6,20 @@ import axios from "axios";
 import styled from "styled-components";
 import ReactPlayer from "react-player";
 
+
+const size = {
+  xs: '320px',
+  sm: '768px',
+  lg: '1200px',
+ };
+
+const device = {
+  xs: `(max-width: ${size.xs})`,
+  sm: `(max-width: ${size.sm})`,
+  lg: `(min-width: ${size.lg})`,
+ };
+
+
 const FondTitle1 = styled.div`
   position: relative;
   margin-top: 4vh;
@@ -63,9 +77,12 @@ const Trait2 = styled.div`
 
 const VideoLive = styled.div`
   width: 50vw;
-  margin-left: 29vw;
-
+  margin-left: 38vw;
   margin-top: 4vh;
+  @media ${device.xs} {
+    width: 1vw;
+    margin-left: 2vw
+    }
 `;
 
 const ImgContainerButton = styled.div`
@@ -75,11 +92,12 @@ const ImgContainerButton = styled.div`
   flex-wrap: wrap;
   margin-top: 8vh;
   margin-bottom: 4vh;
+  margin-left: 5vw;
 `;
 
 const ImgButton = styled.img`
-  height: 40vh;
-  width: 40vw;
+  height: 30vh;
+  width: 30vw;
   border: 1px solid grey;
   border-radius: 10px;
 `;
@@ -170,6 +188,7 @@ class ViewISS extends Component {
             <Marker position={positionSatIcon} icon={this.SatIcon}></Marker>
           )}
         </Map>
+
 
         <VideoLive>
           <ReactPlayer
