@@ -205,19 +205,20 @@ console.log('componentWillUnmount')}
       
       <RisetimeContainer>
       {Desgroupe.map((tem) => 
-        {return <p style={{backgroundColor:"blue",paddingTop:'3vh',  marginTop: "5vh", marginBottom: "8vh", width: "70vw", height: "5vh"}}
+        {return <p style={{paddingLeft : '7vw', backgroundColor:"darkblue",paddingTop:'3vh',  marginTop: "5vh", marginBottom: "8vh", width: "70vw", height: "5vh"}}
         key={tem}>
          {tem} </p>
         })} 
         </RisetimeContainer>
-        
+        <DurationContainerDecalage>
         <DurationContainer>
         {ApiObject.map((result) =>{
-          return <p  key={result.duration} style={{backgroundColor:"black",paddingTop:'3vh',  marginTop: "5vh", width: "70vw", height: "5vh"}}> 
+          return <p  key={result.duration} style={{backgroundColor:"black",paddingTop:'3vh',  marginTop: "8vh", width: "30vw", height: "5vh"}}> 
           Visible pendant {Math.floor((result.duration)/60)}
           m'{Math.round((result.duration)%60)}s'</p>
         })}
         </DurationContainer>
+        </DurationContainerDecalage>
         </PredContainer>
            <p>Bas de la page</p>
       </div>
@@ -274,7 +275,6 @@ const ContainerLocation =  styled.div`
 position: relative;
   margin-left: 5vw;
   margin-right: 5vw;
-  border: solid 2px green;
   display: grid;
   grid-template-columns: auto auto;
   `
@@ -383,14 +383,18 @@ const PredContainer = styled.div`
 const RisetimeContainer = styled.div`
   position: relative;
   width : 30vh;
-  margin-left : 15vw;  
+  margin-left : 11vw;  
   color : white;
   font-size: 3vh;
 `;
+const DurationContainerDecalage = styled.div `
+position: relative;
+margin-top: 5vh;
+margin-left: 20vw;
+font-size: 3vh;
+`
 const DurationContainer = styled.div`
   position: relative;
-  margin-top: 8vh;
-  margin-bottom: 4vh;
   width : 30vh;
   color : white;
 `;
