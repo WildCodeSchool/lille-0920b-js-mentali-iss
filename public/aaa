@@ -1,0 +1,29 @@
+ let dos = this.state.ApiObject[1].risetime;
+  let zwei = new Date(dos* 1e3);
+  console.log(zwei)
+  let tres = this.state.ApiObject[2].risetime;
+  let drei = new Date(tres* 1e3);
+  console.log(drei)
+  let quatro = this.state.ApiObject[3].risetime;
+  let vier = new Date(quatro* 1e3);
+  console.log(vier)
+  let cinco = this.state.ApiObject[4].risetime;
+  let funf = new Date(cinco* 1e3);
+  console.log(funf)
+
+  let dos = this.state.ApiObject[1].risetime;
+  let zwei = new Date(dos* 1e3);
+  console.log(zwei)
+  let tres = this.state.ApiObject[2].risetime;
+  let drei = new Date(tres* 1e3);
+  console.log(drei)
+  let quatro = this.state.ApiObject[3].risetime;
+  let vier = new Date(quatro* 1e3);
+  console.log(vier)
+  let cinco = this.state.ApiObject[4].risetime;
+  let funf = new Date(cinco* 1e3);
+  console.log(funf)
+  const groupe = ein + zwei + drei + vier + funf;
+  console.log(groupe)
+  const DeGroupage =  groupe.split('+', 5);
+  console.log(DeGroupage)

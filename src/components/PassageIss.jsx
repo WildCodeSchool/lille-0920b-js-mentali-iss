@@ -6,17 +6,16 @@
 //https://www.password-generator-tool.com/unix-timestamp-convert-timestamp   about Unix time to Human time
 import React, { Component } from "react";
 import axios from 'axios';
-import Moment from 'react-moment';
-import 'moment-timezone';
-import 'moment/locale/fr';
 import styled from "styled-components";
+import "dayjs/locale/fr";
+
 
 const Form =  styled.div`
 position: relative;
 margin-top: 40vh;
 margin-bottom: 40vh;
-margin-left: 30vw;
-margin-right: 30vw;
+margin-left: 20vw;
+margin-right: 20vw;
 
 `;
 const PredContainer = styled.div`
@@ -30,18 +29,19 @@ const DurationContainer = styled.div`
   margin-top: 4vh;
   margin-bottom: 4vh;
   width : 30vh;
-  flex: wrap;
+  
 `;
 const RisetimeContainer = styled.div`
   position: relative;
   margin-top: 4vh;
   margin-bottom: 4vh;
-  width : 35vh;
-  flex: wrap;
+  width : 70vh;
+ 
 `;
 //https://nominatim.openstreetmap.org/search/Lille?format=json&addressdetails=1&limit=1
 
-Moment.globalLocal = true;
+
+
 
 class PassageIss extends Component {
   constructor(props) {
@@ -53,14 +53,16 @@ class PassageIss extends Component {
       lat: null,
       lng: null,
       ApiObject: [],
-      ConsoleDuration:[],
-      ConsoleRisetime:[],
       City: [],
       ArrayCity : [],
-      CityCheck : []
+      CityCheck : [],
+      Desgroupe : []
+
       
         }
   }
+  // request city field for call "Nominatim"
+// pourquoi faut-il les binder en changeant leur nom ?
   handleChange(event) {
     this.setState({City: event.target.value});
   }
@@ -71,6 +73,15 @@ class PassageIss extends Component {
   
     event.preventDefault();
   }
+//--------------------------------------------------------------------------------------------------//
+//use getcityLocation function to call "Nominatim";
+//Nominatim is an API which used OpenStreetMap to find locations on earth name;
+//API get 3 data : lat, long and city check;
+//lat and long update the state;
+//lat and long are require to the callbackfunction "get Prediction";
+//citycheck const is use to get feedback for user when submit button is on;
+//find a json object to view Lille data : https://nominatim.openstreetmap.org/search/Lille?format=json&addressdetails=1&limit=1
+//pourquoi la binder dans la fonction ?
 
   getCityLocation(){ 
     this.getCityLocation.bind(this);
@@ -86,17 +97,32 @@ class PassageIss extends Component {
       console.log(ArrayCity)
       const CityCheck = ArrayCity.display_name;
       console.log(CityCheck)
-     
       this.setState({ lat: ArrayCity.lat, lng: ArrayCity.lon, CityCheck: CityCheck });
      this.getPrediction()
       })
+
   }
+  //----------------------------------------------------------------------------------------------//
+
+// use getLocation function to call browser localisation pop-up;
+// getLocation call getCurrentPosition function;
+// getCurrentPosition function is use to :
+// update lat and long state;
+// give lat and long require by getPrediction function;
 getLocation(){
   navigator.geolocation.getCurrentPosition(position => {
     this.setState({ lat: position.coords.latitude, lng: position.coords.longitude });
       this.getPrediction({ lat: position.coords.latitude, lng: position.coords.longitude });
     }, err => console.log(err,'Votre navigateur authorise-il la geolocalisation de votre appareil ?'));
 }
+//-------------------------------------------------------------------------------------------------//
+
+//getPrediction function is use to :
+//call lat and long state and keep it on 2 let "latitude" & "longitude"
+//update the state of apiPredicition object;
+//needs to explain the update apiPrediction state ?????
+//call open-notify API to have ISS predictions :
+// dates, duration, visibility,
    getPrediction(){ 
     this.getPrediction.bind(this);
 let latitude = this.state.lat;
@@ -107,25 +133,60 @@ const url = this.state.apiPrediction;
 axios.get(url)
 .then(( res ) => {
   let ApiObject = res.data.response;
+  console.log(ApiObject)
+ 
+ this.setState({ ApiObject: ApiObject})
+ this.getConversion({ApiObject : ApiObject})
 
-  
- this.setState({ ApiObject: ApiObject })
 }
      )   
+}
+getConversion(){
+  this.getConversion.bind(this)
+  console.log(this.state.ApiObject)
+
+  let uno = this.state.ApiObject[0].risetime*1000;
+  let ein = new Date(uno);
+  let un = ein.toLocaleString('en-GB');
+   console.log(un);
+  let dos = this.state.ApiObject[1].risetime*1000;
+  let zwei = new Date(dos);
+  let deux = zwei.toLocaleString('en-US');
+  console.log(deux)
+
+  let tres = this.state.ApiObject[2].risetime*1000;
+  let drei = new Date(tres);
+  let trois = drei.toLocaleString('en-US');
+  console.log(trois)
+
+  let quatro = this.state.ApiObject[3].risetime*1000;
+  let vier = new Date(quatro);
+  let quattre = vier.toLocaleString('en-US');
+  console.log(quattre)
+
+  let cinco = this.state.ApiObject[4].risetime*1000;
+  let funf = new Date(cinco);
+  let cinq = funf.toLocaleString('en-US');
+  console.log(cinq)
+  let groupe = un + '+' + deux +'+'+ trois +'+'+ quattre+ '+' + cinq ;
+  var Desgroupe = groupe.split('+');
+ console.log(Desgroupe)
+ 
+this.setState({ Desgroupe : Desgroupe})  
 }
 
 
 componentWillUnmount(){
 console.log('componentWillUnmount')}
   render() {
-  
-   const { ApiObject, CityCheck} = this.state;
-   
-
-   
+    
+  const { ApiObject, CityCheck,  Desgroupe  } = this.state;
+ // let a =  Desgroupe.splice(0, 4, 'GMT+0100 (heure normale d’Europe centrale'));
+ // console.log(Desgroupe)
     return (
       
       <div >
+      
       <Form > 
       <form onSubmit={this.handleSubmitCity}>
         <label  style={{color:"white"}}>
@@ -140,19 +201,25 @@ console.log('componentWillUnmount')}
        onClick={this.getLocation}>Localisation</button>
         <p  style={{color:"white"}}>Notre position Latitude: {this.state.lat}</p>
         <p  style={{color:"white"}}>Notre position Longitude: {this.state.lng}</p>
-      <PredContainer>
         
+        
+     
+     
+      <PredContainer>
+       
+
       <RisetimeContainer>
-        {ApiObject.map((temps) => 
-        {return <Moment style={{color:"white", fontsize: '5vh', marginRight:'20vw'}} format={`MM-DD-YYYY${" à "}hh:mm`}
-         locale="fr"  className="a" unix key={temps.risetime}>
-         {temps.risetime}</Moment>
+   
+      {Desgroupe.map((tem) => 
+        {return <p style={{color:"white", fontsize: '5vh', marginTop:'5vw'}}
+        key={tem}>
+         {tem} </p>
         })} 
         </RisetimeContainer>
         
         <DurationContainer>
         {ApiObject.map((result) =>{
-          return <p  style={{color:"white"}} key={result.duration} > 
+          return <p style={{color:"white", fontsize: '5vh', marginTop:'5vw'}} key={result.duration} > 
           Visible pendant {Math.floor((result.duration)/60)}
           m'{Math.round((result.duration)%60)}s'</p>
         })}
