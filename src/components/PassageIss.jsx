@@ -1,43 +1,14 @@
-//http://open-notify.org/Open-Notify-API/ISS-Pass-Times/
-//The API returns a list of upcoming ISS passes for a particular location formatted as JSON.
-//As input it expects a latitude/longitude pair, altitude and how many results to return. All fields are required.
-//As output you get the same inputs back (for checking) and a time stamp when the API ran in addition to a success or failure message and a list of passes. Each pass has a duration in seconds and a rise time as a unix time stamp.
 
-//https://www.password-generator-tool.com/unix-timestamp-convert-timestamp   about Unix time to Human time
 import React, { Component } from "react";
 import axios from 'axios';
 import styled from "styled-components";
 import "dayjs/locale/fr";
 
+import imageFondPred from '../assets/imageFondPred.jpg'
+import imageStarFond from '../assets/imageStarFond.jpg'
+import PlaceHolderMap from '../assets/PlaceHolderMap.JPG'
+import ImageObs  from '../assets/ImageObs.jpg'
 
-const Form =  styled.div`
-position: relative;
-margin-top: 40vh;
-margin-bottom: 40vh;
-margin-left: 20vw;
-margin-right: 20vw;
-
-`;
-const PredContainer = styled.div`
-
-  display: grid;
-  grid-template-columns: auto auto;
-  
-`;
-const DurationContainer = styled.div`
-  position: relative;
-  margin-top: 4vh;
-  margin-bottom: 4vh;
-  width : 30vh;
-  
-`;
-const RisetimeContainer = styled.div`
-  position: relative;
-  margin-top: 4vh;
-  margin-bottom: 4vh;
-  width : 70vh;
- 
-`;
 //https://nominatim.openstreetmap.org/search/Lille?format=json&addressdetails=1&limit=1
 
 
@@ -89,7 +60,7 @@ class PassageIss extends Component {
     const CityInput = this.state.City;
   //  console.log(this.state.City)
     const UrlCity = `https://nominatim.openstreetmap.org/search/${CityInput}?format=json&limit=1`;
-   // console.log(UrlCity)
+    console.log(UrlCity)
     axios.get(UrlCity)
       .then(response => {
    //     console.log(response.data);
@@ -139,7 +110,7 @@ axios.get(url)
  this.getConversion({ApiObject : ApiObject})
 
 }
-     )   
+)   
 }
 getConversion(){
   this.getConversion.bind(this)
@@ -186,32 +157,55 @@ console.log('componentWillUnmount')}
     return (
       
       <div >
+      <ImgHeadContainer> 
+      <ImageSecondHeader alt="Beautifool evening picture"/>
+      <HeadTitle>De chez vous observez l'ISS</HeadTitle>
+      </ImgHeadContainer>
       
-      <Form > 
-      <form onSubmit={this.handleSubmitCity}>
-        <label  style={{color:"white"}}>
-          Your City :
-          <input type="text" value={this.state.City} onChange={this.handleChangeCity} required />
-        </label>
-        <input type="submit" value="Envoyer" />
-      </form>
-        <p  style={{color:"white"}}>{CityCheck}</p>
-
-       <button style={{color:"red", fontsize: '5vh', marginTop:'7vw'}} 
-       onClick={this.getLocation}>Localisation</button>
-        <p  style={{color:"white"}}>Notre position Latitude: {this.state.lat}</p>
-        <p  style={{color:"white"}}>Notre position Longitude: {this.state.lng}</p>
-        
-        
+      <ImgStarsContainer > 
+      <ImageStars alt="Dark sky full of stars"/>
+      <TitleForm>Selectionnez votre spot d'observation !</TitleForm>
+      </ImgStarsContainer>
      
+     <div> 
+      <ContainerLocation> 
+      <UserInput>
+       <LocalisationButton  
+       onClick={this.getLocation}>Localize Me</LocalisationButton>
+       
+        <TitleCityForm>Your City :</TitleCityForm>
+        <EnterCity onSubmit={this.handleSubmitCity}>
+        <label  style={{color:"black"}}>
+         Or enter a city name : 
+          <EnterACityName type="text" placeholder="Tananarive" value={this.state.City} onChange={this.handleChangeCity} required />
+        </label>
+        <SubmitCity type="submit" value="Envoyer" />
+      </EnterCity>
+      <VotrePosition > {this.state.lat} {this.state.lng}</VotrePosition>
+        <CheckCity>{CityCheck} </CheckCity>
+      </UserInput>
+      <DisplayUserLocation> 
+       
+        <Placeholder alt="Placeholcer Map"></Placeholder>
+        </DisplayUserLocation>
+        </ContainerLocation>
+        </div>
+        <ImgStarsContainer> 
+        <ImageStars alt="Dark sky full of stars"/>
+
+        <TitleHowObs>How to observe it ? </TitleHowObs>
+        <ImgHowObs alt="Picture helping understand how to observe ISS"/>
+        </ImgStarsContainer>
+        <ImgStarsContainer > 
+      <ImageStars alt="Dark sky full of stars"/>
+      <TitleForm>Prochaine observation possibles</TitleForm>
+      </ImgStarsContainer>
      
       <PredContainer>
-       
-
+      
       <RisetimeContainer>
-   
       {Desgroupe.map((tem) => 
-        {return <p style={{color:"white", fontsize: '5vh', marginTop:'5vw'}}
+        {return <p style={{backgroundColor:"blue",paddingTop:'3vh',  marginTop: "5vh", marginBottom: "8vh", width: "70vw", height: "5vh"}}
         key={tem}>
          {tem} </p>
         })} 
@@ -219,16 +213,184 @@ console.log('componentWillUnmount')}
         
         <DurationContainer>
         {ApiObject.map((result) =>{
-          return <p style={{color:"white", fontsize: '5vh', marginTop:'5vw'}} key={result.duration} > 
+          return <p  key={result.duration} style={{backgroundColor:"black",paddingTop:'3vh',  marginTop: "5vh", width: "70vw", height: "5vh"}}> 
           Visible pendant {Math.floor((result.duration)/60)}
           m'{Math.round((result.duration)%60)}s'</p>
         })}
         </DurationContainer>
         </PredContainer>
-        </Form>
+           <p>Bas de la page</p>
       </div>
       
     );
   }
    }
 export default PassageIss;
+
+const ImgHeadContainer = styled.div`
+  position: relative;
+   `
+
+
+const ImageSecondHeader = styled.div`
+background-image: url(${imageFondPred});
+width: 100vw;
+height: 70vh;
+background-repeat: no-repeat;`
+
+const HeadTitle = styled.h1`
+margin-top: 0vh;
+ position: absolute;
+ text-align: center;
+ font-size: 4vw;
+ bottom: 35vh;
+  right: 22vw;
+  left: 22vw;
+  color: white;
+  `
+  const ImgStarsContainer = styled.div`
+  position: relative;
+   `
+const ImageStars = styled.div`
+border: 1px solid #000;
+background-image: url(${imageStarFond});
+width: 100vw;
+height: 15vh;
+background-repeat: no-repeat;`
+
+const TitleForm = styled.h3`
+margin-top: 0vh;
+ position: absolute;
+ font-size: 3vw;
+ bottom: 5vh;
+  right: 48vw;
+  left: 5vw;
+  color: white;
+  text-decoration: underline;
+  `
+  
+  
+const ContainerLocation =  styled.div`
+position: relative;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  border: solid 2px green;
+  display: grid;
+  grid-template-columns: auto auto;
+  `
+
+const UserInput = styled.div`
+position: relative;
+  margin-bottom: 4vh;
+  width : 45vh;
+  `
+ 
+  const DisplayUserLocation = styled.div`
+position: relative;
+  margin-bottom: 4vh;
+  margin-top: 4vh;
+  width : 45vh;
+  `
+
+  const Placeholder = styled.div`
+  position: relative;
+    width : 60vh;
+    height : 60vh;  
+    border-radius: 10px;
+background-image: url(${PlaceHolderMap});
+background-repeat: no-repeat;
+    `
+const LocalisationButton = styled.button`
+color: black; 
+fontsize: 10vh;
+margin-left: 15vw;
+margin-right: 15vw;
+margin-top: 1vw;
+margin-bottom: 1vw;
+width : 12vw;
+height : 5vh;
+border-radius: 10px;
+`
+
+ const TitleCityForm = styled.h4`
+ margin-top: 1vh;
+ margin-left: 21vh;
+ position: relative;
+ font-size: 2vw;
+  color: white;
+  width : 15vw
+    ` 
+const EnterCity= styled.form`
+margin-top: 1vh;
+margin-left: 10vw;
+margin-right: 10vw;
+margin-bottom: 1vw;
+width : 30vw; `
+const EnterACityName= styled.input`
+height: 4vh;
+width:25vw; `
+
+const SubmitCity=styled.input`
+height: 4vh; 
+width: 7vw;
+margin-top: 2vh;
+margin-left:19vw;
+border-radius: 7px; 
+`
+const VotrePosition= styled.p`
+color: white; 
+fontsize: 5vh;
+margin-left: 10vw;
+margin-right: 10vw;
+margin-top: 1vw;
+margin-bottom: 1vw;
+width : 30vw;
+`
+const CheckCity= styled.p`
+color: white; 
+fontsize: 5vh;
+margin-left: 10vw;
+margin-right: 10vw;
+margin-top: 1vw;
+margin-bottom: 1vw;
+width : 30vw;` 
+
+
+const TitleHowObs = styled.h3`
+
+ position: relative;
+ font-size: 3vw;
+ bottom: 11vh;
+ width: 70vw;
+  right: 5vw;
+  left: 65vw;
+  color: white;
+  text-decoration: underline;
+  `
+const ImgHowObs = styled.div `
+background-image: url(${ImageObs});
+width: 50vw;
+height: 50vh;
+margin-left: 25vw;
+margin-right: 25vw;
+background-repeat: no-repeat;`
+
+const PredContainer = styled.div`
+
+  display: grid;
+  grid-template-columns: auto auto; 
+`
+const RisetimeContainer = styled.div`
+  position: relative;
+  width : 30vh;
+  margin-left : 15vw;  
+  color : white;
+  font-size: 3vh;
+`;
+const DurationContainer = styled.div`
+  position: relative;
+  margin-top: 8vh;
+  margin-bottom: 4vh;
+  width : 30vh;
+  color : white;
+`;
