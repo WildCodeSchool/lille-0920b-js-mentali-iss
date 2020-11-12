@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <body>
+  
       <div id="outer-container">
         <Header />
           <div id="page-wrap">
@@ -14,7 +14,6 @@ function App() {
           <Footer />
           </div>
       </div>
-    </body>
   );
 }
 
