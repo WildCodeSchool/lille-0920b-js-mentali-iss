@@ -24,6 +24,10 @@ const FondTitle1 = styled.div`
   position: relative;
   margin-top: 4vh;
   margin-bottom: 4vh;
+  @media ${device.xs} {
+    font-size: 1em;
+    margin-bottom: 55px;
+    }
 `;
 
 const FondImage = styled.img`
@@ -36,6 +40,10 @@ const Title = styled.h1`
   position: absolute;
   top: 2vh;
   left: 1.5vw;
+  @media ${device.xs} {
+    font-size: 1.5em;
+    margin-bottom: 55px;
+    }
 `;
 
 const Trait = styled.div`
@@ -62,7 +70,13 @@ const Title2 = styled.h1`
   font-size: 2.5em;
   position: absolute;
   top: 2vh;
-  right: 1.5vw;
+  width: 90%;
+  text-align: right;
+  border: solid 2px blue;
+  @media ${device.xs} {
+    font-size: 1.5em;
+   text-align: left;
+    }
 `;
 
 const Trait2 = styled.div`
@@ -73,15 +87,23 @@ const Trait2 = styled.div`
   top: 8vh;
   right: 0;
   z-index: 5;
+  @media ${device.xs} {
+    left:0;
+    }
 `;
 
 const VideoLive = styled.div`
-  width: 50vw;
-  margin-left: 38vw;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 100;
+  display: flex;
+  justify-content: center;
   margin-top: 4vh;
   @media ${device.xs} {
-    width: 1vw;
-    margin-left: 2vw
+    width: 70%;
+    height: 50%;
+    margin-left: 15vw;
+    justify-content: center;
     }
 `;
 
@@ -92,7 +114,6 @@ const ImgContainerButton = styled.div`
   flex-wrap: wrap;
   margin-top: 8vh;
   margin-bottom: 4vh;
-  margin-left: 5vw;
 `;
 
 const ImgButton = styled.img`
@@ -100,6 +121,10 @@ const ImgButton = styled.img`
   width: 30vw;
   border: 1px solid grey;
   border-radius: 10px;
+  @media ${device.xs} {
+    width: 50%;
+    height: 50%;
+    }
 `;
 
 const Centered = styled.div`
@@ -109,7 +134,15 @@ const Centered = styled.div`
   transform: translate(-50%, -50%);
   color: azure;
   font-size: 4em;
+  @media ${device.xs} {
+    width: 70%;
+    height: 70%;
+    font-size: 1.8em;
+    }
 `;
+
+
+
 
 const ISS_URL = "http://api.open-notify.org/iss-now.json";
 
@@ -167,6 +200,7 @@ class ViewISS extends Component {
           <Title>Iss Live Position </Title>
           <Trait></Trait>
         </FondTitle1>
+        
         <Map
           style={{
             width: "70vw",
@@ -174,6 +208,7 @@ class ViewISS extends Component {
             margin: "auto",
             position: "center",
           }}
+
           className="map"
           center={[0, 0]}
           zoom={2.4}
@@ -188,6 +223,7 @@ class ViewISS extends Component {
             <Marker position={positionSatIcon} icon={this.SatIcon}></Marker>
           )}
         </Map>
+ 
 
 
         <VideoLive>

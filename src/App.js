@@ -16,13 +16,22 @@ const Pagecontainer = styled.div`
   height: auto;
 `;
 
+const CardsContainer= styled.div `
+      border: solid 2px blue;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      `;
+
 function App() {
   return (
     <Pagecontainer>
       <Header />
       <MyCarousel />
       <ViewISS />
-      <InSpace />
+      <CardsContainer>
+        <InSpace />
+      </CardsContainer>
       <Footer />
     </Pagecontainer>
   );

@@ -1,8 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Crewcards = styled.div 
-   ` display: flex;
+
+const size = {
+    xs: '320px',
+    sm: '768px',
+    lg: '1200px',
+   };
+  
+  const device = {
+    xs: `(max-width: ${size.xs})`,
+    sm: `(max-width: ${size.sm})`,
+    lg: `(min-width: ${size.lg})`,
+   };
+  
+const Crewcards = styled.div ` 
+display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -13,36 +26,45 @@ const Crewcards = styled.div
     margin: 100px 350px 100px 350px;
     padding: 10px 10px 10px 10px;
     border: solid 6px black;
-    background-color: rgb(53, 52, 52);`
+    background-color: rgb(53, 52, 52);
+    @media ${device.xs} {
+        width: 4vw;
+        }`;
 
-const Crewheader = styled.header 
-    `display: flex;
+const Crewheader = styled.header `
+    display: flex;
     justify-content: center;
     position: relative;
     width: 35%;
     height: auto;
     border-radius: 20px;
-    border: solid 2px white;`
+    border: solid 2px white;
+    @media ${device.xs} {
+        width: 5%;
+        }`;
 
-const Astrophoto = styled.img
-    ` width: 100%;
+const Astrophoto = styled.img` 
+width: 100%;
      height: 100%;
      border-radius: 20px;
      filter: saturate(1);
      &:hover {
          filter: grayscale(100);
-     }`;
+     }
+     @media ${device.xs} {
+        display: none
+        }`;
 
-const Crewsection = styled.section
-     `display: flex;
+const Crewsection = styled.section`
+    display: flex;
      flex-direction: column;
      width: 63%;
      height: auto;
      align-items: center;
          `
 
-const Astrotitle = styled.div 
-   `display: flex;
+const Astrotitle = styled.div `
+    display: flex;
     flex-wrap: wrap;
      width: 95%;
     height: auto;
@@ -51,31 +73,38 @@ const Astrotitle = styled.div
     margin-top: 20px;
     padding: 5px 5px 5px 5px;`
 
-const Astroname = styled.h2
-    `text-align: center;
+const Astroname = styled.h2`
+    text-align: center;
     font-size: 28px;
     color: white;
     `;
-const Astroflag = styled.img
-    `width: 100px;
-    height: 50px;`;
+const Astroflag = styled.img`
+    width: 100px;
+    height: 50px;
+    @media ${device.xs} {
+        width: 10px;
+        height: 10px;
+        }`;
 
-const Trait = styled.hr
-    ` width: 100%;
+const Trait = styled.hr` 
+    width: 100%;
      margin-top: 20px;
      border: solid 2px white;`
 
-const P = styled.p 
-   ` width: 100%;
+const P = styled.p ` 
+    width: 100%;
     font-size: 20px;
     height: auto;
     text-align: justify;
     margin-top: 60px;
     margin-bottom: 20px;
-    color: white;`
+    color: white;
+    @media ${device.xs} {
+        display: none
+        }`
 
-const Learnmore = styled.a
-   ` width: 100%;
+const Learnmore = styled.a` 
+    width: 100%;
     text-align: end;
     margin-top: 10px;
     margin-bottom: 10px;
