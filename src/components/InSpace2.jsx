@@ -1,5 +1,4 @@
 import React from 'react';
-//import styled from 'styled-components';
 import MapPageCards2 from './MapPageCards2';
 
 class InSpace2 extends React.Component {
