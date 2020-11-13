@@ -141,7 +141,7 @@ class GaleriePage extends Component {
             </FondTitre2>
           </Title2>
         </Textcolor>
-        <ChooseADate /> //*On appelle le composant pour la 2eme partie
+        <ChooseADate />
       </Page>
     );
   }
