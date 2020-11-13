@@ -72,7 +72,6 @@ const Title2 = styled.h1`
   top: 2vh;
   width: 90%;
   text-align: right;
-  border: solid 2px blue;
   @media ${device.xs} {
     font-size: 1.5em;
    text-align: left;

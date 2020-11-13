@@ -23,12 +23,13 @@ const Crewcards = styled.div `
     width: 35vw;
     height: auto;
     border-radius: 20px;
-    margin: 100px 350px 100px 350px;
+    margin: 10px 10px 10px 50px;
     padding: 10px 10px 10px 10px;
     border: solid 6px black;
     background-color: rgb(53, 52, 52);
     @media ${device.xs} {
-        width: 4vw;
+        width: 150%;
+        margin : 10px 10px 10px 10px;
         }`;
 
 const Crewheader = styled.header `
@@ -40,7 +41,7 @@ const Crewheader = styled.header `
     border-radius: 20px;
     border: solid 2px white;
     @media ${device.xs} {
-        width: 5%;
+        display: none;
         }`;
 
 const Astrophoto = styled.img` 
@@ -61,17 +62,22 @@ const Crewsection = styled.section`
      width: 63%;
      height: auto;
      align-items: center;
-         `
+     @media ${device.xs} {
+       width: 100%;
+        }`;
 
 const Astrotitle = styled.div `
     display: flex;
     flex-wrap: wrap;
-     width: 95%;
+    width: 95%;
     height: auto;
     justify-content: space-around;
     align-items: center;
     margin-top: 20px;
-    padding: 5px 5px 5px 5px;`
+    padding: 5px 5px 5px 5px;
+    @media ${device.xs} {
+       flex-direction: column;
+        }`;
 
 const Astroname = styled.h2`
     text-align: center;
@@ -82,8 +88,9 @@ const Astroflag = styled.img`
     width: 100px;
     height: 50px;
     @media ${device.xs} {
-        width: 10px;
-        height: 10px;
+        width: 55px;
+        height: 35px;
+        margin-top: 25px;
         }`;
 
 const Trait = styled.hr` 
