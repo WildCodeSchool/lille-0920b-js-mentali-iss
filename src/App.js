@@ -20,7 +20,10 @@ const CardsContainer= styled.div `
       border: solid 2px blue;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      width: 50%;
+      align-items: start;
+      justify-content: start;
+      padding-left: px;
       `;
 
 function App() {

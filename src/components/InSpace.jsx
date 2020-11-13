@@ -36,11 +36,9 @@ class InSpace extends React.Component {
 render () {
   return (
     <div>
-      <div>
          {this.state.astrolist.map((name, index) => (
         <MapPageCards key={index} {...name} />
       ))}
-      </div>
     </div>
   );
 }

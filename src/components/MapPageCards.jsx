@@ -15,7 +15,7 @@ const size = {
    };
   
 const Crewcards = styled.div ` 
-display: flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -114,7 +114,8 @@ const Learnmore = styled.a`
     }`
 
 const CrewCards = ({name, flag, astroImage, description, wiki}) => (
-      <Crewcards>
+    <div>
+         <Crewcards>
         <Crewheader>
           <Astrophoto src={astroImage}  alt="Ivan Wagner" />
         </Crewheader>
@@ -129,6 +130,8 @@ const CrewCards = ({name, flag, astroImage, description, wiki}) => (
              <Learnmore href={wiki}>Learn more ...</Learnmore>
         </Crewsection> 
       </Crewcards>
+    </div>
+     
     );
 
 export default CrewCards;
