@@ -6,10 +6,14 @@ import "dayjs/locale/fr";
 import L from 'leaflet';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 
-import Lille from '../assets/Lille.png';
+import Spinner from './SpinnerPassage.jsx';
+
+import leafRed from '../assets/leafRed.png';
+import leafShadow from '../assets/leafShadow.png';
 import imageFondPred from '../assets/imageFondPred.jpg';
 import imageStarFond from '../assets/imageStarFond.jpg';
 import ImageObs  from '../assets/ImageObs.jpg';
+
 
 
 class PassageIss extends Component {
@@ -19,25 +23,27 @@ class PassageIss extends Component {
     this.handleChangeCity = this.handleChange.bind(this);
     this.handleSubmitCity = this.handleSubmit.bind(this);
     this.state = {
-      LilleIcon: {
+      UserLocationIcon: {
         lat: 0,
         lng: 0,
       },
-      zoom: 1.4,
+      zoom: 1,
       haveUserLocation: false,
-      lat: null,
-      lng: null,
+      ApiObjectLoading: false,
       ApiObject: [],
       City: [],
       ArrayCity : [],
       CityCheck : [],
       Desgroupe : [],
         }
-        this.LilleIcon = L.icon({
-          iconUrl: Lille,
-          iconSize: [100, 100], // size of the icon
-          iconAnchor: [25, 25], // point of the icon which will correspond to marker's location
-          popupAnchor: [-3, -76] // When click, display message
+        this.UserLocationIcon = L.icon({
+          iconUrl: leafRed,
+    shadowUrl: leafShadow,
+    iconSize:     [38, 95], // size of the icon
+    shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76]
         });
   }
   // request city field for call "Nominatim"
@@ -70,9 +76,8 @@ class PassageIss extends Component {
       .then(response => {
       const ArrayCity = response.data[0];  
       const CityCheck = ArrayCity.display_name;
-      this.setState({ lat: ArrayCity.lat, lng: ArrayCity.lon, CityCheck: CityCheck,
-        LilleIcon: {lat: ArrayCity.lat, lng: ArrayCity.lon},
-        haveUserLocation : true, zoom: 50,
+      this.setState({UserLocationIcon: {lat: ArrayCity.lat, lng: ArrayCity.lon}, CityCheck: CityCheck,
+        haveUserLocation : true, zoom: 7
        });
      this.getPrediction()
       })
@@ -87,10 +92,9 @@ class PassageIss extends Component {
 // give lat and long require by getPrediction function;
 getLocation(){
   navigator.geolocation.getCurrentPosition(position => {
-    this.setState({ lat: position.coords.latitude, lng: position.coords.longitude, zoom: 50,
-      LilleIcon: {lat: position.coords.latitude, lng: position.coords.longitude},
-      haveUserLocation : true});
-      this.getPrediction({ lat: position.coords.latitude, lng: position.coords.longitude });
+    this.setState({UserLocationIcon: {lat: position.coords.latitude, lng: position.coords.longitude}, 
+      haveUserLocation : true, zoom: 7});
+      this.getPrediction({ UserLocationIcon: {lat: position.coords.latitude, lng: position.coords.longitude}});
     }, err => console.log(err,'Votre navigateur authorise-il la geolocalisation de votre appareil ?'));
 }
 //-------------------------------------------------------------------------------------------------//
@@ -102,27 +106,30 @@ getLocation(){
 //call open-notify API to have ISS predictions :
 // dates, duration, visibility,
    getPrediction(){ 
+    
     this.getPrediction.bind(this);
-let latitude = this.state.lat;
-let longitude = this.state.lng;
+let latitude = this.state.UserLocationIcon.lat;
+let longitude = this.state.UserLocationIcon.lng;
 this.setState({apiPrediction : `https://cors-anywhere.herokuapp.com/http://api.open-notify.org/iss-pass.json?lat=${latitude}&lon=${longitude}`,
 headers: {'Origin': `http://api.open-notify.org/iss-pass.json?lat=${latitude}&lon=${longitude}`}})
 const url = this.state.apiPrediction; 
+this.setState({ ApiObjectLoading: true }, () => { 
 axios.get(url)
 .then(( res ) => {
   let ApiObject = res.data.response;
   console.log(ApiObject)
- this.setState({ ApiObject: ApiObject})
+
+ this.setState({ ApiObject: ApiObject, ApiObjectLoading:false })
  this.getConversion({ApiObject : ApiObject})
 }
-)   
-}
+)})   
+}     
 getConversion(){
   this.getConversion.bind(this)
 
   let uno = this.state.ApiObject[0].risetime*1000;
   let ein = new Date(uno);
-  let un = ein.toLocaleString('en-GB');
+  let un = ein.toLocaleString('en-US');
    console.log(un);
   let dos = this.state.ApiObject[1].risetime*1000;
   let zwei = new Date(dos);
@@ -155,7 +162,7 @@ console.log('componentWillUnmount')}
 render() {
     
   const { ApiObject, CityCheck,  Desgroupe  } = this.state;
- const positionLilleIcon = [this.state.LilleIcon.lat, this.state.LilleIcon.lng];
+ const LocationIcon = [this.state.UserLocationIcon.lat, this.state.UserLocationIcon.lng];
     return (
       
       <div >
@@ -188,15 +195,15 @@ render() {
       </UserInput>
       <DisplayUserLocation> 
        
-      <Map className="map" center={positionLilleIcon} zoom={this.state.zoom}
+      <Map className="map" center={LocationIcon} zoom={this.state.zoom}
       style={{height:"50vh", width:"35vw", borderRadius:"10px"}}>
         <TileLayer attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
           url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" />
-        {this.state.haveSateliteLocation &&
-          <Marker position={positionLilleIcon} icon={this.LilleIcon} >
-            <Popup>
-              Here we are
-            </Popup>
+        {this.state.haveUserLocation &&
+          <Marker position={LocationIcon} icon={this.UserLocationIcon} >
+          <Popup>
+          You are rooted here !
+          </Popup>
           </Marker>
         }
       </Map>
@@ -216,13 +223,15 @@ render() {
      
       <PredContainer>
       
+      { this.state.ApiObjectLoading ? < Spinner /> : 
       <RisetimeContainer>
       {Desgroupe.map((tem) => 
         {return <p style={{paddingLeft : '7vw', backgroundColor:"darkblue",paddingTop:'3vh',  marginTop: "5vh", marginBottom: "8vh", width: "70vw", height: "5vh"}}
         key={tem}>
          {tem} </p>
         })} 
-        </RisetimeContainer>
+        </RisetimeContainer> }
+        { this.state.ApiObjectLoading ? < Spinner /> : 
         <DurationContainerDecalage>
         <DurationContainer>
         {ApiObject.map((result) =>{
@@ -230,8 +239,8 @@ render() {
           Visible pendant {Math.floor((result.duration)/60)}
           m'{Math.round((result.duration)%60)}s'</p>
         })}
-        </DurationContainer>
-        </DurationContainerDecalage>
+        </DurationContainer> 
+        </DurationContainerDecalage>  }
         </PredContainer>
            <p>Bas de la page</p>
       </div>
