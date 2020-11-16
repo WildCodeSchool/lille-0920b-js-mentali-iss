@@ -34,7 +34,7 @@ const Headercont = styled.header`
   @media ${device.sm} {
     width: 100vw;
     height: 12vh;
-    }
+  }
   `;
 
 const LogoMentali = styled.a`
@@ -46,7 +46,7 @@ const LogoMentali = styled.a`
   height: auto; 
   @media ${device.xs} {
     width: 80vw;;
-    }
+  }
 `;
 
 const LogoISS = styled.img`
@@ -62,6 +62,7 @@ const LogoISS = styled.img`
 const Brand = styled.h2`
   color: white;
   font-size: 35px;
+  font-family: "Quantum";
   &:hover {
     color: #3366cc;
     text-decoration: none;
@@ -71,7 +72,7 @@ const Brand = styled.h2`
     }
   @media ${device.sm} {
     font-size: 25px;;
-    }`;
+  }`;
 
 const Navbar = styled.ul`
   list-style: none;
@@ -88,7 +89,8 @@ const Navbar = styled.ul`
 
 const Navlink = styled.a`
   text-decoration: none;
-  font-size: 35px;
+  font-size: 25px;
+  font-family: "Vindemia";
   color: white;
   &:hover {
     color: #3366cc;
@@ -106,7 +108,8 @@ const Navlink = styled.a`
 const Burger = styled.div `
   @media ${device.lg} {
   display: none
-    }`
+    }
+  `;
 
 const Header = () => {
   return (

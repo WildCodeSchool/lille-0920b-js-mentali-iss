@@ -28,16 +28,16 @@ const Pagecontainer = styled.div`
 `;
 
 const CardsContainer= styled.div `
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      align-items: flex-end;
-      box-sizing:border-box;
-      padding-right: 150px;
-      @media ${device.xs} {
-        align-items: end;
-        width: 100%;}
-      `;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-end;
+    box-sizing:border-box;
+    padding-right: 150px;
+    @media ${device.xs} {
+      align-items: end;
+      width: 100%;}
+  `;
 
 function App() {
   return (

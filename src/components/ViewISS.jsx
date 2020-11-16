@@ -6,7 +6,6 @@ import axios from "axios";
 import styled from "styled-components";
 import ReactPlayer from "react-player";
 
-
 const size = {
   xs: '320px',
   sm: '768px',
@@ -37,11 +36,12 @@ const FondImage = styled.img`
 const Title = styled.h1`
   color: white;
   font-size: 2.5em;
+  font-family: "Vindemia";
   position: absolute;
   top: 2vh;
   left: 1.5vw;
   @media ${device.xs} {
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin-bottom: 55px;
     }
 `;
@@ -68,12 +68,13 @@ const FondImage2 = styled.img`
 const Title2 = styled.h1`
   color: white;
   font-size: 2.5em;
+  font-family: "Vindemia";
   position: absolute;
   top: 2vh;
   width: 90%;
   text-align: right;
   @media ${device.xs} {
-    font-size: 1.5em;
+    font-size: 1.2em;
    text-align: left;
     }
 `;
@@ -110,6 +111,8 @@ const ImgContainerButton = styled.div`
   position: relative;
   text-align: center;
   color: white;
+  font-family: "Vindemia";
+  font-size: 0.7em;
   flex-wrap: wrap;
   margin-top: 8vh;
   margin-bottom: 4vh;
@@ -136,12 +139,10 @@ const Centered = styled.div`
   @media ${device.xs} {
     width: 70%;
     height: 70%;
-    font-size: 1.8em;
+    font-size: 1.2em;
+    margin-top: 25px;
     }
 `;
-
-
-
 
 const ISS_URL = "http://api.open-notify.org/iss-now.json";
 
@@ -195,11 +196,9 @@ class ViewISS extends Component {
       <div>
         <FondTitle1>
           <FondImage img src="/photos/stars2.jpg" alt="stars" />
-
           <Title>Iss Live Position </Title>
           <Trait></Trait>
         </FondTitle1>
-        
         <Map
           style={{
             width: "70vw",
@@ -207,7 +206,6 @@ class ViewISS extends Component {
             margin: "auto",
             position: "center",
           }}
-
           className="map"
           center={[0, 0]}
           zoom={2.4}
@@ -219,12 +217,10 @@ class ViewISS extends Component {
             url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
           />
           {this.state.haveUsersLocation && (
-            <Marker position={positionSatIcon} icon={this.SatIcon}></Marker>
+          <Marker position={positionSatIcon} icon={this.SatIcon}></Marker>
           )}
         </Map>
  
-
-
         <VideoLive>
           <ReactPlayer
             url="https://www.youtube.com/watch?v=EEIk7gwjgIM"

@@ -1,8 +1,6 @@
 import React from 'react';
 import MapPageCards from './MapPageCards';
 
-
-
 class InSpace extends React.Component {
     constructor(props) {
       super(props);

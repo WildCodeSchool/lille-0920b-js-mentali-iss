@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
 const size = {
     xs: '320px',
     sm: '768px',
@@ -23,7 +22,7 @@ const Crewcards = styled.div `
     width: 35vw;
     height: auto;
     border-radius: 20px;
-    margin: 10px 10px 10px 50px;
+    margin: 10px 250px 10px 50px;
     padding: 10px 10px 10px 10px;
     border: solid 6px black;
     background-color: rgb(53, 52, 52);
@@ -81,7 +80,8 @@ const Astrotitle = styled.div `
 
 const Astroname = styled.h2`
     text-align: center;
-    font-size: 28px;
+    font-size: 0.8em;
+    font-family: "Vindemia";
     color: white;
     `;
 const Astroflag = styled.img`
@@ -100,7 +100,8 @@ const Trait = styled.hr`
 
 const P = styled.p ` 
     width: 100%;
-    font-size: 20px;
+    font-size: 0.7em;
+    font-family: "Vindemia";
     height: auto;
     text-align: justify;
     margin-top: 60px;

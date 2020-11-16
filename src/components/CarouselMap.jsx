@@ -3,9 +3,6 @@ import Carousel from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
 import styled from 'styled-components';
 
-//https://brainhubeu.github.io/react-carousel/docs/gettingStarted
-//https://reactjsexample.com/a-react-way-react-component-that-does-not-suck/
-
 const size = {
   xs: '320px',
   sm: '768px',
