@@ -130,7 +130,7 @@ const CrewCards = ({name, flag, astroImage, description, wiki}) => (
         <Crewsection>
           <Astrotitle>
             <Astroname>{name}</Astroname>
-            <Astroflag src={flag} alt="drapeau" />
+            <Astroflag src={flag} alt="cook" />
           </Astrotitle>
           <Trait></Trait>
           <P>{description}
