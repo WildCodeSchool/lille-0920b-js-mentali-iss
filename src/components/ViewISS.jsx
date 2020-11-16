@@ -125,6 +125,7 @@ class ViewISS extends Component {
   //import json object from API with.then
   //update state of "issPosition" with data result from json object
   //update haveUsersLocation ?
+
   recalIss = () => {
     axios.get(ISS_URL).then(({ data }) => {
       this.setState({
