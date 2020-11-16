@@ -81,6 +81,7 @@ const ContainerTextISS = styled.div`
   opacity: 0;
   position: absolute;
   font-size: 5em;
+  font-family: "Quantum";
   z-index: 2;
   top: 35vh;
   color: white;
@@ -103,6 +104,7 @@ const ContainerTextRover = styled.div`
   opacity: 0;
   position: absolute;
   font-size: 5em;
+  font-family: "Quantum";
   top: 60vh;
   color: white;
   right: 0;
@@ -113,8 +115,8 @@ const ContainerTextRover = styled.div`
   }
   @media ${device.xs} {
     position: absolute;
-    top: 50vh;
-    left: 30vh;
+    top: 48vh;
+    left: 28vh;
     font-size: 2em;
     opacity: 100;
     color:black;
@@ -128,6 +130,7 @@ const ContainerTextGalerie = styled.div`
   position: absolute;
   top: 60vh;
   font-size: 5em;
+  font-family: "Quantum";
   color: white;
   left: 14vw;
   transform: translate(-50%, -50%);
@@ -137,8 +140,8 @@ const ContainerTextGalerie = styled.div`
   }
   @media ${device.xs} {
     position: absolute;
-    top: 80vh;
-    left: 30vh;
+    top: 83vh;
+    left: 28vh;
     font-size: 2em;
     opacity: 100;
     color:white;

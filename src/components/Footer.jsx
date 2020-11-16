@@ -24,6 +24,7 @@ const Mainfooter = styled.footer`
   position: relative;
   bottom: 0;
   color: white;
+  font-family: "Vindemia";
   line-height: 20px;
   overflow-x: hidden;
   @media ${device.xs} {
@@ -62,6 +63,7 @@ const Row2 = styled.div`
   align-items: center;
   width: 100%;
   height: 20%;
+  font-size: 10px;
   @media ${device.xs} {
    display:none;
   }`;
@@ -105,27 +107,27 @@ const H4 = styled.h4`
   margin-top: 5px;
   margin-bottom: 15px;
   letter-spacing: 2px;
-  font-size: 30px;
-`;
-
-const Textjustify = styled.p`
   font-size: 20px;
 `;
 
+const Textjustify = styled.p`
+  font-size: 10px;
+`;
+
 const H4BIS = styled.h4`
-  font-size: 30px;
+  font-size: 20px;
   margin-bottom: 15px; 
   @media ${device.xs} {
-   font-size: 12px;
+   font-size: 10px;
    margin-right: 5px;
    margin-bottom: 3px; 
   }`;
 
 const H4TER =styled.h4 `
 margin-bottom: 15px;
-font-size: 30px;
+font-size: 20px;
   @media ${device.xs} {
-   font-size: 12px;
+   font-size: 10px;
    margin-right: 5px;
    margin-bottom: 3px; 
   }`;
@@ -139,7 +141,7 @@ const Footerlinks = styled.ul`
 `;
 
 const Footlinks = styled.a`
-  font-size: 20px;
+  font-size: 10px;
   color: white;
   text-decoration: none;
   &:hover {
@@ -147,7 +149,7 @@ const Footlinks = styled.a`
     text-decoration: none;
   }
   @media ${device.xs} {
-   font-size: 15px;
+   font-size: 8px;
   }
 `;
 const Socialicons = styled.ul`

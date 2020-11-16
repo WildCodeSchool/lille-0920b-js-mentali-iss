@@ -62,12 +62,13 @@ const LogoISS = styled.img`
 const Brand = styled.h2`
   color: white;
   font-size: 35px;
+  font-family: "Quantum";
   &:hover {
     color: #3366cc;
     text-decoration: none;
   };
   @media ${device.xs} {
-    font-size: 10px;
+    font-size: 6px;
     }
   @media ${device.sm} {
     font-size: 25px;;
@@ -77,6 +78,7 @@ const Navbar = styled.ul`
   list-style: none;
   display: flex;
   justify-content: space-around;
+  font-family: "Vindemia";
   align-items: center;
   flex-wrap: wrap;
   width: 50vw;
@@ -88,7 +90,7 @@ const Navbar = styled.ul`
 
 const Navlink = styled.a`
   text-decoration: none;
-  font-size: 35px;
+  font-size: 25px;
   color: white;
   &:hover {
     color: #3366cc;

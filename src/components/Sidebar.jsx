@@ -17,7 +17,6 @@ class Sidebar extends React.Component {
       };
 
 render () {
-  console.log(this.state.isOpen)
     return (
   <Menu onStateChange={this.isMenuOpen} width={ 150 } isOpen={ true } >
     <a  className="menu-item" href="/">
