@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import DisplayGalerie from "./DisplayGalerie.jsx";
+import ChooseADate from "./ChooseADate.jsx";
 import axios from "axios";
 import styled from "styled-components";
 
@@ -14,7 +15,7 @@ const Textcolor = styled.p`
 `;
 
 const Title1 = styled.div`
-  padding-top: 2vh;
+  padding-top: 6vh;
 `;
 
 const H1 = styled.h1`
@@ -50,6 +51,7 @@ const ImageFond1 = styled.img`
 
 const Title2 = styled.div`
   padding-top: 2vh;
+  margin-bottom: 4vh;
 `;
 
 const H2 = styled.h1`
@@ -118,7 +120,7 @@ class GaleriePage extends Component {
           <Title1>
             <FondTitre>
               <ImageFond1 src="/photos/stars2.jpg" alt="stars" />
-              <H1>NASA image of the day</H1>
+              <H1>NASA picture of the day</H1>
               <Trait></Trait>
             </FondTitre>
           </Title1>
@@ -139,6 +141,7 @@ class GaleriePage extends Component {
             </FondTitre2>
           </Title2>
         </Textcolor>
+        <ChooseADate />
       </Page>
     );
   }
