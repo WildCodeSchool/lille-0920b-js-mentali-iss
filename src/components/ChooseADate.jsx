@@ -65,6 +65,18 @@ const Submit = styled.input`
 `;
 
 class ChooseADate extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      //*on définie les paramètres de la fonction
+      photo: null,
+      year: null,
+      month: null,
+      day: null,
+    };
+    this.getGalerie = this.getGalerie.bind(this);
+  }
+
   buildDays() {
     var arrDay = [];
 
@@ -91,18 +103,6 @@ class ChooseADate extends Component {
     }
 
     return arrYear;
-  }
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      //*on définie les paramètres de la fonction
-      photo: null,
-      year: null,
-      month: null,
-      day: null,
-    };
-    this.getGalerie = this.getGalerie.bind(this);
   }
 
   //On lui dit ce qui va changer
@@ -187,7 +187,7 @@ class ChooseADate extends Component {
                   value={this.state.year}
                   onChange={this.handleChangeYear}
                 >
-                  <option value="yaer">Year</option>
+                  <option value="year">Year</option>
                   {this.buildYear()}
                 </Select>
               </label>
@@ -198,7 +198,10 @@ class ChooseADate extends Component {
             {this.state.photo ? (
               <DisplayChooseADate photo={this.state.photo} />
             ) : (
-              <ChooseADateImg src="/photos/choseadate.png" alt="cook" />
+              <ChooseADateImg
+                src="/photos/choseadate.png"
+                alt="choose a date"
+              />
             )}
           </div>
         </Textcolor>
