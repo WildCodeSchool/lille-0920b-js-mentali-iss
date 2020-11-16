@@ -32,6 +32,12 @@ class PassageIss extends Component {
       ArrayCity: [],
       CityCheck: [],
       Desgroupe: [],
+<<<<<<< HEAD
+=======
+      err: null,
+      ErrorMessage:[],
+      ErrorMessageGeolocation:[],
+>>>>>>> c308d52669cdc18ea96509bd8d0396d17d036745
     };
     this.UserLocationIcon = L.icon({
       iconUrl: leafRed,
@@ -55,6 +61,7 @@ class PassageIss extends Component {
 
   getCityLocation() {
     this.getCityLocation.bind(this);
+<<<<<<< HEAD
 
     const CityInput = this.state.City;
     const UrlCity = `https://nominatim.openstreetmap.org/search/${CityInput}?format=json&limit=1`;
@@ -72,6 +79,43 @@ class PassageIss extends Component {
   }
 
   getLocation() {
+=======
+    
+    const CityInput = this.state.City;
+    const UrlCity = `https://nominatim.openstreetmap.org/search/${CityInput}?format=json&limit=1`;
+ // Now, To pull data from API use axios get method
+ this.setState({err:null})
+ axios.get(UrlCity)
+ // axios automatically changes the response to JSON
+ 
+ .then(response => {
+  const ArrayCity = response.data[0];
+      
+  const CityCheck = ArrayCity.display_name;
+     this.setState({
+      UserLocationIcon: { lat: ArrayCity.lat, lng: ArrayCity.lon },
+      CityCheck,
+      haveUserLocation: true,
+      zoom: 7,
+     })
+ })
+ .catch(err => {
+  console.log('whooo fait pas ch***')
+  this.setState({
+      err,
+      ErrorMessage : ["C'est pas correk, ça n'a bon sens!"],
+     })
+     this.getPrediction();
+ });
+   // axios.get(UrlCity).then((response) => {const ArrayCity = response.data[0];const CityCheck = ArrayCity.display_name;
+     // this.setState({UserLocationIcon: { lat: ArrayCity.lat, lng: ArrayCity.lon },CityCheck,haveUserLocation: true,zoom: 7,});
+       // });
+    
+  }
+
+  getLocation() {
+    this.setState({err:null})
+>>>>>>> c308d52669cdc18ea96509bd8d0396d17d036745
     navigator.geolocation.getCurrentPosition(
       (position) => {
         this.setState({
@@ -88,12 +132,22 @@ class PassageIss extends Component {
             lng: position.coords.longitude,
           },
         });
+<<<<<<< HEAD
       },
       (err) =>
         console.log(
           err,
           'Votre navigateur authorise-il la geolocalisation de votre appareil ?'
         )
+=======
+        
+      },
+     (err) => 
+          this.setState({
+            err,
+            ErrorMessageGeolocation : ["You didn't allow your navigator to get your location!"],
+           }) 
+>>>>>>> c308d52669cdc18ea96509bd8d0396d17d036745
     );
   }
 
@@ -165,6 +219,10 @@ class PassageIss extends Component {
       this.state.UserLocationIcon.lat,
       this.state.UserLocationIcon.lng,
     ];
+<<<<<<< HEAD
+=======
+    const positionLatLon = ["Latitude   : ",this.state.UserLocationIcon.lat, <br />,"Lontitude : ", this.state.UserLocationIcon.lng];
+>>>>>>> c308d52669cdc18ea96509bd8d0396d17d036745
     return (
       <div>
         <ImgHeadContainer>
@@ -183,10 +241,16 @@ class PassageIss extends Component {
               <LocalisationButton onClick={this.getLocation}>
                 Localize Me
               </LocalisationButton>
+<<<<<<< HEAD
               <TitleCityForm>Your City :</TitleCityForm>
               <EnterCity onSubmit={this.handleSubmitCity}>
                 <label style={{ color: 'black' }}>
                   Or enter a city name :
+=======
+              <EnterCity onSubmit={this.handleSubmitCity}>
+                <label style={{ color: 'white', fontSize: '3vh' }}>
+                  Or enter a city name here
+>>>>>>> c308d52669cdc18ea96509bd8d0396d17d036745
                   <EnterACityName
                     type="text"
                     placeholder="Tananarive"
@@ -197,6 +261,7 @@ class PassageIss extends Component {
                 </label>
                 <SubmitCity type="submit" value="Envoyer" />
               </EnterCity>
+<<<<<<< HEAD
               <VotrePosition>
                 {' '}
                 {this.state.lat} {this.state.lng}
@@ -205,6 +270,17 @@ class PassageIss extends Component {
 {CityCheck}
 {' '}
  </CheckCity>
+=======
+              { this.state.err != null ? (  <VotrePosition>{this.state.ErrorMessageGeolocation} </VotrePosition>
+                ) : (
+                 <VotrePosition>
+               {positionLatLon}
+              </VotrePosition> )}
+
+              { this.state.err != null ? (<CheckCity> {this.state.ErrorMessage} </CheckCity>) : (
+              <CheckCity> {CityCheck} {' '} </CheckCity> )}
+              
+>>>>>>> c308d52669cdc18ea96509bd8d0396d17d036745
             </UserInput>
             <DisplayUserLocation>
               <Map
@@ -376,6 +452,7 @@ const LocalisationButton = styled.button`
   height: 5vh;
   border-radius: 10px;
 `;
+<<<<<<< HEAD
 
 const TitleCityForm = styled.h4`
   margin-top: 1vh;
@@ -423,6 +500,47 @@ const CheckCity = styled.p`
   width: 30vw;
 `;
 
+=======
+
+const EnterCity = styled.form`
+  margin-top: 1vh;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-bottom: 1vw;
+  width: 30vw;
+`;
+const EnterACityName = styled.input`
+  height: 4vh;
+  width: 25vw;
+`;
+
+const SubmitCity = styled.input`
+  height: 4vh;
+  width: 7vw;
+  margin-top: 2vh;
+  margin-left: 19vw;
+  border-radius: 7px;
+`;
+const VotrePosition = styled.p`
+  color: white;
+  fontsize: 5vh;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  width: 30vw;
+`;
+const CheckCity = styled.p`
+  color: white;
+  fontsize: 5vh;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  width: 30vw;
+`;
+
+>>>>>>> c308d52669cdc18ea96509bd8d0396d17d036745
 const TitleHowObs = styled.h3`
   position: relative;
   font-size: 3vw;
