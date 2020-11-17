@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Header from "./components/Header";
 import MyCarousel from "./components/CarouselMap";
 import ViewISS from "./components/ViewISS";
-import InSpace from "./components/InSpace";
+import AstroList from "./components/AstroList";
 import Footer from "./components/Footer";
 
 const size = {
@@ -46,7 +46,7 @@ function App() {
       <MyCarousel />
       <ViewISS />
       <CardsContainer>
-        <InSpace />
+        <AstroList />
       </CardsContainer>
       <Footer />
     </Pagecontainer>
