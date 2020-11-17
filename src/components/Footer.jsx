@@ -5,13 +5,13 @@ const size = {
   xs: '320px',
   sm: '768px',
   lg: '1200px',
- };
+};
 
 const device = {
   xs: `(max-width: ${size.xs})`,
   sm: `(max-width: ${size.sm})`,
   lg: `(min-width: ${size.lg})`,
- };
+};
 
 
 const Mainfooter = styled.footer`
@@ -123,7 +123,7 @@ const H4BIS = styled.h4`
    margin-bottom: 3px; 
   }`;
 
-const H4TER =styled.h4 `
+const H4TER = styled.h4`
 margin-bottom: 15px;
 font-size: 20px;
   @media ${device.xs} {

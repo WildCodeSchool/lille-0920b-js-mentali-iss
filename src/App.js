@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Header from "./components/Header";
 import FrontPage from "./components/FrontPage";
 import Footer from "./components/Footer";
+import GaleriePage from "./components/GaleriePage";
 
 const OutaContainer = styled.div`
     height:100%;
@@ -18,13 +19,13 @@ const PageWrap = styled.div`
 
 function App() {
   return (
-      <OutaContainer>
-        <Header />
-          <PageWrap>
-          <FrontPage />
-          <Footer />
-          </PageWrap>
-      </OutaContainer>
+    <OutaContainer>
+      <Header />
+      <PageWrap>
+        <FrontPage />
+        <Footer />
+      </PageWrap>
+    </OutaContainer>
   );
 };
 

@@ -1,18 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-import BurgerMenu from"./BurgerMenu";
+import BurgerMenu from "./BurgerMenu";
 
 const size = {
   xs: '320px',
   sm: '768px',
   lg: '1200px',
- };
+};
 
 const device = {
   xs: `(max-width: ${size.xs})`,
   sm: `(max-width: ${size.sm})`,
   lg: `(min-width: ${size.lg})`,
- };
+};
 
 const Headercont = styled.header`
   position: absolute;
@@ -105,7 +105,7 @@ const Navlink = styled.a`
   }
 `;
 
-const Burger = styled.div `
+const Burger = styled.div`
   @media ${device.lg} {
   display: none
     }`
@@ -120,7 +120,7 @@ const Header = () => {
         </LogoMentali>
       </div>
       <Burger>
-         <BurgerMenu  />
+        <BurgerMenu />
       </Burger>
       <Navbar>
         <Navlink href="#2">
