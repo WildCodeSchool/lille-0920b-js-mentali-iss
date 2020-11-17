@@ -1,12 +1,27 @@
 import React from "react";
 import styled from "styled-components";
 
+const size = {
+  xs: "320px",
+  sm: "768px",
+  lg: "1200px",
+};
+
+const device = {
+  xs: `(max-width: ${size.xs})`,
+  sm: `(max-width: ${size.sm})`,
+  lg: `(max-width: ${size.lg})`,
+};
+
 const Photo = styled.img`
   width: 60vw;
   height: auto;
   margin-left: auto;
   margin-right: auto;
   border: solid white;
+  @media ${device.xs} {
+    width: 80vw;
+  }
 `;
 
 const Paragraph = styled.p`
@@ -16,6 +31,9 @@ const Paragraph = styled.p`
 const Date = styled.p`
   font-size: 2em;
   margin-bottom: 3vh;
+  @media ${device.xs} {
+    font-size: 1em;
+  }
 `;
 
 const Title = styled.p`
@@ -23,12 +41,18 @@ const Title = styled.p`
   font-weight: bold;
   margin-top: 2vh;
   margin-bottom: 2vh;
+  @media ${device.xs} {
+    font-size: 1.5em;
+  }
 `;
 
 const Auteur = styled.p`
   font-size: 1.5em;
   font-style: italic;
   margin-bottom: 2vh;
+  @media ${device.xs} {
+    font-size: 1em;
+  }
 `;
 
 const Explanation = styled.p`

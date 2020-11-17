@@ -1,12 +1,27 @@
 import React from "react";
 import styled from "styled-components";
 
+const size = {
+  xs: "320px",
+  sm: "768px",
+  lg: "1200px",
+};
+
+const device = {
+  xs: `(max-width: ${size.xs})`,
+  sm: `(max-width: ${size.sm})`,
+  lg: `(max-width: ${size.lg})`,
+};
+
 const Photo = styled.img`
   width: 50vw;
   height: auto;
   margin-left: auto;
   margin-right: auto;
   border: solid white;
+  @media ${device.xs} {
+    width: 100vw;
+  }
 `;
 
 const Paragraph = styled.div`
