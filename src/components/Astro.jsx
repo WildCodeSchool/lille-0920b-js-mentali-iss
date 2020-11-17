@@ -82,16 +82,16 @@ const Learnmore = styled.a
  color: blue;
  }`
 
-export default function Astro ({index, name, flag, astroImage, description, wiki}) {
+export default function Astro ({index, name, image, flag, astroImage, description, wiki}) {
     return (
         <Crewcards>
         <Crewheader>
-          <Astrophoto src={astroImage}  alt="Ivan Wagner" />
+          <Astrophoto src={astroImage} alt={name} />
         </Crewheader>
         <Crewsection>
           <Astrotitle>
             <Astroname>{name}</Astroname>
-            <Astroflag src={flag} alt="drapeau" />
+            <Astroflag  src={flag} alt="drapeau" />
           </Astrotitle>
           <Trait></Trait>
           <P>{description}
