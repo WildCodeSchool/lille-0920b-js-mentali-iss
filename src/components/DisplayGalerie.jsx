@@ -31,6 +31,7 @@ const Paragraph = styled.p`
 const Date = styled.p`
   font-size: 2em;
   margin-bottom: 3vh;
+  font-family: Vindemia;
   @media ${device.xs} {
     font-size: 1em;
   }
@@ -41,8 +42,9 @@ const Title = styled.p`
   font-weight: bold;
   margin-top: 2vh;
   margin-bottom: 2vh;
+  font-family: Vindemia;
   @media ${device.xs} {
-    font-size: 1.5em;
+    font-size: 1em;
   }
 `;
 

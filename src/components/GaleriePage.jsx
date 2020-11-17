@@ -40,9 +40,10 @@ const H1 = styled.h1`
   top: 2vh;
   left: 2vw;
   z-index: 4;
+  font-family: Vindemia;
   @media ${device.xs} {
-    font-size: 1.2em;
-    left: 12vw;
+    font-size: 0.9em;
+    text-align: center;
   }
 `;
 
@@ -69,6 +70,9 @@ const ImageFond1 = styled.img`
   margin-top: 0;
   margin-bottom: 0;
   width: 100vw;
+  @media ${device.xs} {
+    height: 7.5vh;
+  }
 `;
 
 const Title2 = styled.div`
@@ -83,8 +87,9 @@ const H2 = styled.h1`
   top: 2vh;
   right: 2vw;
   z-index: 4;
+  font-family: Vindemia;
   @media ${device.xs} {
-    font-size: 1.2em;
+    font-size: 0.9em;
     text-align: center;
   }
 `;
@@ -92,13 +97,13 @@ const H2 = styled.h1`
 const Trait2 = styled.div`
   background-color: white;
   height: 1px;
-  width: 50%;
+  width: 60%;
   position: absolute;
   top: 7vh;
-  right: 0;
   z-index: 5;
   @media ${device.xs} {
     width: 100%;
+    top: 8vh;
   }
 `;
 
@@ -106,6 +111,9 @@ const ImageFond2 = styled.img`
   margin-top: 0;
   margin-bottom: 0;
   width: 100vw;
+  @media ${device.xs} {
+    height: 7.5vh;
+  }
 `;
 
 const FondTitre2 = styled.div`

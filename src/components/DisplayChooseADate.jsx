@@ -20,18 +20,26 @@ const Photo = styled.img`
   margin-right: auto;
   border: solid white;
   @media ${device.xs} {
-    width: 100vw;
+    width: 80vw;
   }
 `;
 
 const Paragraph = styled.div`
   display: flex;
   flex-direction: row;
+  @media ${device.xs} {
+    flex-direction: column;
+  }
 `;
 
 const FlexBox1 = styled.div`
   margin-left: 2vw;
   margin-right: 2vw;
+  @media ${device.xs} {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2vh;
+  }
 `;
 
 const FlexBox2 = styled.p`
@@ -39,11 +47,19 @@ const FlexBox2 = styled.p`
   margin-right: 4vw;
   margin-bottom: auto;
   margin-top: auto;
+  @media ${device.xs} {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+  }
 `;
 
 const Date = styled.p`
   font-size: 2em;
   margin-bottom: 3vh;
+  @media ${device.xs} {
+    font-size: 1em;
+  }
 `;
 
 const Title = styled.p`
@@ -51,16 +67,26 @@ const Title = styled.p`
   font-weight: bold;
   margin-top: 2vh;
   margin-bottom: 4vh;
+  @media ${device.xs} {
+    font-size: 1.5em;
+  }
 `;
 
 const Auteur = styled.p`
   font-size: 1.5em;
   font-style: italic;
   margin-bottom: 2vh;
+  @media ${device.xs} {
+    font-size: 1.3em;
+  }
 `;
 
 const Explanation = styled.p`
   line-height: 1.2;
+  @media ${device.xs} {
+    margin-left: 3vw;
+    margin-right: 3vw;
+  }
 `;
 
 function DisplayChooseADate({ photo }) {
