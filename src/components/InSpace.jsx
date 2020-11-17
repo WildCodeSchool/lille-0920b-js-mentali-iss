@@ -1,7 +1,6 @@
 import React from 'react';
-//import styled from 'styled-components';
 import axios from "axios";
-import MapPageCards2 from './MapPageCards2';
+import MapPageCards from './MapPageCards';
 
 class InSpace extends React.Component {
     constructor(props) {
@@ -33,7 +32,7 @@ render () {
     <div>
       <div>
          {this.state.people.map((name, index, craft) => (
-        <MapPageCards2 key={index} {...name} />
+        <MapPageCards key={index} {...name} />
       ))}
       </div>
     </div>

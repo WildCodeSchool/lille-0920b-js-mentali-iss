@@ -5,4 +5,13 @@
 }
 body {
   background-color:ivory;
+  display: grid;
+}
+.page-container {
+  display: grid;
+  grid-template-columns: 500px 500px 500px;
+  grid-template-rows: 200px 200px;
+  width: 1550px;
+  border: solid 2px red;
+  
 }

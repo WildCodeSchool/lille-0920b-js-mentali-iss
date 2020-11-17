@@ -1,11 +1,11 @@
 import "./reset.css";
 import "./App.css";
-import InSpace2 from "./components/InSpace2";
+import AstroList from "./components/AstroList";
 
 function App() {
   return (
-    <div className="page-container">
-      <InSpace2 />
+    <div>
+     <AstroList />
     </div>
   );
 }

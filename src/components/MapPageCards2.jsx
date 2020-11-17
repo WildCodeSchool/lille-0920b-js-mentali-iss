@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
 const Crewcards = styled.div 
    ` display: flex;
     flex-direction: row;
@@ -84,7 +85,7 @@ const Learnmore = styled.a
     }`
 
 const CrewCards = ({name, flag, astroImage, description, wiki}) => (
-      <Crewcards>
+        <Crewcards>
         <Crewheader>
           <Astrophoto src={astroImage}  alt="Ivan Wagner" />
         </Crewheader>
@@ -98,7 +99,7 @@ const CrewCards = ({name, flag, astroImage, description, wiki}) => (
          </P>
              <Learnmore href={wiki}>Learn more ...</Learnmore>
         </Crewsection> 
-      </Crewcards>
+      </Crewcards> 
     );
 
 export default CrewCards;
