@@ -1,29 +1,123 @@
- let dos = this.state.ApiObject[1].risetime;
-  let zwei = new Date(dos* 1e3);
-  console.log(zwei)
-  let tres = this.state.ApiObject[2].risetime;
-  let drei = new Date(tres* 1e3);
-  console.log(drei)
-  let quatro = this.state.ApiObject[3].risetime;
-  let vier = new Date(quatro* 1e3);
-  console.log(vier)
-  let cinco = this.state.ApiObject[4].risetime;
-  let funf = new Date(cinco* 1e3);
-  console.log(funf)
+package.json
+{
+  "name": "lille-0920b-js-mentali-iss",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@brainhubeu/react-carousel": "^1.19.26",
+    "@testing-library/jest-dom": "^5.11.5",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "axios": "^0.21.0",
+    "dayjs": "^1.9.6",
+    "leaflet": "^1.7.1",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.31",
+    "node-sass": "^5.0.0",
+    "react": "^17.0.1",
+    "react-dayjs": "^0.2.1",
+    "react-dom": "^17.0.1",
+    "react-elastic-carousel": "^0.9.3",
+    "react-leaflet": "^2.8.0",
+    "react-moment": "^1.0.0",
+    "react-player": "^2.6.2",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.0",
+    "styled-components": "^5.2.1",
+    "web-vitals": "^0.2.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint --fix .",
+    "lint-check": "eslint ."
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.0.0",
+    "prettier": "^2.1.2"
+  }
+}
 
-  let dos = this.state.ApiObject[1].risetime;
-  let zwei = new Date(dos* 1e3);
-  console.log(zwei)
-  let tres = this.state.ApiObject[2].risetime;
-  let drei = new Date(tres* 1e3);
-  console.log(drei)
-  let quatro = this.state.ApiObject[3].risetime;
-  let vier = new Date(quatro* 1e3);
-  console.log(vier)
-  let cinco = this.state.ApiObject[4].risetime;
-  let funf = new Date(cinco* 1e3);
-  console.log(funf)
-  const groupe = ein + zwei + drei + vier + funf;
-  console.log(groupe)
-  const DeGroupage =  groupe.split('+', 5);
-  console.log(DeGroupage)
+
+
+.eslintrc.js
+
+module.exports = {
+  extends: [
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:prettier/recommended',
+  ],
+  env: {
+    es6: true,
+    node: true,
+    browser: true,
+  },
+  parserOptions: {
+    ecmaVersion: 8,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
+  ignorePatterns: ['/node_modules/**', '/build/**'],
+  rules: {
+    'no-unused-vars': ['warn', { args: 'none', argsIgnorePattern: 'req|res|next|val' }],
+    'prettier/prettier': ['error'],
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
+};
+
+settings.json
+{
+  // These are all my auto-save configs
+"editor.formatOnSave": true,
+// turn it off for JS and JSX, we will do this via eslint
+"[javascript]": {
+  "editor.formatOnSave": false
+},
+"[javascriptreact]": {
+  "editor.formatOnSave": false
+},
+// tell the ESLint plugin to run on save
+"editor.codeActionsOnSave": {
+  "source.fixAll": true,
+},
+
+// Optional BUT IMPORTANT: If you have the prettier extension enabled for other languages like CSS and HTML, turn it off for JS since we are doing it through Eslint already
+"prettier.disableLanguages": [
+  "javascript",
+  "javascriptreact"
+],
+"editor.suggestSelection": "first",
+"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+"editor.fontLigatures": false,
+"python.linting.lintOnSave": false,
+"python.testing.autoTestDiscoverOnSaveEnabled": false,
+"python.workspaceSymbols.rebuildOnFileSave": false
+}
+
