@@ -101,7 +101,7 @@ const Col3 = styled.div`
   }
 `;
 
-const H4 = styled.h4`
+const H4A = styled.h4`
   color: #fff;
   text-transform: uppercase;
   margin-top: 5px;
@@ -114,7 +114,7 @@ const Textjustify = styled.p`
   font-size: 10px;
 `;
 
-const H4BIS = styled.h4`
+const H4B = styled.h4`
   font-size: 20px;
   margin-bottom: 15px; 
   @media ${device.xs} {
@@ -123,7 +123,7 @@ const H4BIS = styled.h4`
    margin-bottom: 3px; 
   }`;
 
-const H4TER = styled.h4`
+const H4C = styled.h4`
 margin-bottom: 15px;
 font-size: 20px;
   @media ${device.xs} {
@@ -222,7 +222,7 @@ const Footer2 = () => {
         <Row>
           {/* Column1 */}
           <Col1>
-            <H4>ABOUT</H4>
+            <H4A>ABOUT</H4A>
             <Textjustify>
               Mental-ISS.com provides you complete informations about the
               international space station. <br /> Mental-ISS is dedicated to
@@ -233,7 +233,7 @@ const Footer2 = () => {
           </Col1>
           {/* Column2 */}
           <Col2>
-            <H4BIS>QUICK LINKS</H4BIS>
+            <H4B>QUICK LINKS</H4B>
             <Footerlinks>
               <li>
                 <Footlinks href="http://scanfcode.com/about/">
@@ -254,7 +254,7 @@ const Footer2 = () => {
           </Col2>
           {/* Column3 */}
           <Col3>
-            <H4TER>FOLLOW US</H4TER>
+            <H4C>FOLLOW US</H4C>
             <Socialicons>
               <SocialLi>
                 <SocialA href="#7">
