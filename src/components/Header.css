@@ -46,3 +46,9 @@ header a:hover {
     text-decoration: none;
     color: white;
 }
+
+@media (max-width: 33em) {
+    header {
+        display: none;
+    }
+}

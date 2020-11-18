@@ -149,3 +149,9 @@ h4 {
 #link-photos {
     width: 40px;
 }
+
+@media (max-width: 33em) {
+    .main-footer {
+        display: none;
+    }
+}

@@ -100,6 +100,7 @@ const Trait2 = styled.div`
   width: 60%;
   position: absolute;
   top: 7vh;
+  right: 0;
   z-index: 5;
   @media ${device.xs} {
     width: 100%;
