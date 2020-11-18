@@ -556,7 +556,7 @@ const DurationContainerA = styled.div`
   position: relative;
   width: 40vh;
   color: white;
-  right : 40vw;
+  right : 54.3vw;
   font-family: Verdana;
 `;
 const DurationContainerB = styled.div`
@@ -564,7 +564,7 @@ const DurationContainerB = styled.div`
   color: white;
   bottom: 0vh;
   width: 40vw;
-  left: 60vw;
+  left: -20vw;
   color: white;
   font-family: Verdana;
 `;
