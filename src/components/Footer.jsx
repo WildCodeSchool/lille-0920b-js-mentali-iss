@@ -160,9 +160,8 @@ const Socialicons = styled.ul`
   }
 `;
 
-const SocialLi = styled.li`
+const SocialLinks = styled.li`
   display: inline-block;
-  margin-bottom: 4px;
 `;
 
 const SocialA = styled.a`
@@ -256,25 +255,25 @@ const Footer2 = () => {
           <Col3>
             <H4C>FOLLOW US</H4C>
             <Socialicons>
-              <SocialLi>
+              <SocialLinks>
                 <SocialA href="#7">
                   <Fb src="/photos/facebook.png" alt="Link to facebook"></Fb>
                   <i className="fa fa-facebook" />
                 </SocialA>
-              </SocialLi>
-              <SocialLi>
+              </SocialLinks>
+              <SocialLinks>
                 <SocialA href="#8">
                   <Tweet src="/photos/tweet.png" alt="Link to Twitter"></Tweet>
                   <i className="fa fa-twitter" />
                 </SocialA>
-              </SocialLi>
-              <SocialLi>
+              </SocialLinks>
+              <SocialLinks>
                 <SocialA href="#10">
                   <Insta src="/photos/insta.png" alt="Link to LinkedIn"></Insta>
                   <i className="fa fa-linkedin" />
                 </SocialA>
-              </SocialLi>
-              <SocialLi>
+              </SocialLinks>
+              <SocialLinks>
                 <SocialA href="#11">
                   <LinkDin
                     src="/photos/link.png"
@@ -282,7 +281,7 @@ const Footer2 = () => {
                   ></LinkDin>
                   <i className="fa fa-linkedin" />
                 </SocialA>
-              </SocialLi>
+              </SocialLinks>
             </Socialicons>
           </Col3>
         </Row>
