@@ -18,7 +18,7 @@ class Sidebar extends React.Component {
 
 render () {
     return (
-  <Menu onStateChange={this.isMenuOpen} width={ 150 } isOpen={ true } >
+  <Menu onStateChange={this.toggleMenu} width={ 150 } isOpen={ true } >
     <a  className="menu-item" href="/">
       ISS
     </a>
