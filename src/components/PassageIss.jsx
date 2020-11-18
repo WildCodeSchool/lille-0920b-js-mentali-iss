@@ -222,7 +222,7 @@ class PassageIss extends Component {
     const five = (this.state.ApiObject[4].risetime * 1000) + ((this.state.ApiObject[4].duration)*1000);
     const RitiWithDurCinqHeure = new Date(five);
     const DurCinqHeure = RitiWithDurCinqHeure.toLocaleTimeString('en-GB'); 
-    
+ //Regroupe les résultats et les séparent dans un tableau   
     const groupe = `${un}+${deux}+${trois}+${quattre}+${cinq}`;
     const Desgroupe = groupe.split('+');
     const RiTiWiDuGroupe = `${RiTiWiDuOne}+${RiTiWiDuTwo}+${RiTiWiDuThree}+${RiTiWiDuFour}+${RiTiWiDuFive}`;
@@ -250,19 +250,19 @@ class PassageIss extends Component {
       <div>
         <ImgHeadContainer>
           <ImageSecondHeader alt="Beautifool evening picture" />
-          <HeadTitle>De chez vous observez l'ISS</HeadTitle>
+          <HeadTitle>Watch ISS from Home</HeadTitle>
         </ImgHeadContainer>
 
         <ImgStarsContainer>
           <ImageStars alt="Dark sky full of stars" />
-          <TitleForm>Selectionnez votre spot d'observation !</TitleForm>
+          <TitleForm>Choose you spot !</TitleForm>
         </ImgStarsContainer>
 
         <div>
           <ContainerLocation>
             <UserInput style={{ marginTop: '3vh' }}>            
               <LocalisationButton onClick={this.getLocation}>
-                Localize Me
+                Locate me
               </LocalisationButton>
               <EnterCity onSubmit={this.handleSubmitCity}>
                 <label style={{ color: 'white', fontSize: '3vh' }}>
@@ -319,7 +319,7 @@ class PassageIss extends Component {
         </ImgStarsContainer>
         <ImgStarsContainer>
           <ImageStars alt="Dark sky full of stars" />
-          <TitleForm>What's the next Satelite's whatching sesion ? </TitleForm>
+          <TitleForm>What's the next whatching sesion ? </TitleForm>
         </ImgStarsContainer>
         <PredContainer>
           {this.state.ApiObjectLoading ? (
@@ -331,11 +331,11 @@ class PassageIss extends Component {
                   <p
                     style={{
                       paddingLeft: '7vw',
-                      backgroundColor: 'darkblue',
+                      backgroundColor: '#00266F',
                       paddingTop: '3vh',
                       marginTop: '5vh',
                       marginBottom: '8vh',
-                      width: '70vw',
+                      width: '50vw',
                       height: '5vh',
                     }}
                     key={i} 
@@ -360,7 +360,7 @@ class PassageIss extends Component {
                         backgroundColor: 'black',
                         paddingTop: '3vh',
                         marginTop: '8vh',
-                        width: '30vw',
+                        width: '40vw',
                         height: '5vh',
                       }}
                     >
@@ -400,6 +400,7 @@ const ImgHeadContainer = styled.div`
   position: relative;
 `;
 
+
 const ImageSecondHeader = styled.div`
   background-image: url(${imageFondPred});
   width: 100vw;
@@ -415,6 +416,7 @@ const HeadTitle = styled.h1`
   right: 22vw;
   left: 22vw;
   color: white;
+  font-family: Vindemia;
 `;
 const ImgStarsContainer = styled.div`
   position: relative;
@@ -435,7 +437,8 @@ const TitleForm = styled.h3`
   right: 48vw;
   left: 5vw;
   color: white;
-  text-decoration: underline;
+  width : 70vw;
+  font-family: Vindemia;
 `;
 
 const ContainerLocation = styled.div`
@@ -498,6 +501,7 @@ const VotrePosition = styled.p`
   margin-top: 1vw;
   margin-bottom: 1vw;
   width: 30vw;
+  font-family: Vindemia;
 `;
 const CheckCity = styled.p`
   color: white;
@@ -507,17 +511,18 @@ const CheckCity = styled.p`
   margin-top: 1vw;
   margin-bottom: 1vw;
   width: 30vw;
+  font-family: Verdana;
 `;
 
 const TitleHowObs = styled.h3`
   position: relative;
   font-size: 3vw;
   bottom: 11vh;
-  width: 70vw;
+  width: 90vw;
   right: 5vw;
   left: 65vw;
   color: white;
-  text-decoration: underline;
+  font-family: Vindemia;
 `;
 const ImgHowObs = styled.div`
   background-image: url(${ImageObs});
@@ -531,6 +536,7 @@ const ImgHowObs = styled.div`
 const PredContainer = styled.div`
   display: grid;
   grid-template-columns: auto auto;
+  margin-left: 10vw;
 `;
 const RisetimeContainer = styled.div`
   position: relative;
@@ -538,25 +544,27 @@ const RisetimeContainer = styled.div`
   margin-left: 11vw;
   color: white;
   font-size: 3vh;
+  font-family: Verdana;
 `;
 const DurationContainerDecalage = styled.div`
   position: relative;
   margin-top: 5vh;
-  margin-left: 20vw;
+  margin-left: 40vw;
   font-size: 3vh;
 `;
 const DurationContainerA = styled.div`
   position: relative;
-  width: 30vh;
+  width: 40vh;
   color: white;
-  right : 14.3vw;
+  right : 40vw;
+  font-family: Verdana;
 `;
 const DurationContainerB = styled.div`
   position: absolute;
-  width: 30vh;
   color: white;
   bottom: 0vh;
-  width: 20vw;
-  left: 13vw;
+  width: 40vw;
+  left: 60vw;
   color: white;
+  font-family: Verdana;
 `;
