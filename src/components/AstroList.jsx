@@ -7,18 +7,17 @@ import Astro from './Astro';
 export default function AstroList () {
     const [ astro, setAstro ] = useState(astroData)
 
-    //useEffect( () => {
-    //  getCrew();
-  //}, [] )
+    useEffect( () => {
+      getCrew();
+    }, [] )
 
-  //const getCrew = () => {
-    //axios.get('http://api.open-notify.org/astros.json')
-      //.then((response) => response.data)
-     // .then((data) => {
-      // setAstro(data.people)
-      // });      
-  //}
-  
+    const getCrew = () => {
+      axios.get('http://api.open-notify.org/astros.json')
+        .then(({ data }) => {
+          const people = data.people;
+          console.log(people);
+      })}
+      
   return (
     <div>
       <div>

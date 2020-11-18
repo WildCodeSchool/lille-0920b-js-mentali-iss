@@ -7,17 +7,17 @@ class Sidebar extends React.Component {
       this.state = {
           isOpen: false
       }
-      this.isMenuOpen = this.isMenuOpen.bind(this);
+      this.toggleMenu = this.toggleMenu.bind(this);
      }; 
 
-     isMenuOpen () {
+     toggleMenu () {
       const isClose = !this.state.isOpen
   this.setState({isOpen: isClose});
       };
 
 render () {
     return (
-  <Menu onStateChange={this.isMenuOpen} width={ 150 } isOpen={ true } >
+  <Menu onStateChange={this.toggleMenu} width={ 150 } isOpen={ true } >
     <a  className="menu-item" href="/">
       ISS
     </a>
