@@ -18,7 +18,7 @@ const Photo = styled.img`
   height: auto;
   margin-left: auto;
   margin-right: auto;
-  border: solid white;
+
   @media ${device.xs} {
     width: 80vw;
   }
