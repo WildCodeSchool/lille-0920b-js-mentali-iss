@@ -127,7 +127,7 @@ class GaleriePage extends Component {
     super(props);
     this.state = {
       //On ne lui met pas d'image de base comme elle change tous les jours
-      photo: null,
+      photo: {},
     };
     this.getGalerie = this.getGalerie.bind(this);
   }
@@ -144,7 +144,6 @@ class GaleriePage extends Component {
       )
       .then((response) => response.data)
       .then((data) => {
-        console.log(data);
         this.setState({
           photo: data,
         });
@@ -154,31 +153,30 @@ class GaleriePage extends Component {
   render() {
     return (
       <Page>
-        <Textcolor>
-          <Title1>
-            <FondTitre>
-              <ImageFond1 src="/photos/stars2.jpg" alt="stars" />
-              <H1>NASA picture of the day</H1>
-              <Trait></Trait>
-            </FondTitre>
-          </Title1>
+        <Title1>
+          <FondTitre>
+            <ImageFond1 src="/photos/stars2.jpg" alt="stars" />
+            <H1>NASA picture of the day</H1>
+            <Trait></Trait>
+          </FondTitre>
+        </Title1>
 
-          <div className="GaleriePage">
-            {this.state.photo ? (
-              <DisplayGalerie photo={this.state.photo} />
-            ) : (
-              <p>No data yet</p>
-            )}
-          </div>
+        <div className="GaleriePage">
+          {this.state.photo ? (
+            <DisplayGalerie photo={this.state.photo} />
+          ) : (
+            <p>No data yet</p>
+          )}
+        </div>
 
-          <Title2>
-            <FondTitre2>
-              <ImageFond2 src="/photos/stars2.jpg" alt="stars" />
-              <H2>What did hubble see that day ?</H2>
-              <Trait2></Trait2>
-            </FondTitre2>
-          </Title2>
-        </Textcolor>
+        <Title2>
+          <FondTitre2>
+            <ImageFond2 src="/photos/stars2.jpg" alt="stars" />
+            <H2>What did hubble see that day ?</H2>
+            <Trait2></Trait2>
+          </FondTitre2>
+        </Title2>
+
         <ChooseADate />
       </Page>
     );
