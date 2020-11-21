@@ -5,7 +5,6 @@ import MyCarousel from "./components/CarouselMap";
 import ViewISS from "./components/ViewISS";
 import AstroList from "./components/AstroList";
 import Footer from "./components/Footer";
-import GaleriePage from "./components/GaleriePage";
 
 const size = {
   xs: '320px',
