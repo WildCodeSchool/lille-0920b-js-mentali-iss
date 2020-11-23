@@ -1,4 +1,4 @@
-import './reset.css';
+
 import styled from 'styled-components';
 import Header from './components/Header';
 import stars2 from './assets/stars2.jpg';
@@ -9,25 +9,37 @@ import InSpace from './components/InSpace';
 
 import PassageIss from './components/PassageIss';
 
-const Pagecontainer = styled.div`
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  background-color: black;
-  width: 100vw;
-  height: auto;
-`;
+
+import "./reset.css";
+
+
+import FrontPage from "./components/FrontPage";
+
+import GaleriePage from "./components/GaleriePage";
+
+
+const OutaContainer = styled.div`
+    height:100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;`;
+
+const PageWrap = styled.div`
+  text-align: center;
+    overflow: auto;
+    top: 45%;
+    position: relative`;
 
 function App() {
   return (
-    <Pagecontainer>
+    <OutaContainer>
       <Header />
-
+      <PageWrap>
       <PassageIss />
-       
-      <Footer />
-    </Pagecontainer>
+        <Footer />
+      </PageWrap>
+    </OutaContainer>
   );
-}
+};
 
 export default App;

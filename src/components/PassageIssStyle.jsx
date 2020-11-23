@@ -3,6 +3,18 @@ import imageFondPred from '../assets/imageFondPred.jpg';
 import imageStarFond from '../assets/imageStarFond.jpg';
 import ImageObs from '../assets/ImageObs.jpg';
 
+const size = {
+  xs: "320px",
+  sm: "768px",
+  lg: "1200px",
+};
+
+const device = {
+  xs: `(max-width: ${size.xs})`,
+  sm: `(max-width: ${size.sm})`,
+  lg: `(max-width: ${size.lg})`,
+};
+
 export const ImgHeadContainer = styled.div`
   position: relative;
 `;
@@ -11,6 +23,10 @@ export const ImageSecondHeader = styled.div`
   width: 100vw;
   height: 70vh;
   background-repeat: no-repeat;
+  @media ${device.xs} {
+    width: cover;
+  height: 100vh;
+}
 `;
 export const HeadTitle = styled.h1`
   margin-top: 0vh;
@@ -22,6 +38,15 @@ export const HeadTitle = styled.h1`
   left: 22vw;
   color: white;
   font-family: Vindemia;
+  @media ${device.xs} {
+    position: absolute;
+  text-align: center;
+  font-size: 4vw;
+  bottom: 35vh;
+  right: 02vw;
+  left: 02vw;
+  font-size: 20vw;
+  }
 `;
 export const ImgStarsContainer = styled.div`
   position: relative;
@@ -29,7 +54,7 @@ export const ImgStarsContainer = styled.div`
 export const ImageStars = styled.div`
   border: 1px solid #000;
   background-image: url(${imageStarFond});
-  width: 100vw;
+  width: 97vw;
   height: 15vh;
   background-repeat: no-repeat;
 `;
@@ -39,32 +64,55 @@ export const TitleForm = styled.h3`
   position: absolute;
   font-size: 3vw;
   bottom: 5vh;
-  right: 48vw;
-  left: 5vw;
+  left: -8vw;
   color: white;
   width : 70vw;
   font-family: Vindemia;
+  @media ${device.xs} {
+    position: absolute;
+  text-align: center;
+  font-size: 10vw;
+  right: 10vw;
+  left: 10vw;
+  bottom: 5vh;
+  top: 5vh;
+  width : 80vw;
+
+  }
 `;
 
 export const ContainerLocation = styled.div`
   position: relative;
-  margin-left: 5vw;
-  margin-right: 5vw;
   display: grid;
   grid-template-columns: auto auto;
+
+  @media ${device.xs} {
+    
+    grid-template-columns: none;
+    grid-template-rows: auto auto;
+  
+
+  }
 `;
 
 export const UserInput = styled.div`
   position: relative;
   margin-bottom: 4vh;
   width: 45vh;
-`;
+  @media ${device.xs} {
+  width: 100vh;
 
+  }
+`;
 export const DisplayUserLocation = styled.div`
   position: relative;
   margin-bottom: 4vh;
   margin-top: 4vh;
   width: 60vh;
+  @media ${device.xs} {
+  width: 100vh;
+
+  }
 `;
 
 export const LocalisationButton = styled.button`
@@ -77,6 +125,13 @@ export const LocalisationButton = styled.button`
   width: 12vw;
   height: 5vh;
   border-radius: 10px;
+  @media ${device.xs} {
+  width: 30vh;
+  margin-left: -70vw;
+  margin-right: 0vw;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  }
 `;
 
 export const EnterCity = styled.form`
@@ -85,10 +140,24 @@ export const EnterCity = styled.form`
   margin-right: 10vw;
   margin-bottom: 1vw;
   width: 30vw;
+  @media ${device.xs} {
+  width: 90vw;
+  margin-left: 12w;
+  margin-right: 15vw;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  }
 `;
 export const EnterACityName = styled.input`
   height: 4vh;
   width: 25vw;
+  @media ${device.xs} {
+  width: 90vw;
+  margin-left: -7vw;
+  margin-right: 3vw;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  }
 `;
 
 export const SubmitCity = styled.input`
@@ -97,6 +166,13 @@ export const SubmitCity = styled.input`
   margin-top: 2vh;
   margin-left: 19vw;
   border-radius: 7px;
+  @media ${device.xs} {
+  width: 30vw;
+  margin-left: 15vw;
+  margin-right: 15vw;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  }
 `;
 export const VotrePosition = styled.p`
   color: white;
@@ -107,6 +183,13 @@ export const VotrePosition = styled.p`
   margin-bottom: 1vw;
   width: 30vw;
   font-family: Vindemia;
+  @media ${device.xs} {
+  width: 90vw;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  }
 `;
 export const CheckCity = styled.p`
   color: white;
@@ -117,17 +200,35 @@ export const CheckCity = styled.p`
   margin-bottom: 1vw;
   width: 30vw;
   font-family: Verdana;
+    @media ${device.xs} {
+  width: 90vw;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  }
 `;
 
 export const TitleHowObs = styled.h3`
   position: relative;
   font-size: 3vw;
   bottom: 11vh;
-  width: 90vw;
+  width: 24vw;
   right: 5vw;
-  left: 65vw;
+  left: 60vw;
   color: white;
   font-family: Vindemia;
+  @media ${device.xs} {
+    position: absolute;
+  text-align: center;
+  display : none;
+  right: 10vw;
+  left: 10vw;
+  bottom: 0vh;
+  top: 0vh;
+  width : 80vw;
+  color : black;
+  }
 `;
 export const ImgHowObs = styled.div`
   background-image: url(${ImageObs});
@@ -136,6 +237,11 @@ export const ImgHowObs = styled.div`
   margin-left: 25vw;
   margin-right: 25vw;
   background-repeat: no-repeat;
+  @media ${device.xs} {
+  
+    width: 0vw;
+  height: 0vh;
+  }
 `;
 
 export const PredContainer = styled.div`
@@ -156,20 +262,34 @@ export const DurationContainerDecalage = styled.div`
   margin-top: 5vh;
   margin-left: 40vw;
   font-size: 3vh;
+  @media ${device.xs} {
+    margin-left: 0vw;
+  width: 70vw;
+  font-size: 15px;
+
+}
 `;
 export const DurationContainerA = styled.div`
   position: relative;
-  width: 40vh;
   color: white;
-  right : 54.3vw;
+
+  margin-left: -68vw;
   font-family: Verdana;
+  @media ${device.xs} {
+    margin-left: -78vw;
+  width: 70vw;
+
+}
 `;
 export const DurationContainerB = styled.div`
   position: absolute;
   color: white;
   bottom: 0vh;
-  width: 40vw;
-  left: -20vw;
+  margin-left: -18vw;
   color: white;
   font-family: Verdana;
+  @media ${device.xs} {
+    margin-left: -30vw;
+    width: 70vw;
+}
 `;

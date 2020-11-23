@@ -269,7 +269,10 @@ getWeather(){
  // Const pour avoir un affichage de la lat et lng en passant à la ligne    
     const positionLatLon = ["Latitude   : ",this.state.UserLocationIcon.lat, <br />,"Lontitude : ", this.state.UserLocationIcon.lng];
     return (
-      <div>
+      <div style={{backgroundColor : 'black',
+        width: 'cover',
+          height: 'cover'}}>
+      
         <ImgHeadContainer>
           <ImageSecondHeader alt="Beautifool evening picture" />
           <HeadTitle>Watch ISS from Home</HeadTitle>
@@ -309,15 +312,15 @@ getWeather(){
               <CheckCity> {CityCheck} {' '} </CheckCity> )}
               
             </UserInput>
-            <DisplayUserLocation>
+            <DisplayUserLocation >
               <Map
                 className="map"
                 center={LocationIcon}
                 zoom={this.state.zoom}
                 style={{
                   height: '50vh',
-                  width: '35vw',
-                  borderRadius: '10px',
+                  width: 'auto',
+                  borderRadius: 'auto',
                 }}
               >
                 <TileLayer
@@ -353,11 +356,12 @@ getWeather(){
                   <p
                     style={{
                       paddingLeft: '7vw',
+                      paddingRight: '60vw',
                       backgroundColor: '#00266F',
                       paddingTop: '3vh',
                       marginTop: '5vh',
                       marginBottom: '8vh',
-                      width: '50vw',
+                      
                       height: '5vh',
                     }}
                     key={i} 
@@ -382,11 +386,11 @@ getWeather(){
                         backgroundColor: 'black',
                         paddingTop: '3vh',
                         marginTop: '8vh',
-                        width: '40vw',
+              
                         height: '5vh',
                       }}
                     >
-                      You will be able to watch Iss from {RiseTimeBegins}
+                      Watch Iss from {RiseTimeBegins}
                     </p>
                   );
                 })}
@@ -398,12 +402,11 @@ getWeather(){
                      style={{
                         paddingTop: '3vh',
                         marginTop: '8vh',
-                        width: '30vw',
                         height: '5vh',
                       }}
                       key={i*6+1}
                     >
-                      to {RiseTimeEnds}
+                      until {RiseTimeEnds}
                     </p>
                   );
                 })}
@@ -412,6 +415,7 @@ getWeather(){
           )}
         </PredContainer>
         <p>Bas de la page</p>
+
       </div>
     );
   }
