@@ -242,8 +242,8 @@ getWeather(){
   console.log(longitude)
   const Time = this.state.ApiObject[0].risetime;
   console.log(Time)
-  const Api = '74294d3495657bcae213ce35ff9c2738'
- const UrlWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&dt=${Time}&exclude=minutely,current,daily&appid=${Api}`;
+  const API_KEY = process.env.REACT_APP_API_KEY ;
+ const UrlWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&dt=${Time}&exclude=minutely,current,daily&appid=${API_KEY}`;
   axios.get(UrlWeather)
   .then(response => {
    const weatherResp = response;  
