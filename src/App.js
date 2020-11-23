@@ -1,10 +1,8 @@
 import "./reset.css";
 import styled from "styled-components";
-import Header from "./components/Header";
 import MyCarousel from "./components/CarouselMap";
 import ViewISS from "./components/ViewISS";
 import AstroList from "./components/AstroList";
-import Footer from "./components/Footer";
 
 const size = {
   xs: '320px',
@@ -42,13 +40,11 @@ const CardsContainer= styled.div `
 function App() {
   return (
     <Pagecontainer>
-      <Header />
       <MyCarousel />
       <ViewISS />
       <CardsContainer>
         <AstroList />
       </CardsContainer>
-      <Footer />
     </Pagecontainer>
   );
 }
