@@ -22,10 +22,6 @@ const Page = styled.div`
   height: 100%;
 `;
 
-const Textcolor = styled.p`
-  color: white;
-`;
-
 const Title1 = styled.div`
   padding-top: 6vh;
   @media ${device.xs} {
@@ -137,11 +133,10 @@ class GaleriePage extends Component {
   }
 
   getGalerie() {
+    const api_key = process.env.REACT_APP_API_KEY;
     // Récupération de l'API
     axios
-      .get(
-        "https://api.nasa.gov/planetary/apod?api_key=VRrNYEwbHHhEqD0HTDYC28EHdYcGfbHmg6xbTS4n"
-      )
+      .get(`https://api.nasa.gov/planetary/apod?api_key=${api_key}`)
       .then((response) => response.data)
       .then((data) => {
         this.setState({

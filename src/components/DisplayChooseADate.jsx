@@ -43,7 +43,7 @@ const FlexBox1 = styled.div`
   }
 `;
 
-const FlexBox2 = styled.p`
+const FlexBox2 = styled.div`
   text-align: left;
   margin-right: 4vw;
   margin-bottom: auto;

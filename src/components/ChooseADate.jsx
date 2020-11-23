@@ -91,9 +91,9 @@ class ChooseADate extends Component {
     this.state = {
       //*on définie les paramètres de la fonction
       photo: null,
-      year: {},
-      month: {},
-      day: {},
+      year: "year",
+      month: "month",
+      day: "day",
     };
     this.getGalerie = this.getGalerie.bind(this);
   }
@@ -126,16 +126,13 @@ class ChooseADate extends Component {
     return arrYear;
   }
 
-  //We say to it what will change
-  componentDidMount() {
-    this.getGalerie(this.state.year, this.state.month, this.state.day);
-  }
-
   getGalerie(year, month, day) {
     // Retrieving the API and changing the 3 parameters
+    const api_key = process.env.REACT_APP_APIDAY_KEY;
     axios
+
       .get(
-        `https://api.nasa.gov/planetary/apod?api_key=X0pTCLU1WDtehvcdyz3Ju71cdobzX2RzjUDLTzk8&date=${year}-${month}-${day}`
+        `https://api.nasa.gov/planetary/apod?api_key=${api_key}&date=${year}-${month}-${day}`
       )
       .then((response) => response.data)
       .then((data) => {
@@ -148,19 +145,16 @@ class ChooseADate extends Component {
   //When the month changes, the new value of month becomes monthValue
   handleChangeMonth = (e) => {
     const monthValue = e.target.value;
-    console.log(monthValue);
     this.setState({ month: monthValue });
   };
 
   handleChangeDay = (e) => {
     const dayValue = e.target.value;
-    console.log(dayValue);
     this.setState({ day: dayValue });
   };
 
   handleChangeYear = (e) => {
     const yearValue = e.target.value;
-    console.log(yearValue);
     this.setState({ year: yearValue });
   };
 
