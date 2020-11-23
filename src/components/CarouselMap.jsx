@@ -2,24 +2,13 @@ import React, { Component } from 'react';
 import Carousel from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
 import styled from 'styled-components';
+import { device } from "./Device";
 
-const size = {
-  xs: '320px',
-  sm: '768px',
-  lg: '1200px',
- };
-
-const device = {
-  xs: `(max-width: ${size.xs})`,
-  sm: `(max-width: ${size.sm})`,
-  lg: `(min-width: ${size.lg})`,
- };
-
-const Karousel = styled.div
- `margin-top: 10vh;
-  width: 99vw;
+const Karousel = styled.div`
+  margin-top: 10vh;
+  width: 100%;
   position: center;
-  @media ${device.sm} {
+  @media ${device.mobile} {
     display: none;
     }
 `

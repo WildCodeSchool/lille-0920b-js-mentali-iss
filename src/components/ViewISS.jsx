@@ -3,150 +3,9 @@ import L from "leaflet";
 import { Map, TileLayer, Marker } from "react-leaflet";
 import Iss from "../assets/iss.png";
 import axios from "axios";
-import styled from "styled-components";
 import ReactPlayer from "react-player";
+import { FondTitle, FondImage, Title, Trait, Title2, VideoLive, ImgContainerButton, ImgButton, Centered, Title4 } from "./ViewISSCSS";
 
-const size = {
-  xs: '320px',
-  sm: '768px',
-  lg: '1200px',
- };
-
-const device = {
-  xs: `(max-width: ${size.xs})`,
-  sm: `(max-width: ${size.sm})`,
-  lg: `(min-width: ${size.lg})`,
- };
-
-
-const FondTitle1 = styled.div`
-  position: relative;
-  margin-top: 4vh;
-  margin-bottom: 4vh;
-  @media ${device.xs} {
-    font-size: 1em;
-    margin-bottom: 55px;
-    }
-`;
-
-const FondImage = styled.img`
-  width: 100vw;
-`;
-
-const Title = styled.h1`
-  color: white;
-  font-size: 2.5em;
-  font-family: "Vindemia";
-  position: absolute;
-  top: 2vh;
-  left: 1.5vw;
-  @media ${device.xs} {
-    font-size: 1.2em;
-    margin-bottom: 55px;
-    }
-`;
-
-const Trait = styled.div`
-  background-color: white;
-  height: 1px;
-  width: 50%;
-  position: absolute;
-  top: 8vh;
-  z-index: 5;
-`;
-
-
-const VideoLive = styled.div`
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 100;
-  display: flex;
-  justify-content: center;
-  margin-top: 4vh;
-  @media ${device.xs} {
-    width: 70%;
-    height: 50%;
-    margin-left: 15vw;
-    justify-content: center;
-    }
-`;
-
-const ImgContainerButton = styled.div`
-  position: relative;
-  text-align: center;
-  color: white;
-  font-family: "Vindemia";
-  font-size: 0.7em;
-  flex-wrap: wrap;
-  margin-top: 6vh;
-  margin-bottom: 4vh;
-`;
-
-const ImgButton = styled.img`
-  height: 30vh;
-  width: 30vw;
-  border: 1px solid grey;
-  border-radius: 10px;
-  @media ${device.xs} {
-    width: 50%;
-    height: 50%;
-    }
-`;
-
-const Centered = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: azure;
-  font-size: 4em;
-  @media ${device.xs} {
-    width: 70%;
-    height: 70%;
-    font-size: 1.2em;
-    margin-top: 25px;
-    }
-`;
-
-/*----------------------*/
-const FondTitle2 = styled.div`
-  position: relative;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-`;
-
-const FondImage2 = styled.img`
-  width: 98%;
-  height: 100%;
-`;
-
-const Title2 = styled.h1`
-  color: white;
-  font-size: 2.5em;
-  font-family: "Vindemia";
-  width: 99%;
-  text-align: right;
-  margin-top: 0.8em;
-  margin-right: 1.9em;
-  position: absolute;
-  @media ${device.xs} {
-    font-size: 1.2em;
-   text-align: left;
-    }
-`;
-
-const Trait2 = styled.div`
-  background-color: white;
-  height: 1px;
-  margin-top: 1%;
-  margin-bottom: 1%;
-  @media ${device.xs} {
-    left:0;
-    }
-`;
-
-/*--------------------*/
 
 const ISS_URL = "http://api.open-notify.org/iss-now.json";
 
@@ -198,11 +57,12 @@ class ViewISS extends Component {
     const positionSatIcon = [this.state.SatIcon.lat, this.state.SatIcon.lng];
     return (
       <div>
-        <FondTitle1>
+        <FondTitle>
           <FondImage img src="/photos/stars2.jpg" alt="stars" />
           <Title>Iss Live Position </Title>
-          <Trait></Trait>
-        </FondTitle1>
+        </FondTitle>
+        <Trait></Trait>
+
         <Map
           style={{
             width: "70vw",
@@ -224,33 +84,46 @@ class ViewISS extends Component {
           <Marker position={positionSatIcon} icon={this.SatIcon}></Marker>
           )}
         </Map>
- 
+
+        <FondTitle>
+          <FondImage img src="/photos/stars2.jpg" alt="stars" />
+          <Title2>ISS Video Live</Title2>
+        </FondTitle>
+        <Trait></Trait>
+
+
         <VideoLive>
           <ReactPlayer
-            url="https://www.youtube.com/watch?v=EEIk7gwjgIM"
+            url="https://www.youtube.com/watch?v=DDU-rZs-Ic4"
             controls
             playbackRate={2}
           />
         </VideoLive>
 
+        <FondTitle>
+          <FondImage img src="/photos/stars2.jpg" alt="stars" />
+          <Title>Watch ISS from home</Title>
+        </FondTitle>
+        <Trait></Trait>
+
         <ImgContainerButton>
           <a href="#b" className="ChezVous" data-inf="photo">
             <ImgButton src="/photos/starObs.jpg" alt="logo" />
             <Centered>
-              <p>Watch ISS</p>
-              <p>from home </p>
+              <p>pass predicitions</p>
+              <p>duration and weather</p>
             </Centered>
           </a>
         </ImgContainerButton>
 
-        <FondTitle2>
-          <FondImage2 img src="/photos/stars2.jpg" alt="stars" />
-          <Title2>Crew on-board</Title2>
-        </FondTitle2>
-        <Trait2></Trait2>
+        <FondTitle>
+          <FondImage img src="/photos/stars2.jpg" alt="stars" />
+          <Title4>Crew on-board</Title4>
+        </FondTitle>
+        <Trait></Trait>
       </div>
-    );
+    )
   }
 }
 
-export default ViewISS;
+export default ViewISS

@@ -4,6 +4,7 @@ import MyCarousel from "./components/CarouselMap";
 import ViewISS from "./components/ViewISS";
 import AstroList from "./components/AstroList";
 
+
 const Pagecontainer = styled.div`
   box-sizing: border-box;
   margin: 0;
@@ -11,6 +12,9 @@ const Pagecontainer = styled.div`
   background-color: black;
   width: 100vw;
   height: auto;
+  
+
+
 `;
 
 function App() {
