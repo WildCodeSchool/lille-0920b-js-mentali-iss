@@ -4,6 +4,18 @@ import ChooseADate from "./ChooseADate.jsx";
 import axios from "axios";
 import styled from "styled-components";
 
+const size = {
+  xs: "320px",
+  sm: "768px",
+  lg: "1200px",
+};
+
+const device = {
+  xs: `(max-width: ${size.xs})`,
+  sm: `(max-width: ${size.sm})`,
+  lg: `(max-width: ${size.lg})`,
+};
+
 const Page = styled.div`
   background-color: black;
   width: 100%;
@@ -16,6 +28,9 @@ const Textcolor = styled.p`
 
 const Title1 = styled.div`
   padding-top: 6vh;
+  @media ${device.xs} {
+    padding-bottom: 1vh;
+  }
 `;
 
 const H1 = styled.h1`
@@ -25,6 +40,11 @@ const H1 = styled.h1`
   top: 2vh;
   left: 2vw;
   z-index: 4;
+  font-family: Vindemia;
+  @media ${device.xs} {
+    font-size: 0.9em;
+    text-align: center;
+  }
 `;
 
 const Trait = styled.div`
@@ -34,6 +54,9 @@ const Trait = styled.div`
   position: absolute;
   top: 7vh;
   z-index: 5;
+  @media ${device.xs} {
+    width: 100%;
+  }
 `;
 
 const FondTitre = styled.div`
@@ -47,6 +70,9 @@ const ImageFond1 = styled.img`
   margin-top: 0;
   margin-bottom: 0;
   width: 100vw;
+  @media ${device.xs} {
+    height: 7.5vh;
+  }
 `;
 
 const Title2 = styled.div`
@@ -61,22 +87,33 @@ const H2 = styled.h1`
   top: 2vh;
   right: 2vw;
   z-index: 4;
+  font-family: Vindemia;
+  @media ${device.xs} {
+    font-size: 0.9em;
+    text-align: center;
+  }
 `;
 
 const Trait2 = styled.div`
   background-color: white;
   height: 1px;
-  width: 50%;
+  width: 60%;
   position: absolute;
   top: 7vh;
-  right: 0;
   z-index: 5;
+  @media ${device.xs} {
+    width: 100%;
+    top: 8vh;
+  }
 `;
 
 const ImageFond2 = styled.img`
   margin-top: 0;
   margin-bottom: 0;
   width: 100vw;
+  @media ${device.xs} {
+    height: 7.5vh;
+  }
 `;
 
 const FondTitre2 = styled.div`

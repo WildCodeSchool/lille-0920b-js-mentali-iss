@@ -3,6 +3,18 @@ import axios from "axios";
 import styled from "styled-components";
 import DisplayChooseADate from "./DisplayChooseADate.jsx";
 
+const size = {
+  xs: "320px",
+  sm: "768px",
+  lg: "1200px",
+};
+
+const device = {
+  xs: `(max-width: ${size.xs})`,
+  sm: `(max-width: ${size.sm})`,
+  lg: `(max-width: ${size.lg})`,
+};
+
 const Page = styled.div`
   background-color: black;
   width: 100%;
@@ -26,6 +38,10 @@ const BaliseSelection = styled.div`
   display: block;
   margin-bottom: 4vh;
   margin-left: 26.5vw;
+  @media ${device.xs} {
+    width: 100vw;
+    margin-left: 3vw;
+  }
 `;
 
 const Select = styled.select`
@@ -39,7 +55,9 @@ const Select = styled.select`
   margin-left: 2vw;
 
   border-radius: 10px;
-
+  @media ${device.xs} {
+    width: 20vw;
+  }
   option {
     color: black;
     background: white;
@@ -62,6 +80,10 @@ const Submit = styled.input`
   margin-left: 2vw;
   padding: 6px 0 6px 0;
   border: 1px solid #ccc;
+  @media ${device.xs} {
+    width: 25vw;
+    height: 7vh;
+  }
 `;
 
 class ChooseADate extends Component {
