@@ -5,7 +5,7 @@ import Iss from "../assets/iss.png";
 import axios from "axios";
 import ReactPlayer from "react-player";
 import { FondTitle, FondImage, Title, Trait, Title2, VideoLive, ImgContainerButton, ImgButton, Centered, Title4 } from "./ViewISSCSS";
-
+import 'leaflet/dist/leaflet.css';
 
 const ISS_URL = "http://api.open-notify.org/iss-now.json";
 
@@ -29,29 +29,29 @@ class ViewISS extends Component {
       iconAnchor: [25, 25], // point of the icon which will correspond to marker's location
     });
   }
-  //mount component by call recalIss function
-  //add a callback function to update recalIss every 5s
-  componentDidMount() {
-    this.recalIss();
-    this.interval = setInterval(this.recalIss, 2500);
-  }
-  //call API (stock in ISS-URL) by Axios
-  //import json object from API with.then
-  //update state of "issPosition" with data result from json object
-  //update haveUsersLocation ?
-  recalIss = () => {
-    axios.get(ISS_URL).then(({ data }) => {
-      console.log(data);
-      this.setState({
-        SatIcon: {
-          lat: data.iss_position.latitude,
-          lng: data.iss_position.longitude,
-        },
-        haveUsersLocation: true,
-        zoom: 2,
+    //mount component by call recalIss function
+    //add a callback function to update recalIss every 5s
+    componentDidMount() {
+      this.recalIss();
+      this.interval = setInterval(this.recalIss, 2500);
+    }
+    //call API (stock in ISS-URL) by Axios
+    //import json object from API with.then
+    //update state of "issPosition" with data result from json object
+    //update haveUsersLocation ?
+    recalIss = () => {
+      axios.get(ISS_URL).then(({ data }) => {
+        console.log(data);
+        this.setState({
+          SatIcon: {
+            lat: data.iss_position.latitude,
+            lng: data.iss_position.longitude,
+          },
+          haveUsersLocation: true,
+          zoom: 2,
+        });
       });
-    });
-  };
+    };
 
   render() {
     const positionSatIcon = [this.state.SatIcon.lat, this.state.SatIcon.lng];
@@ -62,7 +62,6 @@ class ViewISS extends Component {
           <Title>Iss Live Position </Title>
         </FondTitle>
         <Trait></Trait>
-
         <Map
           style={{
             width: "70vw",

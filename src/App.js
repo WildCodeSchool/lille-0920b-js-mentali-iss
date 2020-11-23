@@ -12,9 +12,6 @@ const Pagecontainer = styled.div`
   background-color: black;
   width: 100vw;
   height: auto;
-  
-
-
 `;
 
 function App() {
