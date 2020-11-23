@@ -55,42 +55,6 @@ const Trait = styled.div`
   z-index: 5;
 `;
 
-const FondTitle2 = styled.div`
-  position: relative;
-  margin-top: 4vh;
-  margin-bottom: 4vh;
-`;
-
-const FondImage2 = styled.img`
-  width: 100vw;
-`;
-
-const Title2 = styled.h1`
-  color: white;
-  font-size: 2.5em;
-  font-family: "Vindemia";
-  position: absolute;
-  top: 2vh;
-  width: 90%;
-  text-align: right;
-  @media ${device.xs} {
-    font-size: 1.2em;
-   text-align: left;
-    }
-`;
-
-const Trait2 = styled.div`
-  background-color: white;
-  height: 1px;
-  width: 50%;
-  position: absolute;
-  top: 8vh;
-  right: 0;
-  z-index: 5;
-  @media ${device.xs} {
-    left:0;
-    }
-`;
 
 const VideoLive = styled.div`
   width: 100%;
@@ -114,7 +78,7 @@ const ImgContainerButton = styled.div`
   font-family: "Vindemia";
   font-size: 0.7em;
   flex-wrap: wrap;
-  margin-top: 8vh;
+  margin-top: 6vh;
   margin-bottom: 4vh;
 `;
 
@@ -143,6 +107,46 @@ const Centered = styled.div`
     margin-top: 25px;
     }
 `;
+
+/*----------------------*/
+const FondTitle2 = styled.div`
+  position: relative;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+`;
+
+const FondImage2 = styled.img`
+  width: 98%;
+  height: 100%;
+`;
+
+const Title2 = styled.h1`
+  color: white;
+  font-size: 2.5em;
+  font-family: "Vindemia";
+  width: 99%;
+  text-align: right;
+  margin-top: 0.8em;
+  margin-right: 1.9em;
+  position: absolute;
+  @media ${device.xs} {
+    font-size: 1.2em;
+   text-align: left;
+    }
+`;
+
+const Trait2 = styled.div`
+  background-color: white;
+  height: 1px;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  @media ${device.xs} {
+    left:0;
+    }
+`;
+
+/*--------------------*/
 
 const ISS_URL = "http://api.open-notify.org/iss-now.json";
 
@@ -238,12 +242,12 @@ class ViewISS extends Component {
             </Centered>
           </a>
         </ImgContainerButton>
+
         <FondTitle2>
           <FondImage2 img src="/photos/stars2.jpg" alt="stars" />
-
           <Title2>Crew on-board</Title2>
-          <Trait2></Trait2>
         </FondTitle2>
+        <Trait2></Trait2>
       </div>
     );
   }

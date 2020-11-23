@@ -1,19 +1,8 @@
 import styled from 'styled-components';
-
-const size = {
-  xs: '320px',
-  sm: '768px',
-  lg: '1200px',
- };
-
-const device = {
-  xs: `(max-width: ${size.xs})`,
-  sm: `(max-width: ${size.sm})`,
-  lg: `(min-width: ${size.lg})`,
- };
+import { device } from "./Device";
 
 const Crewcards = styled.div ` 
-  display: flex;
+display: flex;
  flex-direction: row;
  justify-content: space-between;
  align-items: center;
@@ -23,7 +12,7 @@ const Crewcards = styled.div `
  padding: 10px 10px 10px 10px;
  border: solid 6px black;
  background-color: rgb(53, 52, 52);
- @media ${device.xs} {
+ @media ${device.mobile} {
    width: 80vw ;
    margin: 10px;
    justify-content: center;
@@ -37,7 +26,7 @@ display: flex;
  height: auto;
  border-radius: 20px;
  border: solid 2px white;
- @media ${device.xs} {
+ @media ${device.mobile} {
     display: none;
   }`
 
@@ -49,7 +38,7 @@ const Astrophoto = styled.img`
   &:hover {
       filter: grayscale(100);
   }
-  @media ${device.xs} {
+  @media ${device.mobile} {
     display: none;
   }`;
 
@@ -71,7 +60,7 @@ const Astrotitle = styled.div `
   align-items: center;
   margin-top: 20px;
   padding: 5px 5px 5px 5px;
-  @media ${device.xs} {
+  @media ${device.mobile} {
       font-size: 1.8em;
 
       }`;
@@ -81,7 +70,7 @@ const Astroname = styled.h2`
   font-family: "Vindemia";
   font-size: 1em;
  color: white;
- @media ${device.xs} {
+ @media ${device.mobile} {
    font-size: 0.4em;
    margin-bottom: 15px;
    }
@@ -111,7 +100,7 @@ const P = styled.p `
  margin-top: 5px;
  margin-bottom: 20px;
  color: white;
- @media ${device.xs} {
+ @media ${device.mobile} {
    font-size: 0.4em;
    line-height: 10px;
    margin-top: 20px;
@@ -141,11 +130,11 @@ export default function Astro ({index, name, departure, arrival, description, pr
           <Astroflag  src={flag_image} alt={nationality} />
         </Astrotitle>
         <Astrotag>
-        <P>Nationality: {nationality}</P>
-        <P>Date of arrival: {arrival}</P>
-        <P>Date of departure: {departure}</P>
-        <P>Arrived by: {spaceship}</P>
-        <P>Who is it ? {description}</P>
+        <P><u>Nationality</u>: {nationality}</P>
+        <P><u>Date of arrival</u>: {arrival}</P>
+        <P><u>Date of departure</u>: {departure}</P>
+        <P><u>Arrived by</u>: {spaceship}</P>
+        <P><u>Who is it </u>? {description}</P>
          </Astrotag>
         <Trait></Trait>
            <Learnmore href={wiki}>Learn more ...</Learnmore>
