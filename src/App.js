@@ -4,9 +4,9 @@ import Header from './components/Header';
 import stars2 from './assets/stars2.jpg';
 // import FrontPage from "./components/FrontPage";
 import MyCarousel from './components/CarouselMap';
-import ViewISS from './components/ViewISS';
 import Footer from './components/Footer';
 import InSpace from './components/InSpace';
+
 import PassageIss from './components/PassageIss';
 
 const Pagecontainer = styled.div`
@@ -24,7 +24,7 @@ function App() {
       <Header />
 
       <PassageIss />
-
+       
       <Footer />
     </Pagecontainer>
   );
