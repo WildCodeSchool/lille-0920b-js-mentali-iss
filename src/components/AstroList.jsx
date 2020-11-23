@@ -2,7 +2,19 @@ import React from 'react';
 import axios from "axios";
 import { useEffect, useState} from "react";
 import Astro from './Astro';
+import styled from "styled-components";
 
+
+//auto-fill wrap auto if no space available
+const Wrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+  column-gap: 2em;
+  row-gap: 2em;
+  width: 100%;
+  margin-top: 0 auto;
+  margin-left: 4em;
+`;
 export default function AstroList () {
   const [ astro, setAstro ] = useState([])
 
@@ -17,7 +29,7 @@ export default function AstroList () {
 
 return (
   <div>
-    <div>
+    <Wrapper>
        {astro.map(({index, name, departure, arrival, description, profile_image, wiki, nationality, onboard, flag_image, spaceship}) => (
       <Astro 
       key={index} 
@@ -33,7 +45,7 @@ return (
       spaceship={spaceship}
       />
     ))}
-    </div>
+    </Wrapper>
   </div>
 );
 }

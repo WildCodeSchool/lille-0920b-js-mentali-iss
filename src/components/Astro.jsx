@@ -18,10 +18,8 @@ const Crewcards = styled.div `
  justify-content: space-between;
  align-items: center;
  position: relative;
- width: 35vw;
  height: auto;
  border-radius: 20px;
- margin: 100px 350px 100px 350px;
  padding: 10px 10px 10px 10px;
  border: solid 6px black;
  background-color: rgb(53, 52, 52);
@@ -81,7 +79,7 @@ const Astrotitle = styled.div `
 const Astroname = styled.h2`
   text-align: center;
   font-family: "Vindemia";
-  font-size: 1.2em;
+  font-size: 1em;
  color: white;
  @media ${device.xs} {
    font-size: 0.4em;
