@@ -96,9 +96,6 @@ const Astroflag = styled.img`
 
 const Astrotag =styled.div`
     font-family: "Vindemia";
-    font-size: 0.6em;
-    color: white;
-    line-height: 2.4em;
     `;
 
 const Trait = styled.hr` 
@@ -108,12 +105,12 @@ const Trait = styled.hr`
 
 const P = styled.p ` 
   width: 100%;
- height: auto;
- text-align: justify;
- font-family: "Vindemia";
- line-height: 20px;
- font-size: 0.6em;
- margin-top: 60px;
+  height: auto;
+  text-align: justify;
+  font-family: "Vindemia";
+  line-height: 2.2em;
+  font-size: 0.6em;
+ margin-top: 5px;
  margin-bottom: 20px;
  color: white;
  @media ${device.xs} {
@@ -146,11 +143,11 @@ export default function Astro ({index, name, departure, arrival, description, pr
           <Astroflag  src={flag_image} alt={nationality} />
         </Astrotitle>
         <Astrotag>
-        <p>Nationality: {nationality}</p>
-        <p>Date of arrival: {arrival}</p>
-        <p>Date of departure: {departure}</p>
-        <p>Arrived by: {spaceship}</p>
-        <p>Who is it ? {description}</p>
+        <P>Nationality: {nationality}</P>
+        <P>Date of arrival: {arrival}</P>
+        <P>Date of departure: {departure}</P>
+        <P>Arrived by: {spaceship}</P>
+        <P>Who is it ? {description}</P>
          </Astrotag>
         <Trait></Trait>
            <Learnmore href={wiki}>Learn more ...</Learnmore>
