@@ -61,27 +61,27 @@ const Crewsection = styled.section`
   width: 63%;
   height: auto;
   align-items: center;
-      `
+      `;
 
 const Astrotitle = styled.div `
   display: flex;
- flex-wrap: wrap;
- font-family: "Vindemia";
+  flex-wrap: wrap;
+  font-family: "Vindemia";
   width: 95%;
- height: auto;
- justify-content: space-around;
- align-items: center;
- margin-top: 20px;
- padding: 5px 5px 5px 5px;
- @media ${device.xs} {
-    font-size: 1.8em;
+  height: auto;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+  padding: 5px 5px 5px 5px;
+  @media ${device.xs} {
+      font-size: 1.8em;
 
-    }`;
+      }`;
 
 const Astroname = styled.h2`
   text-align: center;
   font-family: "Vindemia";
-  font-size: 0.7em;
+  font-size: 1.2em;
  color: white;
  @media ${device.xs} {
    font-size: 0.4em;
@@ -92,6 +92,14 @@ const Astroname = styled.h2`
 const Astroflag = styled.img`
   width: 100px;
  height: 50px;`;
+
+
+const Astrotag =styled.div`
+    font-family: "Vindemia";
+    font-size: 0.6em;
+    color: white;
+    line-height: 2.4em;
+    `;
 
 const Trait = styled.hr` 
   width: 100%;
@@ -137,13 +145,14 @@ export default function Astro ({index, name, departure, arrival, description, pr
           <Astroname>{name}</Astroname>
           <Astroflag  src={flag_image} alt={nationality} />
         </Astrotitle>
+        <Astrotag>
         <p>Nationality: {nationality}</p>
         <p>Date of arrival: {arrival}</p>
         <p>Date of departure: {departure}</p>
-        <p>Arrive by: {spaceship}</p>
+        <p>Arrived by: {spaceship}</p>
+        <p>Who is it ? {description}</p>
+         </Astrotag>
         <Trait></Trait>
-        <P>{description}
-       </P>
            <Learnmore href={wiki}>Learn more ...</Learnmore>
       </Crewsection> 
     </Crewcards> 
