@@ -82,17 +82,21 @@ const Learnmore = styled.a
  color: blue;
  }`
 
-export default function Astro ({index, name, image, flag, astroImage, description, wiki}) {
+export default function Astro ({index, name, departure, arrival, description, profile_image, wiki, nationality, onboard, flag_image, spaceship}) {
     return (
         <Crewcards>
         <Crewheader>
-          <Astrophoto src={astroImage} alt={name} />
+          <Astrophoto src={profile_image} alt={name} />
         </Crewheader>
         <Crewsection>
           <Astrotitle>
             <Astroname>{name}</Astroname>
-            <Astroflag  src={flag} alt="drapeau" />
+            <Astroflag  src={flag_image} alt={nationality} />
           </Astrotitle>
+          <p>Nationality: {nationality}</p>
+          <p>Date of arrival: {arrival}</p>
+          <p>Date of departure: {departure}</p>
+          <p>Arrive by: {spaceship}</p>
           <Trait></Trait>
           <P>{description}
          </P>

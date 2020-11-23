@@ -1,35 +1,36 @@
 import React from 'react';
-import astroData from "./astroData.json"
 import axios from "axios";
 import { useEffect, useState} from "react";
 import Astro from './Astro';
 
 export default function AstroList () {
-    const [ astro, setAstro ] = useState(astroData)
+    const [ astro, setAstro ] = useState([])
 
-    //useEffect( () => {
-    //  getCrew();
-  //}, [] )
+    const getCrew = () => {
+    axios.get('https://fathomless-crag-22198.herokuapp.com/isscrews')
+      .then((res) => setAstro(res.data));
+       }   
 
-  //const getCrew = () => {
-    //axios.get('http://api.open-notify.org/astros.json')
-      //.then((response) => response.data)
-     // .then((data) => {
-      // setAstro(data.people)
-      // });      
-  //}
-  
+    useEffect( () => {
+     getCrew();
+    }, []);
+
   return (
     <div>
       <div>
-         {astro.map(({index, name, flag, astroImage, description, wiki}) => (
+         {astro.map(({index, name, departure, arrival, description, profile_image, wiki, nationality, onboard, flag_image, spaceship}) => (
         <Astro 
         key={index} 
         name={name} 
-        flag={flag}
-        astroImage={astroImage}
+        departure={departure}
+        arrival={arrival}
         description={description}
+        profile_image={profile_image}
         wiki={wiki}
+        nationality={nationality}
+        onboard={onboard}
+        flag_image={flag_image}
+        spaceship={spaceship}
         />
       ))}
       </div>
