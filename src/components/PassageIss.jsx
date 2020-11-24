@@ -15,12 +15,12 @@ import leafShadow from '../assets/leafShadow.png';
 class PassageIss extends Component {
   constructor(props) {
     super(props);
-    // relève les nouvelles location depuis les boutons vers le state  
+    // UpDate state
     this.getLocation = this.getLocation.bind(this);
     this.handleChangeCity = this.handleChange.bind(this);
     this.handleSubmitCity = this.handleSubmit.bind(this);
     this.state = {
-    // States par defaut de les states qui seront mis à jour par la suite  
+    // Default states
       UserLocationIcon: {
         lat: 0,
         lng: 0,
@@ -40,7 +40,7 @@ class PassageIss extends Component {
       RitiWithDurDesgroupe: [],
       weatherResp: []
     };
-    // Icon de la branche feuillue
+    // Icon
     this.UserLocationIcon = L.icon({
       iconUrl: leafRed,
       shadowUrl: leafShadow,
@@ -51,7 +51,7 @@ class PassageIss extends Component {
       popupAnchor: [-3, -76],//popup icon position
     });
   }
-// remontée de l'Input de l'utilisateur depuis la barre de saisie vers le ploton du state
+// Bind the input
   handleChange(event) {
     this.setState({ City: event.target.value });
   }
@@ -59,19 +59,18 @@ class PassageIss extends Component {
     this.getCityLocation({ City: event.target.value });
     event.preventDefault();
   }
-// remet l'input de l'utisateur dans la fonction pour appeler l'api permettant d'avoir la geolocalition 
+// Put user input into a geolocation api 
   getCityLocation() {
     this.getCityLocation.bind(this);
     const CityInput = this.state.City;
-// limite le résultat à 1 object json, une localisation    
-    const UrlCity = `https://nominatim.openstreetmap.org/search/${CityInput}?format=json&limit=1`;   
-// réinitialise le state à null     
+// limits the number of result   
+    const UrlCity = `https://nominatim.openstreetmap.org/search/${CityInput}?format=json&limit=1`;        
  this.setState({err:null})
  axios.get(UrlCity)
  .then(response => {
   const ArrayCity = response.data[0];
   const CityCheck = ArrayCity.display_name;
-// met à jours le state de lat, lon, le zoom... et passe le résutat lat et lon à la fonction prédiction  
+// update state
      this.setState({
       UserLocationIcon: { lat: ArrayCity.lat, lng: ArrayCity.lon },
       CityCheck,
@@ -85,7 +84,7 @@ class PassageIss extends Component {
       },
     });
  })
- // Si l'utilisateur à taper n'importe quoi, mets à jours le state de l'(err) et du message d'erreur  
+ // catch error  
  .catch(err => {
   this.setState({
       err,
@@ -93,7 +92,7 @@ class PassageIss extends Component {
      }) 
    });    
  }
-// Appel d'une api permetant de geolocaliser plus ou moins le point wifi auquel nous sommes connectés 
+// geolocation api 
   getLocation() {
     this.setState({err:null})
     navigator.geolocation.getCurrentPosition(
@@ -106,14 +105,14 @@ class PassageIss extends Component {
           haveUserLocation: true,
           zoom: 7,
         });
-//met à jours le state de lat et lng        
+//update state      
         this.getPrediction({
           UserLocationIcon: {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           },
         });
-//passe les résultats à la fonction CorrectCityName       
+//pass results to reverse geolocation api       
         this.CorrectCityName({
           UserLocationIcon: {
             lat: position.coords.latitude,
@@ -121,17 +120,15 @@ class PassageIss extends Component {
           },
         });
       },
-//Mets à jours le state (err) et le message d'erreur lié à la non authorisation du navigateur de se géolocalisatin(le zoom étant à 7, donc très large)      
+//err if navigator does not allow geolocation     
      (err) => 
           this.setState({
             err,
             ErrorMessageGeolocation : ["You didn't allow your navigator to get your location!"],
            }) 
     );
-// appel la fonction suivante    
     this.CorrectCityName();
   }
-// Appelle l'Api intégrée à js pour mettre à jours le nom de la ville depuis le button geolocalisation
     CorrectCityName() {
       this.CorrectCityName.bind(this);
       const LatCorrek = this.state.UserLocationIcon.lat;
@@ -147,20 +144,19 @@ class PassageIss extends Component {
        })
      });
     }
-// lat et lng sont transmis à la fonction getPrediction 
+// passes results to getprediction lat an lng 
     getPrediction() {
     this.getPrediction.bind(this);
     const latitude = this.state.UserLocationIcon.lat;
     const longitude = this.state.UserLocationIcon.lng;
-// Cors erreur mais https://code4developers.com/cors-anywhere/    
+// Cors err mais https://code4developers.com/cors-anywhere/    
     this.setState({
       apiPrediction: `https://cors-anywhere.herokuapp.com/http://api.open-notify.org/iss-pass.json?lat=${latitude}&lon=${longitude}`,
       headers: {
         Origin: `http://api.open-notify.org/iss-pass.json?lat=${latitude}&lon=${longitude}`,
       },
     });
-  //Appel l'Api, spinner tant que l'Api n'est pas chargée (ApiObjectLoading = true)
-  //mets à jours le state des resultats de l'Api(ApiObject) et passe les résutats à getConversion  
+  //Spinner while loading
     const url = this.state.apiPrediction;
     this.setState({ ApiObjectLoading: true }, () => {
       axios.get(url).then((res) => {
@@ -170,76 +166,67 @@ class PassageIss extends Component {
           ApiObjectLoading: false,
         });
         this.getConversion({ ApiObject });
-        //this.getWeather({ ApiObject });
       });
     });
   }
- // j'ai pas trouver de moyens de faire autrement, j'ai pas trouvé de moyen des faires des boucles For 
- // sans msg d'erreur 
   getConversion() {
     this.getConversion.bind(this);
-// L'Api est senssée donnner 10 temps unix, 5 pour la moment où nous pourront l'apersevoir et 5 pour la durée
-// Ici l'object conversion de l'object 0 avec datejs, intégrée à js convertir le temps en temps location 
-// selon la forme utilisée en Grande-Bretagne
-    const uno = this.state.ApiObject[0].risetime * 1000;
-    const ein = new Date(uno);
-//Pour avoir la date    
-    const un = ein.toLocaleDateString('en-GB');
+// Cannot do any loop here so there many variables to transform the array
+    const ToDateUn = this.state.ApiObject[0].risetime * 1000;
+    const DateUn = new Date(ToDateUn);
+//use datejs, it's library integrated     
+    const LocalDateUn = DateUn.toLocaleDateString('en-GB');
 //Pour avoir l'heure
-    const RiTiWiDuOne = ein.toLocaleTimeString('en-GB');
-//Pour avoir l'heure de Risetime + duration
+    const RiTiWiDuOne = DateUn.toLocaleTimeString('en-GB');
     const one = (this.state.ApiObject[0].risetime * 1000) + ((this.state.ApiObject[0].duration)*1000);
     const RitiWithDurUnHeure = new Date(one);
     const DurUnHeure = RitiWithDurUnHeure.toLocaleTimeString('en-GB'); 
 
-    const dos = this.state.ApiObject[1].risetime * 1000;
-    const zwei = new Date(dos);
-    const deux = zwei.toLocaleDateString('en-GB');
-    const RiTiWiDuTwo = zwei.toLocaleTimeString('en-GB');
+    const ToDateDeux = this.state.ApiObject[1].risetime * 1000;
+    const DateDeux = new Date(ToDateDeux);
+    const LocalDateDeux = DateDeux.toLocaleDateString('en-GB');
+    const RiTiWiDuTwo = DateDeux.toLocaleTimeString('en-GB');
     const two = (this.state.ApiObject[1].risetime * 1000) + ((this.state.ApiObject[1].duration)*1000);
     const RitiWithDurDeuxHeure = new Date(two);
     const DurDeuxHeure = RitiWithDurDeuxHeure.toLocaleTimeString('en-GB'); 
 
-    const tres = this.state.ApiObject[2].risetime * 1000;
-    const drei = new Date(tres);
-    const trois = drei.toLocaleDateString('en-GB');
-    const RiTiWiDuThree = drei.toLocaleTimeString('en-GB');
+    const ToDateTrois = this.state.ApiObject[2].risetime * 1000;
+    const DateTrois = new Date(ToDateTrois);
+    const LocalDateTrois = DateTrois.toLocaleDateString('en-GB');
+    const RiTiWiDuThree = DateTrois.toLocaleTimeString('en-GB');
     const three = (this.state.ApiObject[2].risetime * 1000) + ((this.state.ApiObject[2].duration)*1000);
     const RitiWithDurTroisHeure = new Date(three);
     const DurTroisHeure = RitiWithDurTroisHeure.toLocaleTimeString('en-GB'); 
 
-    const quatro = this.state.ApiObject[3].risetime * 1000;
-    const vier = new Date(quatro);
-    const quattre = vier.toLocaleDateString('en-GB');
-    const RiTiWiDuFour = vier.toLocaleTimeString('en-GB');
+    const ToDateQuatre = this.state.ApiObject[3].risetime * 1000;
+    const DateQuatre = new Date(ToDateQuatre);
+    const LocalDateQuatre = DateQuatre.toLocaleDateString('en-GB');
+    const RiTiWiDuFour = DateQuatre.toLocaleTimeString('en-GB');
     const four = (this.state.ApiObject[3].risetime * 1000) + ((this.state.ApiObject[3].duration)*1000);
     const RitiWithDurQuatreHeure = new Date(four);
     const DurQuatreHeure = RitiWithDurQuatreHeure.toLocaleTimeString('en-GB'); 
 
-    const cinco = this.state.ApiObject[4].risetime * 1000;
-    const funf = new Date(cinco);
-    const cinq = funf.toLocaleDateString('en-GB');
-    const RiTiWiDuFive = funf.toLocaleTimeString('en-GB');
+    const ToDateCinq = this.state.ApiObject[4].risetime * 1000;
+    const DateCinq = new Date(ToDateCinq);
+    const LocationDateCinq = DateCinq.toLocaleDateString('en-GB');
+    const RiTiWiDuFive = DateCinq.toLocaleTimeString('en-GB');
     const five = (this.state.ApiObject[4].risetime * 1000) + ((this.state.ApiObject[4].duration)*1000);
     const RitiWithDurCinqHeure = new Date(five);
     const DurCinqHeure = RitiWithDurCinqHeure.toLocaleTimeString('en-GB'); 
  //Regroupe les résultats et les séparent dans un tableau   
-    const groupe = `${un}+${deux}+${trois}+${quattre}+${cinq}`;
+    const groupe = `${LocalDateUn}+${LocalDateDeux}+${LocalDateTrois}+${LocalDateQuatre}+${LocationDateCinq}`;
     const Desgroupe = groupe.split('+');
     const RiTiWiDuGroupe = `${RiTiWiDuOne}+${RiTiWiDuTwo}+${RiTiWiDuThree}+${RiTiWiDuFour}+${RiTiWiDuFive}`;
     const RiTiWiDuDesGroupe = RiTiWiDuGroupe.split('+');
     const RitiWithDurRegroupe = `${DurUnHeure}+${DurDeuxHeure}+${DurTroisHeure}+${DurQuatreHeure}+${DurCinqHeure}`;
     const RitiWithDurDesgroupe = RitiWithDurRegroupe.split('+');
-    
     this.setState({ Desgroupe, RiTiWiDuDesGroupe, RitiWithDurDesgroupe });
-    this.getWeather({ uno });
+    this.getWeather({ ToDateUn });
   }
 getWeather(){
   this.getWeather.bind(this);
   const latitude = this.state.UserLocationIcon.lat;
-  console.log(latitude)
   const longitude = this.state.UserLocationIcon.lng;
-  console.log(longitude)
   const Time = this.state.ApiObject[0].risetime;
   console.log(Time)
   const API_KEY = process.env.REACT_APP_API_KEY ;
@@ -247,42 +234,35 @@ getWeather(){
   axios.get(UrlWeather)
   .then(response => {
    const weatherResp = response;  
-   console.log(weatherResp)
-
     this.setState({
     weatherResp
       })
     });
-}
-// Enlèves les résultats au bout d'un moment sans qu'on s'en rende compte ? 
+} 
   componentWillUnmount() {
     console.log('componentWillUnmount');
   }
-
   render() {
     const { RiTiWiDuDesGroupe, CityCheck, Desgroupe, RitiWithDurDesgroupe } = this.state;
-  //regroupe les donnée geo pour l'afficher sur la carte  
+  //Gather user gelocation 
     const LocationIcon = [
       this.state.UserLocationIcon.lat,
       this.state.UserLocationIcon.lng,
     ];
- // Const pour avoir un affichage de la lat et lng en passant à la ligne    
+ // gather the geolocation data so we can print it on the page 
     const positionLatLon = ["Latitude   : ",this.state.UserLocationIcon.lat, <br />,"Lontitude : ", this.state.UserLocationIcon.lng];
     return (
       <div style={{backgroundColor : 'black',
         width: 'cover',
-          height: 'cover'}}>
-      
+          height: 'cover'}}>   
         <ImgHeadContainer>
           <ImageSecondHeader alt="Beautifool evening picture" />
           <HeadTitle>Watch ISS from Home</HeadTitle>
         </ImgHeadContainer>
-
         <ImgStarsContainer>
           <ImageStars alt="Dark sky full of stars" />
           <TitleForm>Choose you spot !</TitleForm>
         </ImgStarsContainer>
-
         <div>
           <ContainerLocation>
             <UserInput style={{ marginTop: '3vh' }}>            
@@ -307,10 +287,8 @@ getWeather(){
                  <VotrePosition>
                {positionLatLon}
               </VotrePosition> )}
-
               { this.state.err != null ? (<CheckCity> {this.state.ErrorMessage} </CheckCity>) : (
               <CheckCity> {CityCheck} {' '} </CheckCity> )}
-              
             </UserInput>
             <DisplayUserLocation >
               <Map
@@ -414,8 +392,6 @@ getWeather(){
             </DurationContainerDecalage>
           )}
         </PredContainer>
-        <p>Bas de la page</p>
-
       </div>
     );
   }
