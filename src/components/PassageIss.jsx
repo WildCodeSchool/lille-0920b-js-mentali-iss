@@ -165,84 +165,37 @@ class PassageIss extends Component {
       // Blocked by CORS, but followed https://code4developers.com/cors-anywhere/
       const url = `https://cors-anywhere.herokuapp.com/http://api.open-notify.org/iss-pass.json?lat=${lat}&lon=${lng}`;
       axios.get(url).then(({ data }) => {
-        const previsions = data.response;
-        this.setState({
-          previsions,
-          loading: false,
-        });
-        this.getConversion({ previsions });
+        this.getConversion(data.response);
       });
     });
   }
-  getConversion() {
-    this.getConversion.bind(this);
-    // Cannot do any loop here so there many variables to transform the array
-    const ToDateUn = this.state.previsions[0].risetime * 1000;
-    const DateUn = new Date(ToDateUn);
-    //use datejs, it's library integrated
-    const LocalDateUn = DateUn.toLocaleDateString("en-GB");
-    //Pour avoir l'heure
-    const RiTiWiDuOne = DateUn.toLocaleTimeString("en-GB");
-    const one =
-      this.state.previsions[0].risetime * 1000 +
-      this.state.previsions[0].duration * 1000;
-    const RitiWithDurUnHeure = new Date(one);
-    const DurUnHeure = RitiWithDurUnHeure.toLocaleTimeString("en-GB");
+  getConversion = (previsions) => {
+    const cleanPrevs = previsions.map((prevision) => {
+      const rise = new Date(prevision.risetime * 1000);
+      const riseDate = rise.toLocaleDateString("en-GB");
+      const riseTime = rise.toLocaleTimeString("en-GB");
+      const down = new Date(prevision.risetime * 1000 + prevision.duration * 1000);
+      const downTime = down.toLocaleTimeString("en-GB");
 
-    const ToDateDeux = this.state.previsions[1].risetime * 1000;
-    const DateDeux = new Date(ToDateDeux);
-    const LocalDateDeux = DateDeux.toLocaleDateString("en-GB");
-    const RiTiWiDuTwo = DateDeux.toLocaleTimeString("en-GB");
-    const two =
-      this.state.previsions[1].risetime * 1000 +
-      this.state.previsions[1].duration * 1000;
-    const RitiWithDurDeuxHeure = new Date(two);
-    const DurDeuxHeure = RitiWithDurDeuxHeure.toLocaleTimeString("en-GB");
+      return {
+        riseDate,
+        riseTime,
+        downTime
+      };
+    })
 
-    const ToDateTrois = this.state.previsions[2].risetime * 1000;
-    const DateTrois = new Date(ToDateTrois);
-    const LocalDateTrois = DateTrois.toLocaleDateString("en-GB");
-    const RiTiWiDuThree = DateTrois.toLocaleTimeString("en-GB");
-    const three =
-      this.state.previsions[2].risetime * 1000 +
-      this.state.previsions[2].duration * 1000;
-    const RitiWithDurTroisHeure = new Date(three);
-    const DurTroisHeure = RitiWithDurTroisHeure.toLocaleTimeString("en-GB");
+    this.setState({
+      previsions: cleanPrevs,
+      loading: false
+    })
 
-    const ToDateQuatre = this.state.previsions[3].risetime * 1000;
-    const DateQuatre = new Date(ToDateQuatre);
-    const LocalDateQuatre = DateQuatre.toLocaleDateString("en-GB");
-    const RiTiWiDuFour = DateQuatre.toLocaleTimeString("en-GB");
-    const four =
-      this.state.previsions[3].risetime * 1000 +
-      this.state.previsions[3].duration * 1000;
-    const RitiWithDurQuatreHeure = new Date(four);
-    const DurQuatreHeure = RitiWithDurQuatreHeure.toLocaleTimeString("en-GB");
-
-    const ToDateCinq = this.state.previsions[4].risetime * 1000;
-    const DateCinq = new Date(ToDateCinq);
-    const LocationDateCinq = DateCinq.toLocaleDateString("en-GB");
-    const RiTiWiDuFive = DateCinq.toLocaleTimeString("en-GB");
-    const five =
-      this.state.previsions[4].risetime * 1000 +
-      this.state.previsions[4].duration * 1000;
-    const RitiWithDurCinqHeure = new Date(five);
-    const DurCinqHeure = RitiWithDurCinqHeure.toLocaleTimeString("en-GB");
-    //Regroupe les résultats et les séparent dans un tableau
-    const groupe = `${LocalDateUn}+${LocalDateDeux}+${LocalDateTrois}+${LocalDateQuatre}+${LocationDateCinq}`;
-    const Desgroupe = groupe.split("+");
-    const RiTiWiDuGroupe = `${RiTiWiDuOne}+${RiTiWiDuTwo}+${RiTiWiDuThree}+${RiTiWiDuFour}+${RiTiWiDuFive}`;
-    const RiTiWiDuDesGroupe = RiTiWiDuGroupe.split("+");
-    const RitiWithDurRegroupe = `${DurUnHeure}+${DurDeuxHeure}+${DurTroisHeure}+${DurQuatreHeure}+${DurCinqHeure}`;
-    const RitiWithDurDesgroupe = RitiWithDurRegroupe.split("+");
-    this.setState({ Desgroupe, RiTiWiDuDesGroupe, RitiWithDurDesgroupe });
-    this.getWeather({ ToDateUn });
+    //this.getWeather({ ToDateUn });
   }
   getWeather() {
     this.getWeather.bind(this);
     const latitude = this.state.UserLocationIcon.lat;
     const longitude = this.state.UserLocationIcon.lng;
-    const Time = this.state.previsions[0].risetime;
+    const Time = this.state.previsions[0].riseTime;
     const API_KEY = process.env.REACT_APP_API_KEY;
     const UrlWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&dt=${Time}&exclude=minutely,current,daily&appid=${API_KEY}`;
     axios.get(UrlWeather).then((response) => {
@@ -256,7 +209,7 @@ class PassageIss extends Component {
     const {
       RiTiWiDuDesGroupe,
       cityName,
-      Desgroupe,
+      previsions,
       RitiWithDurDesgroupe,
     } = this.state;
     //Gather user gelocation
@@ -267,10 +220,10 @@ class PassageIss extends Component {
     // gather the geolocation data so we can print it on the page
     const positionLatLon = [
       "Latitude   : ",
-      this.state.UserLocationIcon.lat,
+      LocationIcon[0],
       <br />,
       "Longitude : ",
-      this.state.UserLocationIcon.lng,
+      LocationIcon[1],
     ];
     return (
       <div
@@ -301,11 +254,11 @@ class PassageIss extends Component {
                     required
                   />
                 </label>
-                <SubmitCity type="submit" value="Envoyer" />
+                <SubmitCity type="submit" value="Send" />
               </EnterCity>
               {this.state.err != null ? (
                 <VotrePosition>
-                  {this.state.ErrorMessageGeolocation}{" "}
+                  {this.state.ErrorMessageGeolocation}
                 </VotrePosition>
               ) : (
                   <VotrePosition>{positionLatLon}</VotrePosition>
@@ -348,14 +301,14 @@ class PassageIss extends Component {
         </ImgStarsContainer>
         <ImgStarsContainer>
           <ImageStars alt="Dark sky full of stars" />
-          <TitleForm>What's the next watching sesion ? </TitleForm>
+          <TitleForm>What's the next watching session ? </TitleForm>
         </ImgStarsContainer>
         <PredContainer>
           {this.state.loading ? (
             <Spinner />
           ) : (
               <RisetimeContainer>
-                {Desgroupe.map((RisetimeDate, i) => {
+                {previsions.map((prevision, i) => {
                   return (
                     <p
                       style={{
@@ -370,7 +323,7 @@ class PassageIss extends Component {
                       }}
                       key={i}
                     >
-                      {RisetimeDate}{" "}
+                      Watch the ISS on {prevision.riseDate}, from {prevision.riseTime} to { prevision.downTime}
                     </p>
                   );
                 })}
