@@ -18,14 +18,15 @@ const Photo = styled.img`
   height: auto;
   margin-left: auto;
   margin-right: auto;
-  border: solid white;
+
   @media ${device.xs} {
     width: 80vw;
   }
 `;
 
-const Paragraph = styled.p`
+const Paragraph = styled.div`
   text-align: center;
+  color: white;
 `;
 
 const Date = styled.p`
@@ -68,19 +69,11 @@ function DisplayGalerie({ photo }) {
   return (
     <div className="DisplayGalerie">
       <Paragraph>
-        <Date>
-          <p> - {photo.date} -</p>
-        </Date>
+        <Date>- {photo.date} -</Date>
         <Photo src={photo.hdurl} alt={photo.title} />
-        <Title>
-          <p>{photo.title}</p>
-        </Title>
-        <Auteur>
-          <p>{photo.copyright}</p>
-        </Auteur>
-        <Explanation>
-          <p>{photo.explanation}</p>
-        </Explanation>
+        <Title>{photo.title}</Title>
+        <Auteur>{photo.copyright}</Auteur>
+        <Explanation>{photo.explanation}</Explanation>
       </Paragraph>
     </div>
   );
