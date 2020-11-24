@@ -31,8 +31,9 @@ const Formulaire = styled.form`
   justify-content: space-between;
   height: 50vh;
   @media ${device.sm} {
-    height: 47vh;
-    width: 45vh;
+    height: 40vh;
+    width: 40vh;
+    margin-right: 35vw;
   }
 `;
 
@@ -43,7 +44,6 @@ const DivLabel = styled.div`
   width: 100%;
   text-align: start;
   height: 2.7vh;
-
   @media ${device.sm} {
   }
 `;
@@ -55,7 +55,6 @@ const DivTheme = styled.div`
   width: 100%;
   text-align: start;
   height: 2.7vh;
-
   @media ${device.sm} {
   }
 `;
@@ -70,8 +69,8 @@ const Select = styled.select`
   text-align: start;
   border-radius: 3px;
   text-align-last: center;
-  @media ${device.xs} {
-    width: 20vw;
+  @media ${device.sm} {
+    width: 75vw;
   }
   option {
     color: black;
@@ -90,6 +89,9 @@ const Textarea = styled.textarea`
   height: 15vh;
   border-radius: 5px;
   text-align-last: center;
+  @media ${device.sm} {
+    width: 73vw;
+  }
 `;
 
 const Label = styled.label`
@@ -99,14 +101,16 @@ const Label = styled.label`
   margin-right: 2vw;
   width: 30%;
   @media ${device.sm} {
-    height: 3vh;
-    width: 14vh;
+    display: none;
   }
 `;
 
 const Input = styled.input`
   width: 50%;
   text-align: center;
+  @media ${device.sm} {
+    width: 70vw;
+  }
 `;
 
 const StyledButton = styled.input`
@@ -120,15 +124,15 @@ const StyledButton = styled.input`
   outline: none;
   height: 4vh;
   border-radius: 5px;
-  margin: 10vh;
+  margin-top: 10vh;
   &:hover {
     background: #51218f;
     color: #d7d0db;
-
     cursor: pointer;
   }
   @media ${device.sm} {
-    margin: 1vh 0;
+    margin-top: 10vh;
+    margin-left: 15vw;
   }
 `;
 
