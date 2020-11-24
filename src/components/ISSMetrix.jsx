@@ -13,12 +13,16 @@ export default function ISSMetrix () {
         axios.get(url)
         .then(({ data }) => {
             setIssData(data);
-        })
+        },)
         .catch(() => {
             toast("Something bad happened :(");
-          });
-    }, );
-
+          });  
+        const interval = setInterval(() => {
+            console.log('This will run every second!');
+          }, 1000);
+          return () => clearInterval(interval);
+    },);
+        
     return (
         <div>
         <MetrixContainer>
