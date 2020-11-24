@@ -256,7 +256,9 @@ export const RisetimeContainer = styled.div`
   font-size: 3vh;
   font-family: Verdana;
   @media ${device.xs} {
-    margin-left: -33vw;
+    margin-left: 0vw;
+    width: 100vw;
+    
   }
 `;
 export const DurationContainerDecalage = styled.div`
@@ -265,7 +267,7 @@ export const DurationContainerDecalage = styled.div`
   font-size: 3vh;
   @media ${device.xs} {
     margin-left: 0vw;
-  
+
     font-size: 15px;
   }
 `;
@@ -276,7 +278,7 @@ export const DurationContainerA = styled.div`
   margin-left: -70vw;
   font-family: Verdana;
   @media ${device.xs} {
-    margin-left: -130vw;
+
     width: 70vw;
   }
 `;

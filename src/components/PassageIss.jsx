@@ -331,6 +331,7 @@ class PassageIss extends Component {
                   return (
                     <p
                       style={{
+                        
                           paddingTop: "3vh",
                           marginTop: "8vh",
                           height: "5vh",
