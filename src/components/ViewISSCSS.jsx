@@ -42,7 +42,7 @@ export const Title = styled.h1`
 
 export const Trait = styled.div`
   background-color: white;
-  width: 100%;
+  width: 25%;
   height: 1px;
   margin-top: 1%;
   margin-bottom: 1%;
@@ -66,6 +66,18 @@ export const Title2 = styled.h1`
     margin-top : 0.3em;
     }`;
 
+export const Trait2 = styled.div`
+  background-color: white;
+  width: 25%;
+  height: 1px;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-left: 38vw;
+  @media ${device.mobile} {
+    width: 90%;
+    margin-bottom: 1.5em;
+    }`;
+
 export const VideoLive = styled.div`
   width: 100%;
   height: 100%;
@@ -78,6 +90,17 @@ export const VideoLive = styled.div`
     height: 50%;
     margin-left: 15vw;
     justify-content: center;
+    }`;
+
+export const Trait3 = styled.div`
+  background-color: white;
+  width: 32%;
+  height: 1px;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  @media ${device.mobile} {
+    width: 90%;
+    margin-bottom: 1.5em;
     }`;
 
 export const ImgContainerButton = styled.div`
@@ -130,3 +153,15 @@ export const Title4 = styled.h1`
    width: 90%;
    margin-top : 0.3em;
     }`;
+
+export const Trait4 = styled.div`
+background-color: white;
+width: 25%;
+height: 1px;
+margin-top: 1%;
+margin-bottom: 1%;
+margin-left: 72vw;
+@media ${device.mobile} {
+  width: 90%;
+  margin-bottom: 1.5em;
+  }`;

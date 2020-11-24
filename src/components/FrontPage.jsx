@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 const size = {
-  xs: '320px',
-  sm: '768px',
-  lg: '1200px',
+  xs: "320px",
+  sm: "768px",
+  lg: "1200px",
 };
 
 const device = {
@@ -12,10 +12,10 @@ const device = {
   lg: `(max-width: ${size.lg})`,
 };
 
-
 const Page = styled.div`
   background-color: black;
   width: 100%;
+  overflow: hidden;
 `;
 
 const Avatar = styled.div`
@@ -24,9 +24,9 @@ const Avatar = styled.div`
 
 const BlocClipPath = styled.div`
   height: 1vh;
-  @media ${device.xs} {
-    display : none;
-    }
+  @media ${device.sm} {
+    display: none;
+  }
 `;
 
 const TriangleHaut = styled.img`
@@ -36,9 +36,9 @@ const TriangleHaut = styled.img`
   transition: 0.5s ease;
   width: 100%;
   height: 100%;
-  @media ${device.xs} {
+  @media ${device.sm} {
     position: relative;
-    }
+  }
 `;
 
 const TriangleDroit = styled.img`
@@ -53,10 +53,10 @@ const TriangleDroit = styled.img`
   &:hover {
     opacity: 0.3;
   }
-  @media ${device.xs} {
+  @media ${device.sm} {
     position: relative;
     margin-top: -2px;
-    } 
+  }
 `;
 
 const TriangleGauche = styled.img`
@@ -71,9 +71,9 @@ const TriangleGauche = styled.img`
   &:hover {
     opacity: 0.3;
   }
-  @media ${device.xs} {
+  @media ${device.sm} {
     position: relative;
-    }
+  }
 `;
 
 const ContainerTextISS = styled.div`
@@ -88,15 +88,15 @@ const ContainerTextISS = styled.div`
   right: 40vw;
   transform: translate(-50%, -50%);
   text-align: center;
-  @media ${device.xs} {
+  @media ${device.sm} {
     position: absolute;
-    top: 15vh;
-    right: 20vh;
+    top: 11vh;
+    right: 18vh;
     font-size: 2em;
     opacity: 100;
-    color: black;
+    color: white;
     font-weight: bold;
-    }
+  }
 `;
 
 const ContainerTextRover = styled.div`
@@ -113,15 +113,15 @@ const ContainerTextRover = styled.div`
   &:hover {
     opacity: 1;
   }
-  @media ${device.xs} {
+  @media ${device.sm} {
     position: absolute;
     top: 48vh;
     left: 28vh;
     font-size: 2em;
     opacity: 100;
-    color:black;
+    color: white;
     font-weight: bold;
-    }
+  }
 `;
 
 const ContainerTextGalerie = styled.div`
@@ -138,15 +138,15 @@ const ContainerTextGalerie = styled.div`
   &:hover {
     opacity: 1;
   }
-  @media ${device.xs} {
+  @media ${device.sm} {
     position: absolute;
     top: 83vh;
     left: 28vh;
     font-size: 2em;
     opacity: 100;
-    color:white;
+    color: white;
     font-weight: bold;
-    }
+  }
 `;
 
 const ZoneISS = styled.div`
@@ -155,6 +155,14 @@ const ZoneISS = styled.div`
   }
   &:hover ${ContainerTextISS} {
     opacity: 1;
+  }
+  @media ${device.sm} {
+    &:hover ${TriangleHaut} {
+      opacity: 1;
+    }
+    &:hover ${ContainerTextISS} {
+      opacity: 1;
+    }
   }
 `;
 
@@ -166,6 +174,14 @@ const ZoneRover = styled.div`
   &:hover ${ContainerTextRover} {
     opacity: 1;
   }
+  @media ${device.sm} {
+    &:hover ${TriangleDroit} {
+      opacity: 1;
+    }
+    &:hover ${ContainerTextRover} {
+      opacity: 1;
+    }
+  }
 `;
 
 const ZoneGalerie = styled.div`
@@ -174,6 +190,14 @@ const ZoneGalerie = styled.div`
   }
   &:hover ${ContainerTextGalerie} {
     opacity: 1;
+  }
+  @media ${device.sm} {
+    &:hover ${TriangleGauche} {
+      opacity: 1;
+    }
+    &:hover ${ContainerTextGalerie} {
+      opacity: 1;
+    }
   }
 `;
 

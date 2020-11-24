@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React from 'react';
 import { useEffect, useState} from "react";
+import { toast } from "react-toastify";
+import { MetrixContainer, Row1, Row2 } from './ISSMetrixCSS';
 
 const url = "https://api.wheretheiss.at/v1/satellites/25544"
 export default function ISSMetrix () {
@@ -13,15 +15,23 @@ export default function ISSMetrix () {
             setIssData(data);
         })
         .catch(() => {
-            console.log("Something bad happened :(");
+            toast("Something bad happened :(");
           });
     }, );
 
     return (
-        <p>{issData.longitude} {issData.altitude} {issData.latitude}  {issData.velocity} {issData.visibility} </p>
+        <div>
+        <MetrixContainer>
+            <Row1>
+                <p>Altitude [km]:{issData.altitude}</p> 
+                <p>Latitude [DD]: {issData.latitude}</p>
+                <p>Longitude [DD]: {issData.longitude}</p>  
+            </Row1>
+            <Row2>
+                <p>Vitesse [km/s] {issData.velocity}</p>
+                <p>Visibility:{issData.visibility} </p>
+            </Row2>
+        </MetrixContainer>
+        </div> 
     )
-
-
-
-
 }

@@ -5,7 +5,8 @@ import styled from 'styled-components';
 import { device } from "./Device";
 
 const Karousel = styled.div`
-  margin-top: 10vh;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
   width: 100%;
   position: center;
   @media ${device.mobile} {

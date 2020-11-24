@@ -72,6 +72,7 @@ export const Astroflag = styled.img`
 
 export const Astrotag =styled.div`
     font-family: "Vindemia";
+    text-align: left;
     `;
 
 export const P = styled.p ` 

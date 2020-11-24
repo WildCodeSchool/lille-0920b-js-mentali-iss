@@ -1,6 +1,6 @@
 import { Crewcards, Crewheader, Astrophoto, Crewsection, Astrotitle, Astroname, Astroflag, Astrotag, P, Trait, Learnmore} from './AstroCSS';
 
-export default function Astro ({index, name, departure, arrival, description, profile_image, wiki, nationality, onboard, flag_image, spaceship}) {
+export default function Astro ({name, departure, arrival, description, profile_image, wiki, nationality, onboard, flag_image, spaceship}) {
   return (
       <Crewcards>
       <Crewheader>

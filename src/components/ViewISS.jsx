@@ -4,7 +4,8 @@ import { Map, TileLayer, Marker } from "react-leaflet";
 import Iss from "../assets/iss.png";
 import axios from "axios";
 import ReactPlayer from "react-player";
-import { FondTitle, FondImage, Title, Trait, Title2, VideoLive, ImgContainerButton, ImgButton, Centered, Title4, DisplayMap } from "./ViewISSCSS";
+import { toast } from "react-toastify";
+import { FondTitle, FondImage, Title, Trait, Title2, Trait2, Trait3, Trait4, VideoLive, ImgContainerButton, ImgButton, Centered, Title4, DisplayMap } from "./ViewISSCSS";
 import 'leaflet/dist/leaflet.css';
 import ISSMetrix from './ISSMetrix'
 
@@ -33,12 +34,9 @@ class ViewISS extends Component {
       this.interval = setInterval(this.recalIss, 2500);
     }
 
-    componentWillUnmount() {
-      this.recalIss();
-    }
-
     recalIss = () => {
-      axios.get(ISS_URL).then(({ data }) => {
+      axios.get(ISS_URL)
+      .then(({ data }) => {
         this.setState({
           SatIcon: {
             lat: data.iss_position.latitude,
@@ -46,6 +44,9 @@ class ViewISS extends Component {
           },
           haveUsersLocation: true,
         });
+      })
+      .catch(() => {
+        toast("Something bad happened :(");
       });
     };
 
@@ -79,14 +80,12 @@ class ViewISS extends Component {
           )}
         </Map>
         </DisplayMap>
-        <p>latitude (DD)={this.state.SatIcon.lat}</p>
-        <p>longitude (DD)={this.state.SatIcon.lng}</p>
         <ISSMetrix />
         <FondTitle>
           <FondImage img src="/photos/stars2.jpg" alt="stars" />
           <Title2>ISS Video Live</Title2>
         </FondTitle>
-        <Trait></Trait>
+        <Trait2></Trait2>
 
         <VideoLive>
           <ReactPlayer
@@ -100,7 +99,7 @@ class ViewISS extends Component {
           <FondImage img src="/photos/stars2.jpg" alt="stars" />
           <Title>Watch ISS from home</Title>
         </FondTitle>
-        <Trait></Trait>
+        <Trait3></Trait3>
 
         <ImgContainerButton>
           <a href="#b" className="ChezVous" data-inf="photo">
@@ -116,7 +115,7 @@ class ViewISS extends Component {
           <FondImage img src="/photos/stars2.jpg" alt="stars" />
           <Title4>Crew on-board</Title4>
         </FondTitle>
-        <Trait></Trait>
+        <Trait4></Trait4>
       </div>
     )
   }
