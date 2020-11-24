@@ -35,12 +35,10 @@ import leafShadow from "../assets/leafShadow.png";
 class PassageIss extends Component {
   constructor(props) {
     super(props);
-    // UpDate state
     this.getLocation = this.getLocation.bind(this);
     this.handleChangeCity = this.handleChange.bind(this);
     this.handleSubmitCity = this.handleSubmit.bind(this);
     this.state = {
-      // Default states
       UserLocationIcon: {
         lat: 0,
         lng: 0,
@@ -53,14 +51,14 @@ class PassageIss extends Component {
       err: null,
       ErrorMessage: [],
       ErrorMessageGeolocation: [],
-      ApiObjectLoading: false,
-      ApiObject: [],
+      loading: false,
+      previsions: [],
       Desgroupe: [],
       RiTiWiDuDesGroupe: [],
       RitiWithDurDesgroupe: [],
       weatherResp: [],
     };
-    // Icon
+    // Icon for the map
     this.UserLocationIcon = L.icon({
       iconUrl: leafRed,
       shadowUrl: leafShadow,
@@ -68,10 +66,9 @@ class PassageIss extends Component {
       shadowSize: [50, 64], // size of the shadow
       iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
       shadowAnchor: [4, 62], // the same for the shadow
-      popupAnchor: [-3, -76], //popup icon position
+      popupAnchor: [-3, -76], // popup icon position
     });
   }
-  // Bind the input
   handleChange(event) {
     this.setState({ City: event.target.value });
   }
@@ -84,28 +81,26 @@ class PassageIss extends Component {
     this.getCityLocation.bind(this);
     const CityInput = this.state.City;
     // limits the number of result
-    const UrlCity = `https://nominatim.openstreetmap.org/search/${CityInput}?format=json&limit=1`;
+    const UrlCity = `https://nominatim.openstreetmap.org/search/${CityInput}?format=json&limit=1`; // We want at most 1 result
     this.setState({ err: null });
     axios
       .get(UrlCity)
-      .then((response) => {
-        const ArrayCity = response.data[0];
-        const CityCheck = ArrayCity.display_name;
-        // update state
+      .then(({ data }) => {
+        const city = data[0];
+        const cityName = city.display_name;
         this.setState({
-          UserLocationIcon: { lat: ArrayCity.lat, lng: ArrayCity.lon },
-          CityCheck,
+          UserLocationIcon: { lat: city.lat, lng: city.lon },
+          CityCheck: cityName,
           haveUserLocation: true,
           zoom: 7,
         });
         this.getPrediction({
           UserLocationIcon: {
-            lat: ArrayCity.lat,
-            lng: ArrayCity.lon,
+            lat: city.lat,
+            lng: city.lon,
           },
         });
       })
-      // catch error
       .catch((err) => {
         this.setState({
           err,
@@ -113,31 +108,31 @@ class PassageIss extends Component {
         });
       });
   }
-  // geolocation api
+
   getLocation() {
     this.setState({ err: null });
     navigator.geolocation.getCurrentPosition(
       (position) => {
+        const { latitude, longitude } = position.coords;
         this.setState({
           UserLocationIcon: {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
+            lat: latitude,
+            lng: longitude,
           },
           haveUserLocation: true,
           zoom: 7,
         });
-        //update state
         this.getPrediction({
           UserLocationIcon: {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
+            lat: latitude,
+            lng: longitude,
           },
         });
         //pass results to reverse geolocation api
         this.CorrectCityName({
           UserLocationIcon: {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
+            lat: latitude,
+            lng: longitude,
           },
         });
       },
@@ -154,95 +149,87 @@ class PassageIss extends Component {
   }
   CorrectCityName() {
     this.CorrectCityName.bind(this);
-    const LatCorrek = this.state.UserLocationIcon.lat;
-    const LonCorrek = this.state.UserLocationIcon.lng;
-    const UrlCorrekCity = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${LatCorrek}&lon=${LonCorrek}&zoom=10`;
-    axios.get(UrlCorrekCity).then((response) => {
-      const ArrayCity = response.data;
-      const CityCheck = ArrayCity.display_name;
-      //met à jours le nom de la ville afficher depuis les deux façons d'appeller les api de geolocation
+    const { lat, lng } = this.state.UserLocationIcon;
+    const reverseGeolocUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=10`;
+    axios.get(reverseGeolocUrl).then(({ data }) => {
+      const city = data;
+      const cityName = city.display_name;
       this.setState({
-        CityCheck,
+        CityCheck: cityName,
       });
     });
   }
   // passes results to getprediction lat an lng
   getPrediction() {
     this.getPrediction.bind(this);
-    const latitude = this.state.UserLocationIcon.lat;
-    const longitude = this.state.UserLocationIcon.lng;
-    // Cors err mais https://code4developers.com/cors-anywhere/
+    const { lat, lng } = this.state.UserLocationIcon;
     this.setState({
-      apiPrediction: `https://cors-anywhere.herokuapp.com/http://api.open-notify.org/iss-pass.json?lat=${latitude}&lon=${longitude}`,
-      headers: {
-        Origin: `http://api.open-notify.org/iss-pass.json?lat=${latitude}&lon=${longitude}`,
-      },
-    });
-    //Spinner while loading
-    const url = this.state.apiPrediction;
-    this.setState({ ApiObjectLoading: true }, () => {
-      axios.get(url).then((res) => {
-        const ApiObject = res.data.response;
+      loading: true
+    }, () => {
+      // Blocked by CORS, but followed https://code4developers.com/cors-anywhere/
+      const url = `https://cors-anywhere.herokuapp.com/http://api.open-notify.org/iss-pass.json?lat=${lat}&lon=${lng}`;
+      axios.get(url).then(({ data }) => {
+        const previsions = data.response;
         this.setState({
-          ApiObject,
-          ApiObjectLoading: false,
+          previsions,
+          loading: false,
         });
-        this.getConversion({ ApiObject });
+        this.getConversion({ previsions });
       });
     });
   }
   getConversion() {
     this.getConversion.bind(this);
     // Cannot do any loop here so there many variables to transform the array
-    const ToDateUn = this.state.ApiObject[0].risetime * 1000;
+    const ToDateUn = this.state.previsions[0].risetime * 1000;
     const DateUn = new Date(ToDateUn);
     //use datejs, it's library integrated
     const LocalDateUn = DateUn.toLocaleDateString("en-GB");
     //Pour avoir l'heure
     const RiTiWiDuOne = DateUn.toLocaleTimeString("en-GB");
     const one =
-      this.state.ApiObject[0].risetime * 1000 +
-      this.state.ApiObject[0].duration * 1000;
+      this.state.previsions[0].risetime * 1000 +
+      this.state.previsions[0].duration * 1000;
     const RitiWithDurUnHeure = new Date(one);
     const DurUnHeure = RitiWithDurUnHeure.toLocaleTimeString("en-GB");
 
-    const ToDateDeux = this.state.ApiObject[1].risetime * 1000;
+    const ToDateDeux = this.state.previsions[1].risetime * 1000;
     const DateDeux = new Date(ToDateDeux);
     const LocalDateDeux = DateDeux.toLocaleDateString("en-GB");
     const RiTiWiDuTwo = DateDeux.toLocaleTimeString("en-GB");
     const two =
-      this.state.ApiObject[1].risetime * 1000 +
-      this.state.ApiObject[1].duration * 1000;
+      this.state.previsions[1].risetime * 1000 +
+      this.state.previsions[1].duration * 1000;
     const RitiWithDurDeuxHeure = new Date(two);
     const DurDeuxHeure = RitiWithDurDeuxHeure.toLocaleTimeString("en-GB");
 
-    const ToDateTrois = this.state.ApiObject[2].risetime * 1000;
+    const ToDateTrois = this.state.previsions[2].risetime * 1000;
     const DateTrois = new Date(ToDateTrois);
     const LocalDateTrois = DateTrois.toLocaleDateString("en-GB");
     const RiTiWiDuThree = DateTrois.toLocaleTimeString("en-GB");
     const three =
-      this.state.ApiObject[2].risetime * 1000 +
-      this.state.ApiObject[2].duration * 1000;
+      this.state.previsions[2].risetime * 1000 +
+      this.state.previsions[2].duration * 1000;
     const RitiWithDurTroisHeure = new Date(three);
     const DurTroisHeure = RitiWithDurTroisHeure.toLocaleTimeString("en-GB");
 
-    const ToDateQuatre = this.state.ApiObject[3].risetime * 1000;
+    const ToDateQuatre = this.state.previsions[3].risetime * 1000;
     const DateQuatre = new Date(ToDateQuatre);
     const LocalDateQuatre = DateQuatre.toLocaleDateString("en-GB");
     const RiTiWiDuFour = DateQuatre.toLocaleTimeString("en-GB");
     const four =
-      this.state.ApiObject[3].risetime * 1000 +
-      this.state.ApiObject[3].duration * 1000;
+      this.state.previsions[3].risetime * 1000 +
+      this.state.previsions[3].duration * 1000;
     const RitiWithDurQuatreHeure = new Date(four);
     const DurQuatreHeure = RitiWithDurQuatreHeure.toLocaleTimeString("en-GB");
 
-    const ToDateCinq = this.state.ApiObject[4].risetime * 1000;
+    const ToDateCinq = this.state.previsions[4].risetime * 1000;
     const DateCinq = new Date(ToDateCinq);
     const LocationDateCinq = DateCinq.toLocaleDateString("en-GB");
     const RiTiWiDuFive = DateCinq.toLocaleTimeString("en-GB");
     const five =
-      this.state.ApiObject[4].risetime * 1000 +
-      this.state.ApiObject[4].duration * 1000;
+      this.state.previsions[4].risetime * 1000 +
+      this.state.previsions[4].duration * 1000;
     const RitiWithDurCinqHeure = new Date(five);
     const DurCinqHeure = RitiWithDurCinqHeure.toLocaleTimeString("en-GB");
     //Regroupe les résultats et les séparent dans un tableau
@@ -259,7 +246,7 @@ class PassageIss extends Component {
     this.getWeather.bind(this);
     const latitude = this.state.UserLocationIcon.lat;
     const longitude = this.state.UserLocationIcon.lng;
-    const Time = this.state.ApiObject[0].risetime;
+    const Time = this.state.previsions[0].risetime;
     const API_KEY = process.env.REACT_APP_API_KEY;
     const UrlWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&dt=${Time}&exclude=minutely,current,daily&appid=${API_KEY}`;
     axios.get(UrlWeather).then((response) => {
@@ -368,7 +355,7 @@ class PassageIss extends Component {
           <TitleForm>What's the next watching sesion ? </TitleForm>
         </ImgStarsContainer>
         <PredContainer>
-          {this.state.ApiObjectLoading ? (
+          {this.state.loading ? (
             <Spinner />
           ) : (
               <RisetimeContainer>
@@ -393,7 +380,7 @@ class PassageIss extends Component {
                 })}
               </RisetimeContainer>
             )}
-          {this.state.ApiObjectLoading ? (
+          {this.state.loading ? (
             <Spinner />
           ) : (
               <DurationContainerDecalage>
