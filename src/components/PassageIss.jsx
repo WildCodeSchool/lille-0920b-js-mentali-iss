@@ -43,11 +43,9 @@ class PassageIss extends Component {
         lat: 0,
         lng: 0,
       },
-      zoom: 1,
       haveUserLocation: false,
       City: [],
-      ArrayCity: [],
-      CityCheck: [],
+      cityName: [],
       err: null,
       ErrorMessage: [],
       ErrorMessageGeolocation: [],
@@ -90,9 +88,8 @@ class PassageIss extends Component {
         const cityName = city.display_name;
         this.setState({
           UserLocationIcon: { lat: city.lat, lng: city.lon },
-          CityCheck: cityName,
+          cityName: cityName,
           haveUserLocation: true,
-          zoom: 7,
         });
         this.getPrediction({
           UserLocationIcon: {
@@ -120,7 +117,6 @@ class PassageIss extends Component {
             lng: longitude,
           },
           haveUserLocation: true,
-          zoom: 7,
         });
         this.getPrediction({
           UserLocationIcon: {
@@ -155,7 +151,7 @@ class PassageIss extends Component {
       const city = data;
       const cityName = city.display_name;
       this.setState({
-        CityCheck: cityName,
+        cityName: cityName,
       });
     });
   }
@@ -259,7 +255,7 @@ class PassageIss extends Component {
   render() {
     const {
       RiTiWiDuDesGroupe,
-      CityCheck,
+      cityName,
       Desgroupe,
       RitiWithDurDesgroupe,
     } = this.state;
@@ -273,7 +269,7 @@ class PassageIss extends Component {
       "Latitude   : ",
       this.state.UserLocationIcon.lat,
       <br />,
-      "Lontitude : ",
+      "Longitude : ",
       this.state.UserLocationIcon.lng,
     ];
     return (
@@ -317,14 +313,14 @@ class PassageIss extends Component {
               {this.state.err != null ? (
                 <CheckCity> {this.state.ErrorMessage} </CheckCity>
               ) : (
-                  <CheckCity> {CityCheck} </CheckCity>
+                  <CheckCity> {cityName} </CheckCity>
                 )}
             </UserInput>
             <DisplayUserLocation>
               <Map
                 className="map"
                 center={LocationIcon}
-                zoom={this.state.zoom}
+                zoom={this.state.haveUserLocation ? "7" : "1"}
                 style={{
                   height: "50vh",
                   width: "auto",
