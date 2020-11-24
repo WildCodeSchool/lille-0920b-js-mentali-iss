@@ -4,7 +4,7 @@ import { device } from "./Device";
 export const Wrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
-    column-gap: 1em;
+    column-gap: 2em;
     row-gap: 1em;
     margin-top: 0 auto;
     margin-left: 2em;

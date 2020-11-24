@@ -1,6 +1,18 @@
 import styled from "styled-components";
 import { device } from "./Device";
 
+export const DisplayMap = styled.div`
+  position: relative;
+  margin-bottom: 10vh;
+  margin-top: 8vh;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70vh;
+  @media ${device.xs} {
+    width: 45vh;
+    margin-top: 16vh;
+  }`;
+
 export const FondTitle = styled.div`
   position: relative;
   width: 98%;

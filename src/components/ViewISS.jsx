@@ -4,7 +4,7 @@ import { Map, TileLayer, Marker } from "react-leaflet";
 import Iss from "../assets/iss.png";
 import axios from "axios";
 import ReactPlayer from "react-player";
-import { FondTitle, FondImage, Title, Trait, Title2, VideoLive, ImgContainerButton, ImgButton, Centered, Title4 } from "./ViewISSCSS";
+import { FondTitle, FondImage, Title, Trait, Title2, VideoLive, ImgContainerButton, ImgButton, Centered, Title4, DisplayMap } from "./ViewISSCSS";
 import 'leaflet/dist/leaflet.css';
 
 const ISS_URL = "http://api.open-notify.org/iss-now.json";
@@ -62,18 +62,17 @@ class ViewISS extends Component {
           <Title>Iss Live Position </Title>
         </FondTitle>
         <Trait></Trait>
+        <DisplayMap>
         <Map
-          style={{
-            width: "70vw",
-            height: "90vh",
-            margin: "auto",
-            position: "center",
-          }}
+       
           className="map"
           center={[0, 0]}
-          zoom={2.4}
+          zoom={1}
           maxZoom={3}
-          minZoom={1.9}
+          minZoom={1}
+          style={{
+           height: "50vh",
+          }}
         >
           <TileLayer
             attribution="Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
@@ -83,6 +82,8 @@ class ViewISS extends Component {
           <Marker position={positionSatIcon} icon={this.SatIcon}></Marker>
           )}
         </Map>
+        </DisplayMap>
+        
 
         <FondTitle>
           <FondImage img src="/photos/stars2.jpg" alt="stars" />
