@@ -260,7 +260,6 @@ class PassageIss extends Component {
     const latitude = this.state.UserLocationIcon.lat;
     const longitude = this.state.UserLocationIcon.lng;
     const Time = this.state.ApiObject[0].risetime;
-    console.log(Time);
     const API_KEY = process.env.REACT_APP_API_KEY;
     const UrlWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&dt=${Time}&exclude=minutely,current,daily&appid=${API_KEY}`;
     axios.get(UrlWeather).then((response) => {
@@ -269,9 +268,6 @@ class PassageIss extends Component {
         weatherResp,
       });
     });
-  }
-  componentWillUnmount() {
-    console.log("componentWillUnmount");
   }
   render() {
     const {
@@ -329,13 +325,13 @@ class PassageIss extends Component {
                   {this.state.ErrorMessageGeolocation}{" "}
                 </VotrePosition>
               ) : (
-                <VotrePosition>{positionLatLon}</VotrePosition>
-              )}
+                  <VotrePosition>{positionLatLon}</VotrePosition>
+                )}
               {this.state.err != null ? (
                 <CheckCity> {this.state.ErrorMessage} </CheckCity>
               ) : (
-                <CheckCity> {CityCheck} </CheckCity>
-              )}
+                  <CheckCity> {CityCheck} </CheckCity>
+                )}
             </UserInput>
             <DisplayUserLocation>
               <Map
@@ -375,68 +371,68 @@ class PassageIss extends Component {
           {this.state.ApiObjectLoading ? (
             <Spinner />
           ) : (
-            <RisetimeContainer>
-              {Desgroupe.map((RisetimeDate, i) => {
-                return (
-                  <p
-                    style={{
-                      paddingLeft: "7vw",
-                      paddingRight: "60vw",
-                      backgroundColor: "#00266F",
-                      paddingTop: "3vh",
-                      marginTop: "5vh",
-                      marginBottom: "8vh",
+              <RisetimeContainer>
+                {Desgroupe.map((RisetimeDate, i) => {
+                  return (
+                    <p
+                      style={{
+                        paddingLeft: "7vw",
+                        paddingRight: "60vw",
+                        backgroundColor: "#00266F",
+                        paddingTop: "3vh",
+                        marginTop: "5vh",
+                        marginBottom: "8vh",
 
-                      height: "5vh",
-                    }}
-                    key={i}
-                  >
-                    {RisetimeDate}{" "}
-                  </p>
-                );
-              })}
-            </RisetimeContainer>
-          )}
+                        height: "5vh",
+                      }}
+                      key={i}
+                    >
+                      {RisetimeDate}{" "}
+                    </p>
+                  );
+                })}
+              </RisetimeContainer>
+            )}
           {this.state.ApiObjectLoading ? (
             <Spinner />
           ) : (
-            <DurationContainerDecalage>
-              <DurationContainerA>
-                {RiTiWiDuDesGroupe.map((RiseTimeBegins, i) => {
-                  return (
-                    <p
-                      key={i * 5 + 1}
-                      style={{
-                        backgroundColor: "black",
-                        paddingTop: "3vh",
-                        marginTop: "8vh",
+              <DurationContainerDecalage>
+                <DurationContainerA>
+                  {RiTiWiDuDesGroupe.map((RiseTimeBegins, i) => {
+                    return (
+                      <p
+                        key={i * 5 + 1}
+                        style={{
+                          backgroundColor: "black",
+                          paddingTop: "3vh",
+                          marginTop: "8vh",
 
-                        height: "5vh",
-                      }}
-                    >
-                      Watch Iss from {RiseTimeBegins}
-                    </p>
-                  );
-                })}
-              </DurationContainerA>
-              <DurationContainerB>
-                {RitiWithDurDesgroupe.map((RiseTimeEnds, i) => {
-                  return (
-                    <p
-                      style={{
-                        paddingTop: "3vh",
-                        marginTop: "8vh",
-                        height: "5vh",
-                      }}
-                      key={i * 6 + 1}
-                    >
-                      until {RiseTimeEnds}
-                    </p>
-                  );
-                })}
-              </DurationContainerB>
-            </DurationContainerDecalage>
-          )}
+                          height: "5vh",
+                        }}
+                      >
+                        Watch Iss from {RiseTimeBegins}
+                      </p>
+                    );
+                  })}
+                </DurationContainerA>
+                <DurationContainerB>
+                  {RitiWithDurDesgroupe.map((RiseTimeEnds, i) => {
+                    return (
+                      <p
+                        style={{
+                          paddingTop: "3vh",
+                          marginTop: "8vh",
+                          height: "5vh",
+                        }}
+                        key={i * 6 + 1}
+                      >
+                        until {RiseTimeEnds}
+                      </p>
+                    );
+                  })}
+                </DurationContainerB>
+              </DurationContainerDecalage>
+            )}
         </PredContainer>
       </div>
     );
