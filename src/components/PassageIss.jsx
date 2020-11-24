@@ -71,7 +71,7 @@ class PassageIss extends Component {
     event.preventDefault();
   }
   // Put user input into a geolocation api
-  getCityLocation() {
+  getCityLocation = () => {
     this.getCityLocation.bind(this);
     const CityInput = this.state.City;
     // limits the number of result
@@ -102,7 +102,7 @@ class PassageIss extends Component {
       });
   }
 
-  getLocation() {
+  getLocation = () => {
     this.setState({ err: null });
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -139,7 +139,7 @@ class PassageIss extends Component {
     );
     this.CorrectCityName();
   }
-  CorrectCityName() {
+  CorrectCityName = () => {
     this.CorrectCityName.bind(this);
     const { lat, lng } = this.state.UserLocationIcon;
     const reverseGeolocUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=10`;
@@ -152,9 +152,9 @@ class PassageIss extends Component {
     });
   }
   // passes results to getprediction lat an lng
-  getPrediction() {
-    this.getPrediction.bind(this);
+  getPrediction = () => {
     const { lat, lng } = this.state.UserLocationIcon;
+    this.getPrediction.bind(this);
     this.setState({
       loading: true
     }, () => {
@@ -187,7 +187,7 @@ class PassageIss extends Component {
 
     //this.getWeather({ ToDateUn });
   }
-  getWeather() {
+  getWeather = () => {
     this.getWeather.bind(this);
     const latitude = this.state.UserLocationIcon.lat;
     const longitude = this.state.UserLocationIcon.lng;
@@ -289,7 +289,6 @@ class PassageIss extends Component {
         </div>
         <ImgStarsContainer>
           <ImageStars alt="Dark sky full of stars" />
-
           <TitleHowObs>How to observe it ? </TitleHowObs>
           <ImgHowObs alt="Picture helping understand how to observe ISS" />
         </ImgStarsContainer>
@@ -330,8 +329,7 @@ class PassageIss extends Component {
                 {previsions.map((prevision, y) => {
                   return (
                     <p
-                      style={{
-                        
+                      style={{  
                           paddingTop: "3vh",
                           marginTop: "8vh",
                           height: "5vh",
