@@ -22,10 +22,6 @@ const Page = styled.div`
   height: 100%;
 `;
 
-const Textcolor = styled.p`
-  color: white;
-`;
-
 const Title1 = styled.div`
   padding-top: 6vh;
   @media ${device.xs} {
@@ -100,6 +96,7 @@ const Trait2 = styled.div`
   width: 60%;
   position: absolute;
   top: 7vh;
+  right: 0;
   z-index: 5;
   @media ${device.xs} {
     width: 100%;
@@ -126,7 +123,7 @@ class GaleriePage extends Component {
     super(props);
     this.state = {
       //On ne lui met pas d'image de base comme elle change tous les jours
-      photo: null,
+      photo: {},
     };
     this.getGalerie = this.getGalerie.bind(this);
   }
@@ -136,14 +133,12 @@ class GaleriePage extends Component {
   }
 
   getGalerie() {
+    const api_key = process.env.REACT_APP_API_KEY;
     // Récupération de l'API
     axios
-      .get(
-        "https://api.nasa.gov/planetary/apod?api_key=VRrNYEwbHHhEqD0HTDYC28EHdYcGfbHmg6xbTS4n"
-      )
+      .get(`https://api.nasa.gov/planetary/apod?api_key=${api_key}`)
       .then((response) => response.data)
       .then((data) => {
-        console.log(data);
         this.setState({
           photo: data,
         });
@@ -153,31 +148,30 @@ class GaleriePage extends Component {
   render() {
     return (
       <Page>
-        <Textcolor>
-          <Title1>
-            <FondTitre>
-              <ImageFond1 src="/photos/stars2.jpg" alt="stars" />
-              <H1>NASA picture of the day</H1>
-              <Trait></Trait>
-            </FondTitre>
-          </Title1>
+        <Title1>
+          <FondTitre>
+            <ImageFond1 src="/photos/stars2.jpg" alt="stars" />
+            <H1>NASA picture of the day</H1>
+            <Trait></Trait>
+          </FondTitre>
+        </Title1>
 
-          <div className="GaleriePage">
-            {this.state.photo ? (
-              <DisplayGalerie photo={this.state.photo} />
-            ) : (
-              <p>No data yet</p>
-            )}
-          </div>
+        <div className="GaleriePage">
+          {this.state.photo ? (
+            <DisplayGalerie photo={this.state.photo} />
+          ) : (
+            <p>No data yet</p>
+          )}
+        </div>
 
-          <Title2>
-            <FondTitre2>
-              <ImageFond2 src="/photos/stars2.jpg" alt="stars" />
-              <H2>What did hubble see that day ?</H2>
-              <Trait2></Trait2>
-            </FondTitre2>
-          </Title2>
-        </Textcolor>
+        <Title2>
+          <FondTitre2>
+            <ImageFond2 src="/photos/stars2.jpg" alt="stars" />
+            <H2>What did hubble see that day ?</H2>
+            <Trait2></Trait2>
+          </FondTitre2>
+        </Title2>
+
         <ChooseADate />
       </Page>
     );

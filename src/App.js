@@ -6,16 +6,18 @@ import Footer from "./components/Footer";
 import GaleriePage from "./components/GaleriePage";
 
 const OutaContainer = styled.div`
-    height:100%;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;`;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+`;
 
 const PageWrap = styled.div`
   text-align: center;
-    overflow: auto;
-    top: 45%;
-    position: relative`;
+  overflow: auto;
+  top: 45%;
+  position: relative;
+`;
 
 function App() {
   return (
@@ -27,6 +29,6 @@ function App() {
       </PageWrap>
     </OutaContainer>
   );
-};
+}
 
 export default App;

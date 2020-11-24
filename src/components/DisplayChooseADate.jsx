@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import ReactPlayer from "react-player";
 
 const size = {
   xs: "320px",
@@ -42,7 +43,7 @@ const FlexBox1 = styled.div`
   }
 `;
 
-const FlexBox2 = styled.p`
+const FlexBox2 = styled.div`
   text-align: left;
   margin-right: 4vw;
   margin-bottom: auto;
@@ -57,6 +58,7 @@ const FlexBox2 = styled.p`
 const Date = styled.p`
   font-size: 2em;
   margin-bottom: 3vh;
+  color: white;
   @media ${device.xs} {
     font-size: 1em;
   }
@@ -67,6 +69,7 @@ const Title = styled.p`
   font-weight: bold;
   margin-top: 2vh;
   margin-bottom: 4vh;
+  color: white;
   @media ${device.xs} {
     font-size: 1.5em;
   }
@@ -76,6 +79,7 @@ const Auteur = styled.p`
   font-size: 1.5em;
   font-style: italic;
   margin-bottom: 2vh;
+  color: white;
   @media ${device.xs} {
     font-size: 1.3em;
   }
@@ -83,6 +87,7 @@ const Auteur = styled.p`
 
 const Explanation = styled.p`
   line-height: 1.2;
+  color: white;
   @media ${device.xs} {
     margin-left: 3vw;
     margin-right: 3vw;
@@ -90,28 +95,37 @@ const Explanation = styled.p`
 `;
 
 function DisplayChooseADate({ photo }) {
+  if (photo.media_type === "image") {
+    return (
+      <>
+        <Paragraph>
+          <FlexBox1>
+            <Photo src={photo.url} alt={photo.title} />
+          </FlexBox1>
+          <FlexBox2>
+            <Date>{photo.date}</Date>
+            <Title>{photo.title}</Title>
+            <Auteur>{photo.copyright}</Auteur>
+            <Explanation>{photo.explanation}</Explanation>
+          </FlexBox2>
+        </Paragraph>
+      </>
+    );
+  }
   return (
-    <div className="DisplayGalerie">
+    <>
       <Paragraph>
         <FlexBox1>
-          <Photo src={photo.hdurl} alt={photo.title} />
+          <ReactPlayer url={photo.url} width="40vw" />
         </FlexBox1>
         <FlexBox2>
-          <Date>
-            <p>{photo.date}</p>
-          </Date>
-          <Title>
-            <p>{photo.title}</p>
-          </Title>
-          <Auteur>
-            <p>{photo.copyright}</p>
-          </Auteur>
-          <Explanation>
-            <p>{photo.explanation}</p>
-          </Explanation>
+          <Date>{photo.date}</Date>
+          <Title>{photo.title}</Title>
+          <Auteur>{photo.copyright}</Auteur>
+          <Explanation>{photo.explanation}</Explanation>
         </FlexBox2>
       </Paragraph>
-    </div>
+    </>
   );
 }
 
