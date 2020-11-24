@@ -27,7 +27,6 @@ import {
   RisetimeContainer,
   DurationContainerDecalage,
   DurationContainerA,
-  DurationContainerB,
 } from "./PassageIssStyle.jsx";
 import leafRed from "../assets/leafRed.png";
 import leafShadow from "../assets/leafShadow.png";
@@ -51,9 +50,6 @@ class PassageIss extends Component {
       ErrorMessageGeolocation: [],
       loading: false,
       previsions: [],
-      Desgroupe: [],
-      RiTiWiDuDesGroupe: [],
-      RitiWithDurDesgroupe: [],
       weatherResp: [],
     };
     // Icon for the map
@@ -207,10 +203,8 @@ class PassageIss extends Component {
   }
   render() {
     const {
-      RiTiWiDuDesGroupe,
       cityName,
       previsions,
-      RitiWithDurDesgroupe,
     } = this.state;
     //Gather user gelocation
     const LocationIcon = [
@@ -301,7 +295,7 @@ class PassageIss extends Component {
         </ImgStarsContainer>
         <ImgStarsContainer>
           <ImageStars alt="Dark sky full of stars" />
-          <TitleForm>What's the next watching session ? </TitleForm>
+          <TitleForm style={{marginTop:'-25vh'}}>What's the next watching session ? </TitleForm>
         </ImgStarsContainer>
         <PredContainer>
           {this.state.loading ? (
@@ -312,18 +306,17 @@ class PassageIss extends Component {
                   return (
                     <p
                       style={{
-                        paddingLeft: "7vw",
-                        paddingRight: "60vw",
+                     
+                        paddingRight: "7vw",
                         backgroundColor: "#00266F",
                         paddingTop: "3vh",
                         marginTop: "5vh",
                         marginBottom: "8vh",
-
                         height: "5vh",
                       }}
                       key={i}
                     >
-                      Watch the ISS on {prevision.riseDate}, from {prevision.riseTime} to { prevision.downTime}
+                      Watch the ISS on {prevision.riseDate}
                     </p>
                   );
                 })}
@@ -334,39 +327,21 @@ class PassageIss extends Component {
           ) : (
               <DurationContainerDecalage>
                 <DurationContainerA>
-                  {RiTiWiDuDesGroupe.map((RiseTimeBegins, i) => {
-                    return (
-                      <p
-                        key={i * 5 + 1}
-                        style={{
-                          backgroundColor: "black",
+                {previsions.map((prevision, y) => {
+                  return (
+                    <p
+                      style={{
                           paddingTop: "3vh",
                           marginTop: "8vh",
-
                           height: "5vh",
-                        }}
-                      >
-                        Watch Iss from {RiseTimeBegins}
-                      </p>
-                    );
-                  })}
+                      }}
+                      key={y}
+                    >
+                   from {prevision.riseTime} to { prevision.downTime}
+                    </p>
+                  );
+                })}
                 </DurationContainerA>
-                <DurationContainerB>
-                  {RitiWithDurDesgroupe.map((RiseTimeEnds, i) => {
-                    return (
-                      <p
-                        style={{
-                          paddingTop: "3vh",
-                          marginTop: "8vh",
-                          height: "5vh",
-                        }}
-                        key={i * 6 + 1}
-                      >
-                        until {RiseTimeEnds}
-                      </p>
-                    );
-                  })}
-                </DurationContainerB>
               </DurationContainerDecalage>
             )}
         </PredContainer>

@@ -105,7 +105,10 @@ export const DisplayUserLocation = styled.div`
   margin-top: 4vh;
   width: 60vh;
   @media ${device.xs} {
-    width: 100vh;
+    width: 90vw;
+    height: 60vh;
+    margin-left : 5vw;
+    margin-right: 5vw;
   }
 `;
 
@@ -121,7 +124,7 @@ export const LocalisationButton = styled.button`
   border-radius: 10px;
   @media ${device.xs} {
     width: 30vh;
-    margin-left: -70vw;
+    margin-left: -75vw;
     margin-right: 0vw;
     margin-top: 1vw;
     margin-bottom: 1vw;
@@ -212,18 +215,17 @@ export const TitleHowObs = styled.h3`
   left: 60vw;
   color: white;
   font-family: Vindemia;
+  display : solid;
   @media ${device.xs} {
-    position: absolute;
+    position: relative;
     text-align: center;
     display: none;
-    right: 10vw;
-    left: 10vw;
-    bottom: 0vh;
-    top: 0vh;
-    width: 80vw;
-    color: black;
+    margin-top: -25vh;
+    width: 75vw;
   }
 `;
+
+
 export const ImgHowObs = styled.div`
   background-image: url(${ImageObs});
   width: 50vw;
@@ -231,9 +233,9 @@ export const ImgHowObs = styled.div`
   margin-left: 25vw;
   margin-right: 25vw;
   background-repeat: no-repeat;
+  display : solid;
   @media ${device.xs} {
-    width: 0vw;
-    height: 0vh;
+    display: none;
   }
 `;
 
@@ -241,23 +243,29 @@ export const PredContainer = styled.div`
   display: grid;
   grid-template-columns: auto auto;
   margin-left: 10vw;
+  @media ${device.xs} {
+    margin-left: 0vw;
+    margin-top: -25vh;
+  }
 `;
 export const RisetimeContainer = styled.div`
   position: relative;
-  width: 30vh;
+  width: 100vh;
   margin-left: 11vw;
   color: white;
   font-size: 3vh;
   font-family: Verdana;
+  @media ${device.xs} {
+    margin-left: -33vw;
+  }
 `;
 export const DurationContainerDecalage = styled.div`
   position: relative;
   margin-top: 5vh;
-  margin-left: 40vw;
   font-size: 3vh;
   @media ${device.xs} {
     margin-left: 0vw;
-    width: 70vw;
+  
     font-size: 15px;
   }
 `;
@@ -265,22 +273,11 @@ export const DurationContainerA = styled.div`
   position: relative;
   color: white;
 
-  margin-left: -68vw;
+  margin-left: -70vw;
   font-family: Verdana;
   @media ${device.xs} {
-    margin-left: -78vw;
+    margin-left: -130vw;
     width: 70vw;
   }
 `;
-export const DurationContainerB = styled.div`
-  position: absolute;
-  color: white;
-  bottom: 0vh;
-  margin-left: -18vw;
-  color: white;
-  font-family: Verdana;
-  @media ${device.xs} {
-    margin-left: -30vw;
-    width: 70vw;
-  }
-`;
+
