@@ -3,9 +3,9 @@ import styled from "styled-components";
 import BurgerMenu from "./BurgerMenu";
 
 const size = {
-  xs: '320px',
-  sm: '768px',
-  lg: '1200px',
+  xs: "320px",
+  sm: "768px",
+  lg: "1200px",
 };
 
 const device = {
@@ -30,12 +30,12 @@ const Headercont = styled.header`
   overflow-x: hidden;
   @media ${device.xs} {
     width: 100vw;
-    }
+  }
   @media ${device.sm} {
     width: 100vw;
     height: 12vh;
-    }
-  `;
+  }
+`;
 
 const LogoMentali = styled.a`
   display: flex;
@@ -43,10 +43,10 @@ const LogoMentali = styled.a`
   align-items: center;
   text-decoration: none;
   width: 40vw;
-  height: auto; 
+  height: auto;
   @media ${device.xs} {
-    width: 80vw;;
-    }
+    width: 80vw;
+  }
 `;
 
 const LogoISS = styled.img`
@@ -55,9 +55,9 @@ const LogoISS = styled.img`
   margin: 10px 20px 10px 10px;
   text-decoration: none;
   @media ${device.xs} {
-  width: 15vw;
-    }
-  `;
+    width: 15vw;
+  }
+`;
 
 const Brand = styled.h2`
   color: white;
@@ -66,13 +66,14 @@ const Brand = styled.h2`
   &:hover {
     color: #3366cc;
     text-decoration: none;
-  };
+  }
   @media ${device.xs} {
     font-size: 6px;
-    }
+  }
   @media ${device.sm} {
-    font-size: 25px;;
-    }`;
+    font-size: 25px;
+  }
+`;
 
 const Navbar = styled.ul`
   list-style: none;
@@ -86,7 +87,8 @@ const Navbar = styled.ul`
   background-color: #34263a;
   @media ${device.xs} {
     display: none;
-  }`;
+  }
+`;
 
 const Navlink = styled.a`
   text-decoration: none;
@@ -97,19 +99,19 @@ const Navlink = styled.a`
     text-decoration: none;
   }
   @media ${device.sm} {
-  font-size: 25px;
-  margin-right: 10px;
-    }
+    font-size: 25px;
+    margin-right: 10px;
+  }
   @media ${device.sm} {
-  margin-right: 10px;
+    margin-right: 10px;
   }
 `;
 
 const Burger = styled.div`
   @media ${device.lg} {
-  display: none
-    }`
-
+    display: none;
+  }
+`;
 
 const Header = () => {
   return (

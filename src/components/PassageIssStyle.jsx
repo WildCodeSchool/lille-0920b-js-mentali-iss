@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import imageFondPred from '../assets/imageFondPred.jpg';
-import imageStarFond from '../assets/imageStarFond.jpg';
-import ImageObs from '../assets/ImageObs.jpg';
+import imageFondPred from "../assets/imageFondPred.jpg";
+import imageStarFond from "../assets/imageStarFond.jpg";
+import ImageObs from "../assets/ImageObs.jpg";
 
 const size = {
   xs: "320px",
@@ -25,8 +25,8 @@ export const ImageSecondHeader = styled.div`
   background-repeat: no-repeat;
   @media ${device.xs} {
     width: cover;
-  height: 100vh;
-}
+    height: 100vh;
+  }
 `;
 export const HeadTitle = styled.h1`
   margin-top: 0vh;
@@ -40,12 +40,12 @@ export const HeadTitle = styled.h1`
   font-family: Vindemia;
   @media ${device.xs} {
     position: absolute;
-  text-align: center;
-  font-size: 4vw;
-  bottom: 35vh;
-  right: 02vw;
-  left: 02vw;
-  font-size: 20vw;
+    text-align: center;
+    font-size: 4vw;
+    bottom: 35vh;
+    right: 02vw;
+    left: 02vw;
+    font-size: 20vw;
   }
 `;
 export const ImgStarsContainer = styled.div`
@@ -66,18 +66,17 @@ export const TitleForm = styled.h3`
   bottom: 5vh;
   left: -8vw;
   color: white;
-  width : 70vw;
+  width: 70vw;
   font-family: Vindemia;
   @media ${device.xs} {
     position: absolute;
-  text-align: center;
-  font-size: 10vw;
-  right: 10vw;
-  left: 10vw;
-  bottom: 5vh;
-  top: 5vh;
-  width : 80vw;
-
+    text-align: center;
+    font-size: 10vw;
+    right: 10vw;
+    left: 10vw;
+    bottom: 5vh;
+    top: 5vh;
+    width: 80vw;
   }
 `;
 
@@ -87,11 +86,8 @@ export const ContainerLocation = styled.div`
   grid-template-columns: auto auto;
 
   @media ${device.xs} {
-    
     grid-template-columns: none;
     grid-template-rows: auto auto;
-  
-
   }
 `;
 
@@ -100,8 +96,7 @@ export const UserInput = styled.div`
   margin-bottom: 4vh;
   width: 45vh;
   @media ${device.xs} {
-  width: 100vh;
-
+    width: 100vh;
   }
 `;
 export const DisplayUserLocation = styled.div`
@@ -110,8 +105,7 @@ export const DisplayUserLocation = styled.div`
   margin-top: 4vh;
   width: 60vh;
   @media ${device.xs} {
-  width: 100vh;
-
+    width: 100vh;
   }
 `;
 
@@ -126,11 +120,11 @@ export const LocalisationButton = styled.button`
   height: 5vh;
   border-radius: 10px;
   @media ${device.xs} {
-  width: 30vh;
-  margin-left: -70vw;
-  margin-right: 0vw;
-  margin-top: 1vw;
-  margin-bottom: 1vw;
+    width: 30vh;
+    margin-left: -70vw;
+    margin-right: 0vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
   }
 `;
 
@@ -141,22 +135,22 @@ export const EnterCity = styled.form`
   margin-bottom: 1vw;
   width: 30vw;
   @media ${device.xs} {
-  width: 90vw;
-  margin-left: 12w;
-  margin-right: 15vw;
-  margin-top: 1vw;
-  margin-bottom: 1vw;
+    width: 90vw;
+    margin-left: 12w;
+    margin-right: 15vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
   }
 `;
 export const EnterACityName = styled.input`
   height: 4vh;
   width: 25vw;
   @media ${device.xs} {
-  width: 90vw;
-  margin-left: -7vw;
-  margin-right: 3vw;
-  margin-top: 1vw;
-  margin-bottom: 1vw;
+    width: 90vw;
+    margin-left: -7vw;
+    margin-right: 3vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
   }
 `;
 
@@ -167,11 +161,11 @@ export const SubmitCity = styled.input`
   margin-left: 19vw;
   border-radius: 7px;
   @media ${device.xs} {
-  width: 30vw;
-  margin-left: 15vw;
-  margin-right: 15vw;
-  margin-top: 1vw;
-  margin-bottom: 1vw;
+    width: 30vw;
+    margin-left: 15vw;
+    margin-right: 15vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
   }
 `;
 export const VotrePosition = styled.p`
@@ -184,11 +178,11 @@ export const VotrePosition = styled.p`
   width: 30vw;
   font-family: Vindemia;
   @media ${device.xs} {
-  width: 90vw;
-  margin-left: 5vw;
-  margin-right: 5vw;
-  margin-top: 1vw;
-  margin-bottom: 1vw;
+    width: 90vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
   }
 `;
 export const CheckCity = styled.p`
@@ -200,12 +194,12 @@ export const CheckCity = styled.p`
   margin-bottom: 1vw;
   width: 30vw;
   font-family: Verdana;
-    @media ${device.xs} {
-  width: 90vw;
-  margin-left: 5vw;
-  margin-right: 5vw;
-  margin-top: 1vw;
-  margin-bottom: 1vw;
+  @media ${device.xs} {
+    width: 90vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
   }
 `;
 
@@ -220,14 +214,14 @@ export const TitleHowObs = styled.h3`
   font-family: Vindemia;
   @media ${device.xs} {
     position: absolute;
-  text-align: center;
-  display : none;
-  right: 10vw;
-  left: 10vw;
-  bottom: 0vh;
-  top: 0vh;
-  width : 80vw;
-  color : black;
+    text-align: center;
+    display: none;
+    right: 10vw;
+    left: 10vw;
+    bottom: 0vh;
+    top: 0vh;
+    width: 80vw;
+    color: black;
   }
 `;
 export const ImgHowObs = styled.div`
@@ -238,9 +232,8 @@ export const ImgHowObs = styled.div`
   margin-right: 25vw;
   background-repeat: no-repeat;
   @media ${device.xs} {
-  
     width: 0vw;
-  height: 0vh;
+    height: 0vh;
   }
 `;
 
@@ -264,10 +257,9 @@ export const DurationContainerDecalage = styled.div`
   font-size: 3vh;
   @media ${device.xs} {
     margin-left: 0vw;
-  width: 70vw;
-  font-size: 15px;
-
-}
+    width: 70vw;
+    font-size: 15px;
+  }
 `;
 export const DurationContainerA = styled.div`
   position: relative;
@@ -277,9 +269,8 @@ export const DurationContainerA = styled.div`
   font-family: Verdana;
   @media ${device.xs} {
     margin-left: -78vw;
-  width: 70vw;
-
-}
+    width: 70vw;
+  }
 `;
 export const DurationContainerB = styled.div`
   position: absolute;
@@ -291,5 +282,5 @@ export const DurationContainerB = styled.div`
   @media ${device.xs} {
     margin-left: -30vw;
     width: 70vw;
-}
+  }
 `;

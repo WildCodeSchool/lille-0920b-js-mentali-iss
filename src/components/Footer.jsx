@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const size = {
-  xs: '320px',
-  sm: '768px',
-  lg: '1200px',
+  xs: "320px",
+  sm: "768px",
+  lg: "1200px",
 };
 
 const device = {
@@ -12,7 +12,6 @@ const device = {
   sm: `(max-width: ${size.sm})`,
   lg: `(min-width: ${size.lg})`,
 };
-
 
 const Mainfooter = styled.footer`
   width: 99.2vw;
@@ -65,8 +64,9 @@ const Row2 = styled.div`
   height: 20%;
   font-size: 10px;
   @media ${device.xs} {
-   display:none;
-  }`;
+    display: none;
+  }
+`;
 
 const Col1 = styled.div`
   text-align: justify;
@@ -75,7 +75,8 @@ const Col1 = styled.div`
   align-items: center;
   @media ${device.xs} {
     display: none;
-  }`;
+  }
+`;
 
 const Col2 = styled.div`
   width: 20%;
@@ -83,10 +84,11 @@ const Col2 = styled.div`
   flex-direction: column;
   align-items: center;
   @media ${device.xs} {
-   width: 100%;
-   margin-top: 5px;
-   margin-bottom: 10px;
-  }`;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+`;
 
 const Col3 = styled.div`
   width: 20%;
@@ -94,10 +96,10 @@ const Col3 = styled.div`
   flex-direction: column;
   align-items: center;
   @media ${device.xs} {
-   flex-direction: row;
-   justify-content: center;
-   align-items: center;
-   width: 100vw;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
   }
 `;
 
@@ -116,27 +118,29 @@ const Textjustify = styled.p`
 
 const H4B = styled.h4`
   font-size: 20px;
-  margin-bottom: 15px; 
+  margin-bottom: 15px;
   @media ${device.xs} {
-   font-size: 10px;
-   margin-right: 5px;
-   margin-bottom: 3px; 
-  }`;
+    font-size: 10px;
+    margin-right: 5px;
+    margin-bottom: 3px;
+  }
+`;
 
 const H4C = styled.h4`
-margin-bottom: 15px;
-font-size: 20px;
+  margin-bottom: 15px;
+  font-size: 20px;
   @media ${device.xs} {
-   font-size: 10px;
-   margin-right: 5px;
-   margin-bottom: 3px; 
-  }`;
+    font-size: 10px;
+    margin-right: 5px;
+    margin-bottom: 3px;
+  }
+`;
 
 const Footerlinks = styled.ul`
   padding-left: 0;
   list-style: none;
   @media ${device.xs} {
-   text-align: center;
+    text-align: center;
   }
 `;
 
@@ -149,14 +153,14 @@ const Footlinks = styled.a`
     text-decoration: none;
   }
   @media ${device.xs} {
-   font-size: 8px;
+    font-size: 8px;
   }
 `;
 const Socialicons = styled.ul`
   margin-top: 15px;
   @media ${device.xs} {
-   display: flex;
-   margin-top: 5px;
+    display: flex;
+    margin-top: 5px;
   }
 `;
 
@@ -180,11 +184,11 @@ const SocialA = styled.a`
     background-color: darkblue;
   }
   @media ${device.xs} {
-   width: 20px;
-   height: 20px;
-   line-height: 20px;
-   &:hover {
-    background-color:"#FFF"
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    &:hover {
+      background-color: "#FFF";
     }
   }
 `;
@@ -192,26 +196,26 @@ const SocialA = styled.a`
 const Fb = styled.img`
   width: 40px;
   @media ${device.xs} {
-   width: 20px;
-}
+    width: 20px;
+  }
 `;
 const Tweet = styled.img`
   width: 40px;
   @media ${device.xs} {
-   width: 20px;
-}
+    width: 20px;
+  }
 `;
 const Insta = styled.img`
   width: 40px;
   @media ${device.xs} {
-   width: 20px;
-}
+    width: 20px;
+  }
 `;
 const LinkDin = styled.img`
   width: 40px;
   @media ${device.xs} {
-   width: 20px;
-}
+    width: 20px;
+  }
 `;
 
 const Footer2 = () => {
