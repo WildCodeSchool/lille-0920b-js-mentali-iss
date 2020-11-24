@@ -6,49 +6,45 @@ import axios from "axios";
 import ReactPlayer from "react-player";
 import { FondTitle, FondImage, Title, Trait, Title2, VideoLive, ImgContainerButton, ImgButton, Centered, Title4, DisplayMap } from "./ViewISSCSS";
 import 'leaflet/dist/leaflet.css';
+import ISSMetrix from './ISSMetrix'
 
 const ISS_URL = "http://api.open-notify.org/iss-now.json";
 
 class ViewISS extends Component {
   constructor(props) {
     super(props);
-    //initialize a state name "SatIcon" with lat/lng (properties from leaflet)
-    //initialize a user location at false (property from leaflet)
-    this.state = {
-      SatIcon: {
-        lat: 0,
-        lng: 0,
-      },
-      haveUsersLocation: false,
-      zoom: 2,
-    };
-    //give icon function (from leaflet) to SatIcon in order to set some size ...
+      this.state = {
+        SatIcon: {
+          lat: 0,
+          lng: 0,
+        },
+        haveUsersLocation: false,
+      };
+
     this.SatIcon = L.icon({
       iconUrl: Iss,
       iconSize: [100, 100], // size of the icon
       iconAnchor: [25, 25], // point of the icon which will correspond to marker's location
     });
   }
-    //mount component by call recalIss function
-    //add a callback function to update recalIss every 5s
+  
     componentDidMount() {
       this.recalIss();
       this.interval = setInterval(this.recalIss, 2500);
     }
-    //call API (stock in ISS-URL) by Axios
-    //import json object from API with.then
-    //update state of "issPosition" with data result from json object
-    //update haveUsersLocation ?
+
+    componentWillUnmount() {
+      this.recalIss();
+    }
+
     recalIss = () => {
       axios.get(ISS_URL).then(({ data }) => {
-        console.log(data);
         this.setState({
           SatIcon: {
             lat: data.iss_position.latitude,
             lng: data.iss_position.longitude,
           },
           haveUsersLocation: true,
-          zoom: 2,
         });
       });
     };
@@ -62,12 +58,12 @@ class ViewISS extends Component {
           <Title>Iss Live Position </Title>
         </FondTitle>
         <Trait></Trait>
+        
         <DisplayMap>
         <Map
-       
           className="map"
           center={[0, 0]}
-          zoom={1}
+          zoom={this.state.haveUsersLocation ? "2" : "1"} 
           maxZoom={3}
           minZoom={1}
           style={{
@@ -83,14 +79,14 @@ class ViewISS extends Component {
           )}
         </Map>
         </DisplayMap>
-        
-
+        <p>latitude (DD)={this.state.SatIcon.lat}</p>
+        <p>longitude (DD)={this.state.SatIcon.lng}</p>
+        <ISSMetrix />
         <FondTitle>
           <FondImage img src="/photos/stars2.jpg" alt="stars" />
           <Title2>ISS Video Live</Title2>
         </FondTitle>
         <Trait></Trait>
-
 
         <VideoLive>
           <ReactPlayer
