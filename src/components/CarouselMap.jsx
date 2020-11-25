@@ -21,21 +21,21 @@ export default class MyCarousel extends Component {
           <img
             className="KarouselImg"
             src={"/photos/pexels1.jpg"}
-            width="1250"
+            width="1550"
             height="650"
             alt="#1"
           />
           <img
             className="KarouselImg"
             src={"/photos/pexels2.jpg"}
-            width="1250"
+            width="1550"
             height="650"
             alt="#1"
           />
           <img
             className="KarouselImg"
             src={"/photos/pexels3.jpg"}
-            width="1250"
+            width="1550"
             height="650"
             alt="#1"
           />

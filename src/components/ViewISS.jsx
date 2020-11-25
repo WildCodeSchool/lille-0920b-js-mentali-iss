@@ -25,7 +25,6 @@ import "leaflet/dist/leaflet.css";
 import ISSMetrix from "./ISSMetrix";
 import Carousel from "./CarouselMap";
 import Astro from "./AstroList";
-import PassageIss from "./PassageIss";
 
 const ISS_URL = "http://api.open-notify.org/iss-now.json";
 
@@ -84,11 +83,12 @@ class ViewISS extends Component {
           <Map
             className="map"
             center={[0, 0]}
-            zoom={this.state.haveUsersLocation ? "2" : "1"}
+            zoom={this.state.haveUsersLocation ? "3" : "2"}
             maxZoom={3}
             minZoom={1}
             style={{
               height: "50vh",
+              width: "60vw"
             }}
           >
             <TileLayer
