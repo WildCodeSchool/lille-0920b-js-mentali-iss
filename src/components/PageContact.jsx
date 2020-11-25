@@ -22,11 +22,12 @@ const Fond = styled.div`
 `;
 
 const Formulaire = styled.form`
-  width: 40vw;
+  width: 65vw;
   float: right;
   margin-top: 20vh;
-  margin-right: 10vw;
+  margin-right: 2vw;
   display: flex;
+  font-size: 1.5em;
   flex-direction: column;
   justify-content: space-between;
   height: 50vh;
@@ -60,11 +61,11 @@ const DivTheme = styled.div`
 `;
 
 const Select = styled.select`
-  width: 53%;
+  width: 42%;
   height: 4vh;
   background: white;
   color: gray;
-  font-size: 14px;
+  font-size: 0.6em;
   border: none;
   text-align: start;
   border-radius: 3px;
@@ -85,7 +86,7 @@ const Select = styled.select`
 `;
 
 const Textarea = styled.textarea`
-  width: 53%;
+  width: 42%;
   height: 15vh;
   border-radius: 5px;
   text-align-last: center;
@@ -106,7 +107,7 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
-  width: 50%;
+  width: 40%;
   text-align: center;
   @media ${device.sm} {
     width: 70vw;
@@ -187,7 +188,7 @@ export default class PageContact extends Component {
   //We can't do back-end for now so we have just an alert
   submitForm = (e) => {
     e.preventDefault();
-    alert("Your message has been sended !");
+    alert("Your message has been sent !");
   };
 
   render() {
