@@ -6,12 +6,17 @@ import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
 import Spinner from "./SpinnerPassage.jsx";
 import {
+  ImageStarsDeux,
+  TraitTrois,
+  TitleFormUn,
+  TraitDeux,
   TitleForm,
   ImgHeadContainer,
   ImageSecondHeader,
   HeadTitle,
   Trait,
   ImgStarsContainer,
+  ImgStarsContainerDeux,
   ImageStars,
   ContainerLocation,
   UserInput,
@@ -232,7 +237,7 @@ class PassageIss extends Component {
         </ImgHeadContainer>
         <ImgStarsContainer>
           <ImageStars alt="Dark sky full of stars" />
-          <TitleForm>Choose you spot !</TitleForm>
+          <TitleFormUn>Choose you spot !</TitleFormUn>
           <Trait></Trait>
         </ImgStarsContainer>
         <div>
@@ -242,7 +247,7 @@ class PassageIss extends Component {
                 Locate me
               </LocalisationButton>
               <EnterCity onSubmit={this.handleSubmitCity}>
-                <label style={{ color: "white", fontSize: "3vh" }}>
+                <label style={{ color: "white", fontSize: "3vh", marginBottom: '3vh' }}>
                   Or enter a city name here
                   <EnterACityName
                     type="text"
@@ -294,14 +299,16 @@ class PassageIss extends Component {
         <ImgStarsContainer>
           <ImageStars alt="Dark sky full of stars" />
           <TitleHowObs>How to observe it ? </TitleHowObs>
+          <TraitDeux></TraitDeux>
           <ImgHowObs alt="Picture helping understand how to observe ISS" />
         </ImgStarsContainer>
-        <ImgStarsContainer>
-          <ImageStars alt="Dark sky full of stars" />
-          <TitleForm style={{ marginTop: "-25vh" }}>
+        <ImgStarsContainerDeux>
+          <ImageStarsDeux alt="Dark sky full of stars" />
+          <TitleForm >
             What's the next watching session ?{" "}
           </TitleForm>
-        </ImgStarsContainer>
+          <TraitTrois></TraitTrois>
+        </ImgStarsContainerDeux>
         <PredContainer>
           {this.state.loading ? (
             <Spinner />
@@ -354,3 +361,4 @@ class PassageIss extends Component {
   }
 }
 export default PassageIss;
+
