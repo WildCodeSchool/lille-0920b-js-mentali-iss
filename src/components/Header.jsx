@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import BurgerMenu from "./BurgerMenu";
+import { Link } from "react-router-dom";
 
 const size = {
   xs: "320px",
@@ -37,7 +38,7 @@ const Headercont = styled.header`
   }
 `;
 
-const LogoMentali = styled.a`
+const LogoMentali = styled(Link)`
   display: flex;
   justify-content: start;
   align-items: center;
@@ -90,7 +91,7 @@ const Navbar = styled.ul`
   }
 `;
 
-const Navlink = styled.a`
+const Navlink = styled(Link)`
   text-decoration: none;
   font-size: 25px;
   color: white;
@@ -118,7 +119,7 @@ const Header = () => {
   return (
     <Headercont>
       <div className="logo-iss">
-        <LogoMentali href="#1">
+        <LogoMentali to="/">
           <LogoISS src="/photos/world.png" alt="logo" />
           <Brand>MENTAL-ISS</Brand>
         </LogoMentali>
@@ -127,18 +128,10 @@ const Header = () => {
         <BurgerMenu />
       </Burger>
       <Navbar>
-        <Navlink href="#2">
-          <li>ISS</li>
-        </Navlink>
-        <Navlink href="#2">
-          <li>Gallery</li>
-        </Navlink>
-        <Navlink href="#2">
-          <li>Rover on Mars</li>
-        </Navlink>
-        <Navlink href="#2">
-          <li>Contact</li>
-        </Navlink>
+        <Navlink to="/viewiss">ISS</Navlink>
+        <Navlink to="/gallery">Gallery</Navlink>
+        <Navlink to="/roveronmars">Rover on Mars</Navlink>
+        <Navlink to="/contact">Contact</Navlink>
       </Navbar>
     </Headercont>
   );

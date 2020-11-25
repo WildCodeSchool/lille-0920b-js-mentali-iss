@@ -1,9 +1,11 @@
 import "./reset.css";
+import { Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 import Header from "./components/Header";
 import FrontPage from "./components/FrontPage";
 import Footer from "./components/Footer";
 import GaleriePage from "./components/GaleriePage";
+import RoverPage from "./components/RoverPage";
 
 const OutaContainer = styled.div`
   height: 100%;
@@ -24,7 +26,11 @@ function App() {
     <OutaContainer>
       <Header />
       <PageWrap>
-        <FrontPage />
+        <Switch>
+          <Route exact path="/" component={FrontPage} />
+          <Route path="/roveronmars" component={RoverPage} />
+          <Route path="/gallery" component={GaleriePage} />
+        </Switch>
         <Footer />
       </PageWrap>
     </OutaContainer>
