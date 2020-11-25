@@ -52,21 +52,31 @@ export const ImgStarsContainer = styled.div`
   position: relative;
 `;
 export const ImageStars = styled.div`
-  border: 1px solid #000;
-  background-image: url(${imageStarFond});
   width: 97vw;
   height: 15vh;
   background-repeat: no-repeat;
 `;
 
+export const Trait = styled.div`
+  background-color: white;
+  width: 10vw;
+  height: 1px;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  @media ${device.mobile} {
+    width: 90%;
+    margin-bottom: 1.5em;
+  }
+`;
+
 export const TitleForm = styled.h3`
   margin-top: 0vh;
   position: absolute;
-  font-size: 3vw;
+  font-size: 2.5vw;
   bottom: 5vh;
-  left: -8vw;
+  left: 0vw;
   color: white;
-  width: 70vw;
+  width: 40vw;
   font-family: Vindemia;
   @media ${device.xs} {
     position: absolute;
@@ -209,9 +219,9 @@ export const TitleHowObs = styled.h3`
   position: relative;
   font-size: 3vw;
   bottom: 11vh;
-  width: 24vw;
+  width: 60vw;
   right: 5vw;
-  left: 60vw;
+  left: 40vw;
   color: white;
   font-family: Vindemia;
   display: solid;

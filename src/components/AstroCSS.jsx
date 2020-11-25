@@ -23,6 +23,8 @@ export const Crewheader = styled.header`
 
 export const Astrophoto = styled.img`
   border-radius: 20px;
+  width: 18vw;
+
   filter: saturate(1.8);
   &:hover {
     filter: grayscale(100);

@@ -10,6 +10,7 @@ import {
   ImgHeadContainer,
   ImageSecondHeader,
   HeadTitle,
+  Trait,
   ImgStarsContainer,
   ImageStars,
   ContainerLocation,
@@ -232,6 +233,7 @@ class PassageIss extends Component {
         <ImgStarsContainer>
           <ImageStars alt="Dark sky full of stars" />
           <TitleForm>Choose you spot !</TitleForm>
+          <Trait></Trait>
         </ImgStarsContainer>
         <div>
           <ContainerLocation>

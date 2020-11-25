@@ -47,7 +47,7 @@ export const Title = styled.h1`
 
 export const Trait = styled.div`
   background-color: white;
-  width: 25%;
+  width: 50vw;
   height: 1px;
   margin-top: 1%;
   margin-bottom: 1%;
@@ -62,10 +62,10 @@ export const Title2 = styled.h1`
   font-size: 2.5em;
   font-family: "Vindemia";
   text-align: center;
-  width: 98%;
   margin-top: 1em;
   margin-left: 1.9em;
   position: absolute;
+  right: 2vw;
   @media ${device.mobile} {
     font-size: 1em;
     text-align: left;
@@ -75,11 +75,12 @@ export const Title2 = styled.h1`
 
 export const Trait2 = styled.div`
   background-color: white;
-  width: 25%;
+  width: 50vw;
+  margin-left: 50vw;
   height: 1px;
   margin-top: 1%;
   margin-bottom: 1%;
-  margin-left: 38vw;
+
   @media ${device.mobile} {
     width: 90%;
     margin-bottom: 1.5em;
@@ -103,7 +104,7 @@ export const VideoLive = styled.div`
 
 export const Trait3 = styled.div`
   background-color: white;
-  width: 32%;
+  width: 50vw;
   height: 1px;
   margin-top: 1%;
   margin-bottom: 1%;
@@ -120,8 +121,7 @@ export const ImgContainerButton = styled(Link)`
   font-family: "Vindemia";
   font-size: 0.4em;
   flex-wrap: wrap;
-  margin-top: 2vh;
-  margin-bottom: 2vh;
+
   width: 100%;
 `;
 
@@ -138,7 +138,7 @@ export const ImgButton = styled.img`
 
 export const Centered = styled.div`
   position: absolute;
-  top: 20%;
+  bottom: 0vh;
   left: 50%;
   transform: translate(-50%, -50%);
   color: azure;
@@ -170,11 +170,11 @@ export const Title4 = styled.h1`
 
 export const Trait4 = styled.div`
   background-color: white;
-  width: 25%;
+  width: 70vw;
   height: 1px;
   margin-top: 1%;
   margin-bottom: 1%;
-  margin-left: 72vw;
+  margin-left: 50vw;
   @media ${device.mobile} {
     width: 90%;
     margin-bottom: 1.5em;
