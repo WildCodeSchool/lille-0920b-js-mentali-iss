@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const size = {
   xs: "320px",
@@ -149,7 +150,7 @@ const ContainerTextGalerie = styled.div`
   }
 `;
 
-const ZoneISS = styled.div`
+const ZoneISS = styled(Link)`
   &:hover ${TriangleHaut} {
     opacity: 0.3;
   }
@@ -166,7 +167,7 @@ const ZoneISS = styled.div`
   }
 `;
 
-const ZoneRover = styled.div`
+const ZoneRover = styled(Link)`
   &:hover ${TriangleDroit} {
     opacity: 0.3;
   }
@@ -184,7 +185,7 @@ const ZoneRover = styled.div`
   }
 `;
 
-const ZoneGalerie = styled.div`
+const ZoneGalerie = styled(Link)`
   &:hover ${TriangleGauche} {
     opacity: 0.3;
   }
@@ -201,25 +202,28 @@ const ZoneGalerie = styled.div`
   }
 `;
 
+
 function FrontPage() {
   return (
     <Page>
       <Avatar>
-        <ZoneISS>
+  
+        <ZoneISS to="/viewiss">
           <TriangleHaut src="/photos/iss2.png" id="iss" alt="ISS" />
           <ContainerTextISS>
             <div className="textISS">ISS</div>
           </ContainerTextISS>
         </ZoneISS>
-        <ZoneRover>
-          <TriangleDroit img src="/photos/rover.jpg" id="rover" alt="rover" />
 
+
+        <ZoneRover to="/roveronmars">
+          <TriangleDroit img src="/photos/rover.jpg" id="rover" alt="rover" />
           <ContainerTextRover>
             <div className="textRover">Rover</div>
           </ContainerTextRover>
         </ZoneRover>
 
-        <ZoneGalerie>
+        <ZoneGalerie to="/roveronmars">
           <TriangleGauche
             img
             src="/photos/galerie.jpg"
