@@ -14,8 +14,8 @@ const device = {
 };
 
 const Mainfooter = styled.footer`
-  width: 99.2vw;
-  height: 15vh;
+  width: 96.6vw;
+  height: 20vh;
   display: flex;
   align-items: center;
   background-color: #34263a;
@@ -26,11 +26,8 @@ const Mainfooter = styled.footer`
   font-family: "Vindemia";
   line-height: 20px;
   overflow-x: hidden;
-  @media ${device.xs} {
-    width: 100vw;
-  }
   @media ${device.sm} {
-    width: 100vw;
+    width: 87.5vw;
     height: 25vh;
   }
 `;
@@ -62,6 +59,7 @@ const Row2 = styled.div`
   align-items: center;
   width: 100%;
   height: 20%;
+  margin-top: 3vh;
   font-size: 10px;
   @media ${device.xs} {
     display: none;

@@ -50,9 +50,9 @@ const LogoMentali = styled.a`
 `;
 
 const LogoISS = styled.img`
-  width: 10vw;
+  width: 7vw;
   height: auto;
-  margin: 10px 20px 10px 10px;
+  margin: 0px 20px 0px 10px;
   text-decoration: none;
   @media ${device.xs} {
     width: 15vw;
@@ -82,7 +82,7 @@ const Navbar = styled.ul`
   font-family: "Vindemia";
   align-items: center;
   flex-wrap: wrap;
-  width: 50vw;
+  width: 60vw;
   height: auto;
   background-color: #34263a;
   @media ${device.xs} {
@@ -94,6 +94,7 @@ const Navlink = styled.a`
   text-decoration: none;
   font-size: 25px;
   color: white;
+  padding-left: 2vw;
   &:hover {
     color: #3366cc;
     text-decoration: none;
