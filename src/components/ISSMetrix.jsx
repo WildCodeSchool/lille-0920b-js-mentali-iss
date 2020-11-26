@@ -17,10 +17,6 @@ export default function ISSMetrix () {
         .catch(() => {
             toast("Something bad happened :(");
           });  
-        const interval = setInterval(() => {
-            console.log('This will run every second!');
-          }, 1000);
-          return () => clearInterval(interval);
     },);
         
     return (

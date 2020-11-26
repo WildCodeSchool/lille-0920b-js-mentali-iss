@@ -5,12 +5,11 @@ export const DisplayMap = styled.div`
   position: relative;
   margin-bottom: 10vh;
   margin-top: 8vh;
-  margin-left: auto;
+  margin-left: 19vw;
   margin-right: auto;
-  width: 70vh;
-  @media ${device.xs} {
-    width: 45vh;
-    margin-top: 16vh;
+  @media ${device.mobile} {
+    width: 50%;
+    margin-top: 8vh;
   }`;
 
 export const FondTitle = styled.div`

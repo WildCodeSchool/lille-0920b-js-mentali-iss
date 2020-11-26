@@ -34,6 +34,10 @@ class ViewISS extends Component {
       this.interval = setInterval(this.recalIss, 2500);
     }
 
+    componentWillUnmount() {
+      this.recalIss()
+    }
+
     recalIss = () => {
       axios.get(ISS_URL)
       .then(({ data }) => {
@@ -68,7 +72,8 @@ class ViewISS extends Component {
           maxZoom={3}
           minZoom={1}
           style={{
-           height: "50vh",
+            height: "50vh",
+            width: "60vw"
           }}
         >
           <TileLayer
