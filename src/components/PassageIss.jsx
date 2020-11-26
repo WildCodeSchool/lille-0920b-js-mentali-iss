@@ -6,11 +6,17 @@ import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
 import Spinner from "./SpinnerPassage.jsx";
 import {
+  ImageStarsDeux,
+  TraitTrois,
+  TitleFormUn,
+  TraitDeux,
   TitleForm,
   ImgHeadContainer,
   ImageSecondHeader,
   HeadTitle,
+  Trait,
   ImgStarsContainer,
+  ImgStarsContainerDeux,
   ImageStars,
   ContainerLocation,
   UserInput,
@@ -100,7 +106,7 @@ class PassageIss extends Component {
           ErrorMessage: ["Please, enter a real location instead"],
         });
       });
-  }
+  };
 
   getLocation = () => {
     this.setState({ err: null });
@@ -138,7 +144,7 @@ class PassageIss extends Component {
         })
     );
     this.CorrectCityName();
-  }
+  };
   CorrectCityName = () => {
     this.CorrectCityName.bind(this);
     const { lat, lng } = this.state.UserLocationIcon;
@@ -150,43 +156,48 @@ class PassageIss extends Component {
         cityName: cityName,
       });
     });
-  }
+  };
   // passes results to getprediction lat an lng
   getPrediction = () => {
     const { lat, lng } = this.state.UserLocationIcon;
     this.getPrediction.bind(this);
-    this.setState({
-      loading: true
-    }, () => {
-      // Blocked by CORS, but followed https://code4developers.com/cors-anywhere/
-      const url = `https://cors-anywhere.herokuapp.com/http://api.open-notify.org/iss-pass.json?lat=${lat}&lon=${lng}`;
-      axios.get(url).then(({ data }) => {
-        this.getConversion(data.response);
-      });
-    });
-  }
+    this.setState(
+      {
+        loading: true,
+      },
+      () => {
+        // Blocked by CORS, but followed https://code4developers.com/cors-anywhere/
+        const url = `https://cors-anywhere.herokuapp.com/http://api.open-notify.org/iss-pass.json?lat=${lat}&lon=${lng}`;
+        axios.get(url).then(({ data }) => {
+          this.getConversion(data.response);
+        });
+      }
+    );
+  };
   getConversion = (previsions) => {
     const cleanPrevs = previsions.map((prevision) => {
       const rise = new Date(prevision.risetime * 1000);
       const riseDate = rise.toLocaleDateString("en-GB");
       const riseTime = rise.toLocaleTimeString("en-GB");
-      const down = new Date(prevision.risetime * 1000 + prevision.duration * 1000);
+      const down = new Date(
+        prevision.risetime * 1000 + prevision.duration * 1000
+      );
       const downTime = down.toLocaleTimeString("en-GB");
 
       return {
         riseDate,
         riseTime,
-        downTime
+        downTime,
       };
-    })
+    });
 
     this.setState({
       previsions: cleanPrevs,
-      loading: false
-    })
+      loading: false,
+    });
 
     //this.getWeather({ ToDateUn });
-  }
+  };
   getWeather = () => {
     this.getWeather.bind(this);
     const latitude = this.state.UserLocationIcon.lat;
@@ -200,12 +211,9 @@ class PassageIss extends Component {
         weatherResp,
       });
     });
-  }
+  };
   render() {
-    const {
-      cityName,
-      previsions,
-    } = this.state;
+    const { cityName, previsions } = this.state;
     //Gather user gelocation
     const LocationIcon = [
       this.state.UserLocationIcon.lat,
@@ -229,7 +237,8 @@ class PassageIss extends Component {
         </ImgHeadContainer>
         <ImgStarsContainer>
           <ImageStars alt="Dark sky full of stars" />
-          <TitleForm>Choose you spot !</TitleForm>
+          <TitleFormUn>Choose you spot !</TitleFormUn>
+          <Trait></Trait>
         </ImgStarsContainer>
         <div>
           <ContainerLocation>
@@ -238,7 +247,7 @@ class PassageIss extends Component {
                 Locate me
               </LocalisationButton>
               <EnterCity onSubmit={this.handleSubmitCity}>
-                <label style={{ color: "white", fontSize: "3vh" }}>
+                <label style={{ color: "white", fontSize: "3vh", marginBottom: '3vh' }}>
                   Or enter a city name here
                   <EnterACityName
                     type="text"
@@ -255,13 +264,13 @@ class PassageIss extends Component {
                   {this.state.ErrorMessageGeolocation}
                 </VotrePosition>
               ) : (
-                  <VotrePosition>{positionLatLon}</VotrePosition>
-                )}
+                <VotrePosition>{positionLatLon}</VotrePosition>
+              )}
               {this.state.err != null ? (
                 <CheckCity> {this.state.ErrorMessage} </CheckCity>
               ) : (
-                  <CheckCity> {cityName} </CheckCity>
-                )}
+                <CheckCity> {cityName} </CheckCity>
+              )}
             </UserInput>
             <DisplayUserLocation>
               <Map
@@ -290,59 +299,62 @@ class PassageIss extends Component {
         <ImgStarsContainer>
           <ImageStars alt="Dark sky full of stars" />
           <TitleHowObs>How to observe it ? </TitleHowObs>
+          <TraitDeux></TraitDeux>
           <ImgHowObs alt="Picture helping understand how to observe ISS" />
         </ImgStarsContainer>
-        <ImgStarsContainer>
-          <ImageStars alt="Dark sky full of stars" />
-          <TitleForm style={{marginTop:'-25vh'}}>What's the next watching session ? </TitleForm>
-        </ImgStarsContainer>
+        <ImgStarsContainerDeux>
+          <ImageStarsDeux alt="Dark sky full of stars" />
+          <TitleForm >
+            What's the next watching session ?{" "}
+          </TitleForm>
+          <TraitTrois></TraitTrois>
+        </ImgStarsContainerDeux>
         <PredContainer>
           {this.state.loading ? (
             <Spinner />
           ) : (
-              <RisetimeContainer>
-                {previsions.map((prevision, i) => {
-                  return (
-                    <p
-                      style={{
-                     
-                        paddingRight: "7vw",
-                        backgroundColor: "#00266F",
-                        paddingTop: "3vh",
-                        marginTop: "5vh",
-                        marginBottom: "8vh",
-                        height: "5vh",
-                      }}
-                      key={i}
-                    >
-                      Watch the ISS on {prevision.riseDate}
-                    </p>
-                  );
-                })}
-              </RisetimeContainer>
-            )}
+            <RisetimeContainer>
+              {previsions.map((prevision, i) => {
+                return (
+                  <p
+                    style={{
+                      paddingRight: "7vw",
+                      backgroundColor: "#00266F",
+                      paddingTop: "3vh",
+                      marginTop: "5vh",
+                      marginBottom: "8vh",
+                      height: "5vh",
+                    }}
+                    key={i}
+                  >
+                    Watch the ISS on {prevision.riseDate}
+                  </p>
+                );
+              })}
+            </RisetimeContainer>
+          )}
           {this.state.loading ? (
             <Spinner />
           ) : (
-              <DurationContainerDecalage>
-                <DurationContainerA>
+            <DurationContainerDecalage>
+              <DurationContainerA>
                 {previsions.map((prevision, y) => {
                   return (
                     <p
-                      style={{  
-                          paddingTop: "3vh",
-                          marginTop: "8vh",
-                          height: "5vh",
+                      style={{
+                        paddingTop: "3vh",
+                        marginTop: "8vh",
+                        height: "5vh",
                       }}
                       key={y}
                     >
-                   from {prevision.riseTime} to { prevision.downTime}
+                      from {prevision.riseTime} to {prevision.downTime}
                     </p>
                   );
                 })}
-                </DurationContainerA>
-              </DurationContainerDecalage>
-            )}
+              </DurationContainerA>
+            </DurationContainerDecalage>
+          )}
         </PredContainer>
       </div>
     );
