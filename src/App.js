@@ -1,9 +1,8 @@
-import "./reset.css";
 import styled from "styled-components";
 import Header from "./components/Header";
-import FrontPage from "./components/FrontPage";
 import Footer from "./components/Footer";
-import GaleriePage from "./components/GaleriePage";
+import PassageIss from "./components/PassageIss";
+import "./reset.css";
 
 const OutaContainer = styled.div`
   height: 100%;
@@ -24,7 +23,7 @@ function App() {
     <OutaContainer>
       <Header />
       <PageWrap>
-        <FrontPage />
+        <PassageIss />
         <Footer />
       </PageWrap>
     </OutaContainer>
