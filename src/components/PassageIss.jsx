@@ -195,22 +195,6 @@ class PassageIss extends Component {
       previsions: cleanPrevs,
       loading: false,
     });
-
-    //this.getWeather({ ToDateUn });
-  };
-  getWeather = () => {
-    this.getWeather.bind(this);
-    const latitude = this.state.UserLocationIcon.lat;
-    const longitude = this.state.UserLocationIcon.lng;
-    const Time = this.state.previsions[0].riseTime;
-    const API_KEY = process.env.REACT_APP_API_KEY;
-    const UrlWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&dt=${Time}&exclude=minutely,current,daily&appid=${API_KEY}`;
-    axios.get(UrlWeather).then((response) => {
-      const weatherResp = response;
-      this.setState({
-        weatherResp,
-      });
-    });
   };
   render() {
     const { cityName, previsions } = this.state;
