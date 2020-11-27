@@ -26,7 +26,7 @@ const Headercont = styled.header`
   align-items: center;
   background: #34263a;
   box-shadow: 0px 5px 5px #34263a;
-  position: sticky;
+  position: fixed;
   z-index: 10000;
   overflow-x: hidden;
   @media ${device.xs} {

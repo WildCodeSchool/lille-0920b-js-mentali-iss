@@ -10,13 +10,26 @@ import PageContact from "./components/PageContact";
 import ViewISS from "./components/ViewISS";
 import PassageIss from "./components/PassageIss";
 
+const size = {
+  xs: "320px",
+  sm: "768px",
+  lg: "1200px",
+};
+const device = {
+  xs: `(max-width: ${size.xs})`,
+  sm: `(max-width: ${size.sm})`,
+  lg: `(min-width: ${size.lg})`,
+};
 const OutaContainer = styled.div`
   height: 100%;
   box-sizing: border-box;
-  margin: 0;
+  margin-top: 10vh;
   padding: 0;
   background-color: black;
   overflow: hidden;
+  @media ${device.xs} {
+    margin-top: 0;
+  }
 `;
 
 const PageWrap = styled.div`

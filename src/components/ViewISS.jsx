@@ -90,7 +90,7 @@ class ViewISS extends Component {
             <Map
               className="map"
               center={[0, 0]}
-              zoom={this.state.haveUsersLocation ? "2" : "1"}
+              zoom={this.state.haveUsersLocation ? "2" : "2"}
               maxZoom={3}
               minZoom={1}
               style={{
