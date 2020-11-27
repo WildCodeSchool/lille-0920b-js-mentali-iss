@@ -17,7 +17,7 @@ export default function ISSMetrix () {
         .catch(() => {
             toast("Something bad happened :(");
           });  
-    },);
+    },[issData]);
         
     return (
         <div>
