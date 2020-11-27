@@ -39,7 +39,8 @@ const BaliseSelection = styled.div`
 
   @media ${device.xs} {
     width: 100vw;
-    margin-left: 3vw;
+    margin-left: auto;
+    margin-right: auto;
   }
 `;
 

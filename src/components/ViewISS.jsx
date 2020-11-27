@@ -11,6 +11,7 @@ import {
   FondTitle,
   FondImage,
   Title,
+  Page,
   Trait,
   Title2,
   Trait2,
@@ -76,7 +77,7 @@ class ViewISS extends Component {
   render() {
     const positionSatIcon = [this.state.SatIcon.lat, this.state.SatIcon.lng];
     return (
-      <>
+      <Page>
         <CarouselMap />
         <div>
           <FondTitle>
@@ -144,7 +145,7 @@ class ViewISS extends Component {
           <Trait4></Trait4>
           <AstroList />
         </div>
-      </>
+      </Page>
     );
   }
 }

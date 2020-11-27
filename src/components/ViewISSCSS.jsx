@@ -2,6 +2,12 @@ import styled from "styled-components";
 import { device } from "./Device";
 import { Link } from "react-router-dom";
 
+export const Page = styled.div`
+  @media ${device.mobile} {
+    margin-top: 18vh;
+  }
+`;
+
 export const DisplayMap = styled.div`
   position: relative;
   margin-bottom: 10vh;
@@ -21,7 +27,7 @@ export const FondTitle = styled.div`
   justify-content: center;
   @media ${device.mobile} {
     margin-bottom: 1.5em;
-    margin-top: 2em;
+    margin-top: 5vh;
   }
 `;
 

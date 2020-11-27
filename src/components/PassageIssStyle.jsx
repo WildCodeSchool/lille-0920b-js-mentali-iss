@@ -15,6 +15,9 @@ const device = {
 
 export const ImgHeadContainer = styled.div`
   position: relative;
+  @media ${device.xs} {
+    margin-top: 12vh;
+  }
 `;
 
 export const ImageSecondHeader = styled.img`

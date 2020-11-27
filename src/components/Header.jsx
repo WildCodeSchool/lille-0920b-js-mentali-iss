@@ -31,6 +31,7 @@ const Headercont = styled.header`
   overflow-x: hidden;
   @media ${device.xs} {
     width: 100vw;
+    position: fixed;
   }
   @media ${device.sm} {
     width: 100vw;

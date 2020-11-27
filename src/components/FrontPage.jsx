@@ -17,6 +17,9 @@ const Page = styled.div`
   background-color: black;
   width: 100%;
   overflow: hidden;
+  @media ${device.sm} {
+    margin-top: 14vh;
+  }
 `;
 
 const Avatar = styled.div`

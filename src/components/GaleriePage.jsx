@@ -26,6 +26,7 @@ const Title1 = styled.div`
   padding-top: 6vh;
   @media ${device.xs} {
     padding-bottom: 1vh;
+    margin-top: 6vh;
   }
 `;
 
