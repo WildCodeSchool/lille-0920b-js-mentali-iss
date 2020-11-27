@@ -4,6 +4,8 @@ import Header from "./components/Header";
 import FrontPage from "./components/FrontPage";
 import Footer from "./components/Footer";
 import GaleriePage from "./components/GaleriePage";
+import PageContact from "./components/PageContact";
+import RoverPage from "./components/RoverPage";
 
 const OutaContainer = styled.div`
   height: 100%;
@@ -24,7 +26,7 @@ function App() {
     <OutaContainer>
       <Header />
       <PageWrap>
-        <FrontPage />
+        <PageContact />
         <Footer />
       </PageWrap>
     </OutaContainer>
