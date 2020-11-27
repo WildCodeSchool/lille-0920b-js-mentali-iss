@@ -1,7 +1,5 @@
 import styled from "styled-components";
-import imageFondPred from "../assets/imageFondPred.jpg";
 import imageStarFond from "../assets/imageStarFond.jpg";
-import ImageObs from "../assets/ImageObs.jpg";
 
 const size = {
   xs: "320px",
@@ -21,14 +19,13 @@ export const ImgHeadContainer = styled.div`
 
 export const ImageSecondHeader = styled.img`
   width: 100vw;
-  height: 70vh;
+  height: auto;
   @media ${device.xs} {
     width: cover;
-    height: 100vh;
+    height: auto;
   }
 `;
 export const HeadTitle = styled.h1`
-  margin-top: 0vh;
   position: absolute;
   text-align: center;
   font-size: 4vw;
@@ -40,11 +37,10 @@ export const HeadTitle = styled.h1`
   @media ${device.xs} {
     position: absolute;
     text-align: center;
-    font-size: 4vw;
-    bottom: 35vh;
-    right: 02vw;
-    left: 02vw;
-    font-size: 15vw;
+    font-size: 1.5em;
+    top: 10vh;
+    right: 4vw;
+    left: 4vw;
   }
 `;
 
@@ -53,7 +49,7 @@ export const HeadTitle = styled.h1`
 export const Title1 = styled.div`
   padding-top: 6vh;
   @media ${device.xs} {
-    padding-bottom: 1vh;
+    padding-top: 0;
   }
 `;
 
@@ -68,7 +64,7 @@ export const ImageStars1 = styled.img`
   margin-bottom: 0;
   width: 100vw;
   @media ${device.xs} {
-    height: 7.5vh;
+    height: 6vh;
   }
 `;
 
@@ -82,7 +78,7 @@ export const TitleFormUn = styled.h3`
   font-family: Vindemia;
   @media ${device.xs} {
     font-size: 0.9em;
-    text-align: center;
+    margin-left: 14vw;
   }
 `;
 
@@ -104,6 +100,7 @@ export const Title2 = styled.div`
   padding-top: 6vh;
   @media ${device.xs} {
     padding-bottom: 1vh;
+    padding-top: 0;
   }
 `;
 
@@ -132,7 +129,7 @@ export const TitleFormDeux = styled.h3`
   font-family: Vindemia;
   @media ${device.xs} {
     font-size: 0.9em;
-    text-align: center;
+    margin-right: 10vw;
   }
 `;
 
@@ -155,6 +152,7 @@ export const Title3 = styled.div`
   padding-top: 6vh;
   @media ${device.xs} {
     padding-bottom: 1vh;
+    padding-top: 0;
   }
 `;
 
@@ -247,7 +245,7 @@ export const DisplayUserLocation = styled.div`
   width: 60vh;
   @media ${device.xs} {
     width: 90vw;
-    height: 60vh;
+    height: 45vh;
     margin-left: 5vw;
     margin-right: 5vw;
   }
@@ -310,8 +308,7 @@ export const SubmitCity = styled.input`
   border-radius: 7px;
   @media ${device.xs} {
     width: 30vw;
-    margin-left: 15vw;
-    margin-right: 15vw;
+    margin-right: 30vw;
     margin-top: 1vw;
     margin-bottom: 5vw;
   }
@@ -407,16 +404,16 @@ export const TraitTrois = styled.div`
     width: 0%;
   }
 `;
-export const ImgHowObs = styled.div`
-  background-image: url(${ImageObs});
-  width: 60vw;
-  height: 50vh;
-  margin-left: 28vw;
+
+export const ImgHowObs = styled.img`
+  width: 40vw;
+  height: auto;
+  margin-left: auto;
   margin-right: auto;
-  background-repeat: no-repeat;
   display: solid;
   @media ${device.xs} {
-    display: none;
+    width: 80vw;
+    height: auto;
   }
 `;
 

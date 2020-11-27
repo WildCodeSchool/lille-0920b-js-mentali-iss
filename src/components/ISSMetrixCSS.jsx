@@ -25,7 +25,7 @@ export const Row1 = styled.div`
   @media ${device.mobile} {
     flex-direction: column;
     line-height: 2em;
-    align-items: flex-start;
+    align-items: center;
   }
 `;
 
@@ -36,7 +36,7 @@ export const Row2 = styled.div`
   margin-bottom: 2vh;
   @media ${device.mobile} {
     flex-direction: column;
-    align-items: start;
+    align-items: center;
     line-height: 2em;
   }
 `;

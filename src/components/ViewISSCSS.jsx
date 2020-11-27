@@ -21,6 +21,7 @@ export const FondTitle = styled.div`
   justify-content: center;
   @media ${device.mobile} {
     margin-bottom: 1.5em;
+    margin-top: 2em;
   }
 `;
 
@@ -38,20 +39,21 @@ export const Title = styled.h1`
   margin-top: 1em;
   position: absolute;
   @media ${device.mobile} {
-    font-size: 1em;
+    font-size: 0.9em;
     width: 90%;
     margin-top: 0.3em;
+    text-align: center;
   }
 `;
 
 export const Trait = styled.div`
   background-color: white;
-  width: 25%;
+  width: 50vw;
   height: 1px;
   margin-top: 1%;
   margin-bottom: 1%;
   @media ${device.mobile} {
-    width: 90%;
+    width: 100%;
     margin-bottom: 1.5em;
   }
 `;
@@ -62,25 +64,28 @@ export const Title2 = styled.h1`
   font-family: "Vindemia";
   text-align: center;
   width: 98%;
+  text-align: right;
   margin-top: 1em;
-  margin-left: 1.9em;
+
   position: absolute;
   @media ${device.mobile} {
-    font-size: 1em;
-    text-align: left;
+    font-size: 0.9em;
+    width: 90%;
     margin-top: 0.3em;
+    text-align: center;
   }
 `;
 
 export const Trait2 = styled.div`
   background-color: white;
-  width: 25%;
+  width: 50vw;
   height: 1px;
   margin-top: 1%;
   margin-bottom: 1%;
-  margin-left: 38vw;
+  margin-left: 50vw;
   @media ${device.mobile} {
-    width: 90%;
+    width: 100%;
+    margin-left: 0;
     margin-bottom: 1.5em;
   }
 `;
@@ -102,12 +107,12 @@ export const VideoLive = styled.div`
 
 export const Trait3 = styled.div`
   background-color: white;
-  width: 32%;
+  width: 50vw;
   height: 1px;
   margin-top: 1%;
   margin-bottom: 1%;
   @media ${device.mobile} {
-    width: 90%;
+    width: 100%;
     margin-bottom: 1.5em;
   }
 `;
@@ -135,7 +140,7 @@ export const ImgButton = styled.img`
 
 export const Centered = styled.div`
   position: absolute;
-  top: 20%;
+  bottom: 5vh;
   left: 50%;
   transform: translate(-50%, -50%);
   color: azure;
@@ -143,7 +148,8 @@ export const Centered = styled.div`
   @media ${device.mobile} {
     width: 70%;
     height: 70%;
-    font-size: 1.2em;
+    bottom: 11vh;
+    font-size: 1.8em;
     margin-top: 25px;
   }
 `;
@@ -158,22 +164,23 @@ export const Title4 = styled.h1`
   margin-right: 1em;
   position: absolute;
   @media ${device.mobile} {
-    font-size: 1em;
-    text-align: left;
+    font-size: 0.9em;
     width: 90%;
     margin-top: 0.3em;
+    text-align: center;
   }
 `;
 
 export const Trait4 = styled.div`
   background-color: white;
-  width: 25%;
+  width: 50vw;
   height: 1px;
   margin-top: 1%;
   margin-bottom: 1%;
-  margin-left: 72vw;
+  margin-left: 50vw;
   @media ${device.mobile} {
-    width: 90%;
+    width: 100vw;
+    margin-left: 0;
     margin-bottom: 1.5em;
   }
 `;

@@ -130,6 +130,7 @@ class GaleriePage extends Component {
 
   componentDidMount() {
     this.getGalerie();
+    window.scrollTo(0, 0);
   }
 
   getGalerie() {

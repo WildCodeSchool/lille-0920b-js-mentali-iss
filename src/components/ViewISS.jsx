@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import L from "leaflet";
 import { Map, TileLayer, Marker } from "react-leaflet";
 import Iss from "../assets/iss.png";
-
+import CarouselMap from "./CarouselMap";
+import AstroList from "./AstroList";
 import axios from "axios";
 import ReactPlayer from "react-player";
 import { toast } from "react-toastify";
@@ -48,6 +49,7 @@ class ViewISS extends Component {
   componentDidMount() {
     this.recalIss();
     this.interval = setInterval(this.recalIss, 2500);
+    window.scrollTo(0, 0);
   }
 
   componentWillUnmount() {
@@ -74,71 +76,75 @@ class ViewISS extends Component {
   render() {
     const positionSatIcon = [this.state.SatIcon.lat, this.state.SatIcon.lng];
     return (
-      <div>
-        <FondTitle>
-          <FondImage img src="/photos/stars2.jpg" alt="stars" />
-          <Title>Iss Live Position </Title>
-        </FondTitle>
-        <Trait></Trait>
+      <>
+        <CarouselMap />
+        <div>
+          <FondTitle>
+            <FondImage img src="/photos/stars2.jpg" alt="stars" />
+            <Title>Iss Live Position </Title>
+          </FondTitle>
+          <Trait></Trait>
 
-        <DisplayMap>
-          <Map
-            className="map"
-            center={[0, 0]}
-            zoom={this.state.haveUsersLocation ? "2" : "1"}
-            maxZoom={3}
-            minZoom={1}
-            style={{
-              height: "50vh",
-              width: "60vw",
-            }}
-          >
-            <TileLayer
-              attribution="Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
-              url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+          <DisplayMap>
+            <Map
+              className="map"
+              center={[0, 0]}
+              zoom={this.state.haveUsersLocation ? "2" : "1"}
+              maxZoom={3}
+              minZoom={1}
+              style={{
+                height: "50vh",
+                width: "60vw",
+              }}
+            >
+              <TileLayer
+                attribution="Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
+                url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+              />
+              {this.state.haveUsersLocation && (
+                <Marker position={positionSatIcon} icon={this.SatIcon}></Marker>
+              )}
+            </Map>
+          </DisplayMap>
+          <ISSMetrix />
+          <FondTitle>
+            <FondImage img src="/photos/stars2.jpg" alt="stars" />
+            <Title2>ISS Video Live</Title2>
+          </FondTitle>
+          <Trait2></Trait2>
+
+          <VideoLive>
+            <ReactPlayer
+              url="https://www.youtube.com/watch?v=DDU-rZs-Ic4"
+              controls
+              playbackRate={2}
             />
-            {this.state.haveUsersLocation && (
-              <Marker position={positionSatIcon} icon={this.SatIcon}></Marker>
-            )}
-          </Map>
-        </DisplayMap>
-        <ISSMetrix />
-        <FondTitle>
-          <FondImage img src="/photos/stars2.jpg" alt="stars" />
-          <Title2>ISS Video Live</Title2>
-        </FondTitle>
-        <Trait2></Trait2>
+          </VideoLive>
 
-        <VideoLive>
-          <ReactPlayer
-            url="https://www.youtube.com/watch?v=DDU-rZs-Ic4"
-            controls
-            playbackRate={2}
-          />
-        </VideoLive>
+          <FondTitle>
+            <FondImage img src="/photos/stars2.jpg" alt="stars" />
+            <Title>Watch ISS from home</Title>
+          </FondTitle>
+          <Trait3></Trait3>
 
-        <FondTitle>
-          <FondImage img src="/photos/stars2.jpg" alt="stars" />
-          <Title>Watch ISS from home</Title>
-        </FondTitle>
-        <Trait3></Trait3>
+          <ImgContainerButton to="/passageiss">
+            <a href="#b" className="ChezVous" data-inf="photo">
+              <ImgButton src="/photos/starObs.jpg" alt="logo" />
+              <Centered>
+                <p>pass predicitions</p>
+                <p>duration</p>
+              </Centered>
+            </a>
+          </ImgContainerButton>
 
-        <ImgContainerButton to="/passageiss">
-          <a href="#b" className="ChezVous" data-inf="photo">
-            <ImgButton src="/photos/starObs.jpg" alt="logo" />
-            <Centered>
-              <p>pass predicitions</p>
-              <p>duration and weather</p>
-            </Centered>
-          </a>
-        </ImgContainerButton>
-
-        <FondTitle>
-          <FondImage img src="/photos/stars2.jpg" alt="stars" />
-          <Title4>Crew on-board</Title4>
-        </FondTitle>
-        <Trait4></Trait4>
-      </div>
+          <FondTitle>
+            <FondImage img src="/photos/stars2.jpg" alt="stars" />
+            <Title4>Crew on board</Title4>
+          </FondTitle>
+          <Trait4></Trait4>
+          <AstroList />
+        </div>
+      </>
     );
   }
 }

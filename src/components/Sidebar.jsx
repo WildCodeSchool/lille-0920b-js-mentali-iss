@@ -19,21 +19,18 @@ class Sidebar extends React.Component {
   render() {
     return (
       <Menu onStateChange={this.toggleMenu} width={150} isOpen={true}>
-        <a className="menu-item" href="/">
+        <Link className="menu-item" to="/viewiss">
           ISS
-        </a>
-
-        <a className="menu-item" href="/about">
+        </Link>
+        <Link className="menu-item" to="/gallery">
           Gallery
-        </a>
-
-        <a className="menu-item" href="/services">
+        </Link>
+        <Link className="menu-item" to="/roveronmars">
           Rover in Mars
-        </a>
-
-        <a className="menu-item" href="/contact">
+        </Link>
+        <Link className="menu-item" to="/contact">
           Contact
-        </a>
+        </Link>
       </Menu>
     );
   }

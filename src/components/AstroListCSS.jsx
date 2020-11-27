@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   margin-top: 0 auto;
   margin-left: 2em;
   margin-right: 2em;
+  margin-bottom: 3vh;
   @media ${device.mobile} {
     grid-template-columns: none;
   }

@@ -105,6 +105,7 @@ class PassageIss extends Component {
           },
         });
       })
+
       .catch((err) => {
         this.setState({
           err,
@@ -112,6 +113,10 @@ class PassageIss extends Component {
         });
       });
   };
+
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
 
   getLocation = () => {
     this.setState({ err: null });
@@ -303,7 +308,10 @@ class PassageIss extends Component {
             <Trait2></Trait2>
           </ImgStarsContainer2>
         </Title2>
-        <ImgHowObs alt="Picture helping understand how to observe ISS" />
+        <ImgHowObs
+          src="/photos/ImageObs.jpg"
+          alt="Picture helping understand how to observe ISS"
+        />
         <Title3>
           <ImgStarsContainer3>
             <ImageStars3 src="/photos/stars2.jpg" alt="stars" />
