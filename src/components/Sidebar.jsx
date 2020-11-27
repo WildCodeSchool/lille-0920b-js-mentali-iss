@@ -1,6 +1,12 @@
 import React from "react";
 import { slide as Menu } from "react-burger-menu";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
+const Navlink = styled(Link)`
+    color: white;
+    list-style: none;
+    text-decoration: none;`;
 
 class Sidebar extends React.Component {
   constructor(props)  {
@@ -19,21 +25,23 @@ class Sidebar extends React.Component {
 render () {
     return (
   <Menu onStateChange={this.toggleMenu} width={ 150 } isOpen={ true } >
-    <a  className="menu-item" href="/">
+
+    <Link  className="menu-item" to="/viewiss">
       ISS
-    </a>
+    </Link>
 
-    <a className="menu-item" href="/about">
+
+    <Link className="menu-item" href="/about">
       Gallery
-    </a>
+    </Link>
 
-    <a className="menu-item" href="/services">
+    <Link className="menu-item" href="/services">
       Rover in Mars
-    </a>
+    </Link>
 
-    <a className="menu-item" href="/contact">
+    <link className="menu-item" href="/contact">
       Contact
-    </a>
+    </link>
   </Menu>
     );
 }
