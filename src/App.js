@@ -8,6 +8,7 @@ import GaleriePage from "./components/GaleriePage";
 import RoverPage from "./components/RoverPage";
 import PageContact from "./components/PageContact";
 import ViewISS from "./components/ViewISS";
+import PassageIss from "./components/PassageIss";
 
 const OutaContainer = styled.div`
   height: 100%;
@@ -36,6 +37,7 @@ function App() {
           <Route path="/gallery" component={GaleriePage} />
           <Route path="/contact" component={PageContact} />
           <Route path="/viewiss" component={ViewISS} />
+          <Route path="/passageiss" component={PassageIss} />
         </Switch>
       </PageWrap>
       <Footer />

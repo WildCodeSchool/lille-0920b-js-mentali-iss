@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { device } from "./Device";
+import { Link } from "react-router-dom";
 
 export const DisplayMap = styled.div`
   position: relative;
@@ -111,15 +112,13 @@ export const Trait3 = styled.div`
   }
 `;
 
-export const ImgContainerButton = styled.div`
+export const ImgContainerButton = styled(Link)`
   position: relative;
   text-align: center;
   color: white;
   font-family: "Vindemia";
   font-size: 0.4em;
   flex-wrap: wrap;
-  margin-top: 2vh;
-  margin-bottom: 2vh;
   width: 100%;
 `;
 
