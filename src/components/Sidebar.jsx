@@ -1,6 +1,6 @@
 import React from "react";
 import { slide as Menu } from "react-burger-menu";
-
+import { Link } from "react-router-dom";
 
 class Sidebar extends React.Component {
   constructor(props)  {
@@ -19,21 +19,24 @@ class Sidebar extends React.Component {
 render () {
     return (
   <Menu onStateChange={this.toggleMenu} width={ 150 } isOpen={ true } >
-    <a  className="menu-item" href="/">
+
+    <Link  className="menu-item" to="/viewiss">
       ISS
-    </a>
+    </Link>
 
-    <a className="menu-item" href="/about">
+
+    <Link className="menu-item" to="/gallery">
       Gallery
-    </a>
+    </Link>
 
-    <a className="menu-item" href="/services">
+    <Link className="menu-item" to="/roveronmars">
       Rover in Mars
-    </a>
+    </Link>
 
-    <a className="menu-item" href="/contact">
+    <Link className="menu-item" to="/contact">
       Contact
-    </a>
+    </Link>
+
   </Menu>
     );
 }
