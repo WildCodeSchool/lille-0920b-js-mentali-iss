@@ -13,11 +13,13 @@ const OutaContainer = styled.div`
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  background-color: black;
+  overflow: hidden;
 `;
 
 const PageWrap = styled.div`
   text-align: center;
-  overflow: auto;
+  overflow: hidden;
   top: 45%;
   position: relative;
 `;

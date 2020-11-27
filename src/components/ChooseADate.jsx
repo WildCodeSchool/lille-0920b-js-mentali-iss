@@ -36,7 +36,7 @@ const ChooseADateImg = styled.img`
 const BaliseSelection = styled.div`
   display: block;
   margin-bottom: 4vh;
-  margin-left: 26.5vw;
+
   @media ${device.xs} {
     width: 100vw;
     margin-left: 3vw;
