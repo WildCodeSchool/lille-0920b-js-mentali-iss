@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Astro from "./Astro";
 import { Wrapper } from "./AstroListCSS";
+import { astroList } from "./AstroData";
 
 const url = "https://fathomless-crag-22198.herokuapp.com/isscrews";
 export default function AstroList() {
@@ -19,7 +20,7 @@ export default function AstroList() {
   return (
     <div>
       <Wrapper>
-        {astro.map(
+        {astroList.map(
           ({
             index,
             name,
