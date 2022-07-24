@@ -4,7 +4,7 @@ import BurgerMenu from "./BurgerMenu";
 import { Link } from "react-router-dom";
 
 const size = {
-  xs: "320px",
+  xs: "550px",
   sm: "768px",
   lg: "1200px",
 };

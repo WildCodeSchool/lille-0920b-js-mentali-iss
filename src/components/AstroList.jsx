@@ -5,17 +5,17 @@ import Astro from "./Astro";
 import { Wrapper } from "./AstroListCSS";
 import { astroList } from "./AstroData";
 
-const url = "https://fathomless-crag-22198.herokuapp.com/isscrews";
+// const url = "https://fathomless-crag-22198.herokuapp.com/isscrews";
 export default function AstroList() {
-  const [astro, setAstro] = useState([]);
+  // const [astro, setAstro] = useState([]);
 
-  const getCrew = () => {
-    axios.get(url).then((res) => setAstro(res.data));
-  };
+  // const getCrew = () => {
+  //   axios.get(url).then((res) => setAstro(res.data));
+  // };
 
-  useEffect(() => {
-    getCrew();
-  }, [astro]);
+  // useEffect(() => {
+  //   getCrew();
+  // }, [astro]);
 
   return (
     <div>

@@ -4,7 +4,7 @@ import styled from "styled-components";
 import DisplayChooseADate from "./DisplayChooseADate.jsx";
 
 const size = {
-  xs: "320px",
+  xs: "550px",
   sm: "768px",
   lg: "1200px",
 };
@@ -81,8 +81,8 @@ const Submit = styled.input`
   padding: 6px 0 6px 0;
   border: 1px solid #1d0224;
   @media ${device.xs} {
-    width: 25vw;
-    height: 7vh;
+    width: 15vw;
+    height: 4vh;
   }
 `;
 

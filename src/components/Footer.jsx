@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const size = {
-  xs: "320px",
+  xs: "550px",
   sm: "768px",
   lg: "1200px",
 };
